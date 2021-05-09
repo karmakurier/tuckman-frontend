@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { RoomService } from './services/rooms.service';
+import { TeamtestComponent } from './teamtest/teamtest.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent,
+    TeamtestComponent
   ],
   imports: [
     BrowserModule,
