@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import { QuestionsService } from '../services/questions.service';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './teamtest.component.html',
   styleUrls: ['./teamtest.component.scss']
 })
-export class TeamtestComponent implements OnInit {
 
-  constructor() { }
+export class TeamtestComponent{
+  
+  Fragen = this.questionsService.getQuestion();
 
-  ngOnInit(): void {
-  }
-
+  constructor(
+    private questionsService: QuestionsService) {
+   }
 }

@@ -1,1 +1,66 @@
-<p>teamtest works!</p>
+<h3>Tuckman Team-Analyse</h3>
+
+<p>Bitte fülle die Fragen so spontan wie möglich aus. <br> Es gibt hierbei kein Richtig oder Falsch</p>
+
+
+
+
+
+
+<table style="width: 100%;">
+    <colgroup>
+        <col span="1" style="width: 35%;">
+        <col span="1" style="width: 13%;">
+        <col span="1" style="width: 13%;">
+        <col span="1" style="width: 13%;">
+        <col span="1" style="width: 13%;">
+        <col span="1" style="width: 13%;">
+    </colgroup>
+    <thead>
+        <tr>
+            <th></th>
+            <th>so gut <br>wie nie</th>
+            <th>selten</th>
+            <th>manchmal</th>
+            <th>häufig</th>
+            <th>fast <br>immer</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let fragen of Fragen | async">
+        <tr>
+            <td class=rowname>
+                {{fragen.Frage}} <br><br>
+            </td>
+            <td>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name={{fragen.id}} id=option1{{fragen.id}} value="1" aria-label="...">
+                </div>
+            </td>
+            <td>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name={{fragen.id}} id=option2{{fragen.id}} value="2" aria-label="...">
+                </div>
+            </td>
+            <td>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name={{fragen.id}} id=option3{{fragen.id}} value="3" aria-label="...">
+                </div>
+            </td>
+            <td>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name={{fragen.id}} id=option4{{fragen.id}} value="4" aria-label="...">
+                </div>
+            </td>
+            <td>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name={{fragen.id}} id=option5{{fragen.id}} value="5" aria-label="...">
+                </div>
+            </td>
+        </tr>    
+    </tbody>
+  
+</table>
+
+
+<button class="button" type="submit">Absenden</button>
+

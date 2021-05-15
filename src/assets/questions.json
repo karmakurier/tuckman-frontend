@@ -1,0 +1,163 @@
+[
+    {
+      "Frage": "Wir bemühen uns um festgelegte Prozeduren oder Protokolle, um sicherzustellen, dass die Dinge geordnet sind und reibungslos ablaufen (z.BMinimierung von Unterbrechungen; jeder erhält die Möglichkeit, zu Wort zu kommen).",
+      "id": "Q01",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir gehen schnell an die Aufgabe heran und verbringen nicht zu viel Zeit in der Planungsphase.",
+      "id": "Q02",
+      "type": "number"
+    },
+    {
+      "Frage": "Unser Team hat das Gefühl, dass wir alle an einem Strang ziehen und gemeinsam die Verantwortung für den Erfolg oder Misserfolg des Teams tragen.",
+      "id": "Q03",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir verfügen über gründliche Verfahren, um uns auf unsere Ziele zu einigen und die Art und Weise zu planen, wie wir unsere Aufgaben erfüllen werden.",
+      "id": "Q04",
+      "type": "number"
+    },
+    {
+      "Frage": "Die Teammitglieder haben Angst oder bitten andere nicht gerne um Hilfe.",
+      "id": "Q05",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir nehmen die Ziele und Vorgaben unseres Teams wörtlich und gehen von einem gemeinsamen Verständnis aus.",
+      "id": "Q06",
+      "type": "number"
+    },
+    {
+      "Frage": "Der Teamleiter versucht, die Ordnung aufrechtzuerhalten, und trägt zur Erfüllung der anstehenden Aufgabe bei.",
+      "id": "Q07",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir haben keine festen Verfahrensweisen, sondern erarbeiten sie im Verlauf der Aufgabe oder des Projekts.",
+      "id": "Q08",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir bringen viele Ideen hervor, aber wir verwenden nicht viele, weil wir nicht zuhören und sie ablehnen, ohne sie vollständig zu verstehen.",
+      "id": "Q09",
+      "type": "number"
+    },
+    {
+      "Frage": "Die Teammitglieder haben kein volles Vertrauen in die anderen Teammitglieder und überwachen andere, die an einer bestimmten Aufgabe arbeiten, genau.",
+      "id": "Q10",
+      "type": "number"
+    },
+    {
+      "Frage": "Der Teamleiter stellt sicher, dass wir die Verfahren einhalten, nicht streiten, nicht unterbrechen und auf dem Punkt bleiben.",
+      "id": "Q11",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir arbeiten gerne zusammen; wir haben Spaß und eine produktive Zeit.",
+      "id": "Q12",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir haben uns gegenseitig als Mitglieder des Teams akzeptiert.",
+      "id": "Q13",
+      "type": "number"
+    },
+    {
+      "Frage": "Der Teamleiter ist demokratisch und kooperativ.",
+      "id": "Q14",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir versuchen, das Ziel und die zu erfüllenden Aufgaben zu definieren.",
+      "id": "Q15",
+      "type": "number"
+    },
+    {
+      "Frage": "Viele der Teammitglieder haben ihre eigenen Vorstellungen über den Prozess, und persönliche Agenden sind stark vertreten",
+      "id": "Q16",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir akzeptieren die Stärken und Schwächen der anderen voll und ganz.",
+      "id": "Q17",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir weisen den Teammitgliedern bestimmte Rollen zu (Teamleiter, Moderator, Zeitnehmer, Notizbuchhalter usw.).",
+      "id": "Q18",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir versuchen, Harmonie zu erreichen, indem wir Konflikte vermeiden.",
+      "id": "Q19",
+      "type": "number"
+    },
+    {
+      "Frage": "Die Aufgaben unterscheiden sich sehr von dem, was wir uns vorgestellt haben, und scheinen sehr schwierig zu erfüllen.",
+      "id": "Q20",
+      "type": "number"
+    },
+    {
+      "Frage": "Es gibt viele abstrakte Diskussionen über die Konzepte und Themen, die einige Mitglieder ungeduldig während dieser Diskussionen machen.",
+      "id": "Q21",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir sind in der Lage, Gruppenprobleme durchzuarbeiten.",
+      "id": "Q22",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir streiten viel, obwohl wir in den wirklichen Fragen übereinstimmen.",
+      "id": "Q23",
+      "type": "number"
+    },
+    {
+      "Frage": "Das Team ist oft versucht, über den ursprünglichen Rahmen des Projekts hinauszugehen.",
+      "id": "Q24",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir äußern Kritik an anderen konstruktiv.",
+      "id": "Q25",
+      "type": "number"
+    },
+    {
+      "Frage": "Es besteht eine enge Bindung an das Team.",
+      "id": "Q26",
+      "type": "number"
+    },
+    {
+      "Frage": "Es scheint, dass mit den Zielen des Projekts wenig erreicht wird.",
+      "id": "Q27",
+      "type": "number"
+    },
+    {
+      "Frage": "Die von uns festgelegten Ziele scheinen unrealistisch zu sein.",
+      "id": "Q28",
+      "type": "number"
+    },
+    {
+      "Frage": "Obwohl wir uns über die Ziele und Themen des Projekts nicht ganz sicher sind, sind wir begeistert und stolz darauf, im Team zu sein.",
+      "id": "Q29",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir teilen oft persönliche Probleme miteinander.",
+      "id": "Q30",
+      "type": "number"
+    },
+    {
+      "Frage": "Es gibt viel Widerstand gegen die anstehenden Aufgaben und Qualitätsverbesserungsansätze.",
+      "id": "Q31",
+      "type": "number"
+    },
+    {
+      "Frage": "Wir bekommen eine Menge Arbeit erledigt.",
+      "id": "Q32",
+      "type": "number"
+    }
+  ]
+  

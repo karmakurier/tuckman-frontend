@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Questionare } from '../models/questionare.model';
+import { Questionnaire } from '../models/questionnaire.model';
 import { Room } from '../models/room.model';
 import { RoomService } from '../services/rooms.service';
 
@@ -9,7 +9,7 @@ import { RoomService } from '../services/rooms.service';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  results: Questionare = new Questionare();
+  results: Questionnaire = new Questionnaire();
   email: string = "test123";
   rooms: Room[] = [];
 
