@@ -10,6 +10,7 @@ import { RoomService } from './services/rooms.service';
 import { QuestionsService } from './services/questions.service';
 import { TeamtestComponent } from './teamtest/teamtest.component';
 import { ButtonLinkComponent } from './components/button-link/button-link.component';
+import { RoomDetailsComponent } from './homepage/room-details/room-details.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ButtonLinkComponent } from './components/button-link/button-link.compon
     AppComponent,
     HomepageComponent,
     TeamtestComponent,
-    ButtonLinkComponent
+    ButtonLinkComponent,
+    RoomDetailsComponent
   ],
   imports: [
     BrowserModule,
