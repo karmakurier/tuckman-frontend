@@ -11,6 +11,7 @@ import { QuestionsService } from './services/questions.service';
 import { TeamtestComponent } from './teamtest/teamtest.component';
 import { ButtonLinkComponent } from './components/button-link/button-link.component';
 import { RoomDetailsComponent } from './homepage/room-details/room-details.component';
+import { MemberQuestionsComponent } from './homepage/member-questions/member-questions.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { RoomDetailsComponent } from './homepage/room-details/room-details.compo
     HomepageComponent,
     TeamtestComponent,
     ButtonLinkComponent,
-    RoomDetailsComponent
+    RoomDetailsComponent,
+    MemberQuestionsComponent
   ],
   imports: [
     BrowserModule,
