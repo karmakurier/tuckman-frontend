@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
 })
 export class ButtonLinkComponent implements OnInit {
 
-  @Input() link: string = "this is the link";
+  @Input() link: string="this is the link";
   @Output() link2: EventEmitter<string>=new EventEmitter<string>();
 
   constructor() { }

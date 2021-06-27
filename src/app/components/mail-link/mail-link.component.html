@@ -1,0 +1,10 @@
+<form class="form-inline">
+    <input class="form-control  mb-2"  
+        type="email" 
+        placeholder="Deine Email" 
+        [(ngModel)]="mailadresse">
+
+    <button type="button" 
+        class="btn btn-primary mb-2 btn-clipboard" 
+        (click)="sendMail(mailadresse, link)">Absenden</button> 
+</form>

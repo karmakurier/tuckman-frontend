@@ -1,78 +1,81 @@
-<p>Schritt 1 von 2</p>
+<div class="container">
+    <p>Schritt 1 von 2</p>
 
-<h4>Willkommen bei der Tuckman Analyse</h4>
+    <h4>Willkommen bei der Tuckman Analyse</h4>
 
-<p>
-    Team: {{teamid}} <br>
-    Teamleiter: xxx <br>
-    Frist: xxx <br>
-    <br>
-    Bitte fülle die folgenden 32 Fragen aus und nimm nur einmal an der Umfrage teil. Danke.
-</p>
+    <p>
+        Team: {{teamid}} <br>
+        Teamleiter: xxx <br>
+        Frist: xxx <br>
+        <br>
+        Bitte fülle die folgenden 32 Fragen aus und nimm nur einmal an der Umfrage teil. Danke.
+    </p>
 
-<div class="tableFixHead">
-    <table style="width: 100%;">
-        <colgroup>
-            <col span="1" style="width: 50%;">
-            <col span="1" style="width: 10%;">
-            <col span="1" style="width: 10%;">
-            <col span="1" style="width: 10%;">
-            <col span="1" style="width: 10%;">
-            <col span="1" style="width: 10%;">
-        </colgroup>
-        <thead>
-            <tr>
-                <th></th>
-                <th>so gut <br>wie nie</th>
-                <th>selten</th>
-                <th>manchmal</th>
-                <th>häufig</th>
-                <th>fast <br>immer</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let fragen of Fragen | async">
-            <tr>
-                <td class=rowname>
-                    {{fragen.Frage}} <br><br>
-                </td>
-                <td>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name={{fragen.id}} id=option1{{fragen.id}} value="1" aria-label="...">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name={{fragen.id}} id=option2{{fragen.id}} value="2" aria-label="...">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name={{fragen.id}} id=option3{{fragen.id}} value="3" aria-label="...">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name={{fragen.id}} id=option4{{fragen.id}} value="4" aria-label="...">
-                    </div>
-                </td>
-                <td>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name={{fragen.id}} id=option5{{fragen.id}} value="5" aria-label="...">
-                    </div>
-                </td>
-            </tr>    
-        </tbody>
-      
-    </table>
+    <div class="tableFixHead">
+        <table style="width: 100%;">
+            <colgroup>
+                <col span="1" style="width: 50%;">
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 10%;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>so gut <br>wie nie</th>
+                    <th>selten</th>
+                    <th>manchmal</th>
+                    <th>häufig</th>
+                    <th>fast <br>immer</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let fragen of Fragen | async">
+                <tr>
+                    <td class=rowname>
+                        {{fragen.Frage}} <br><br>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name={{fragen.id}} id=option1{{fragen.id}} value="1" aria-label="...">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name={{fragen.id}} id=option2{{fragen.id}} value="2" aria-label="...">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name={{fragen.id}} id=option3{{fragen.id}} value="3" aria-label="...">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name={{fragen.id}} id=option4{{fragen.id}} value="4" aria-label="...">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name={{fragen.id}} id=option5{{fragen.id}} value="5" aria-label="...">
+                        </div>
+                    </td>
+                </tr>    
+            </tbody>
+        
+        </table>
+    </div>
+
+    <pre>
+    </pre>
+
+    <div class="text-right">
+        <button class="btn btn-secondary">Absenden</button>
+    </div>
+
+    <pre>
+
+    </pre>
+
 </div>
-
-<pre>
-</pre>
-
-<div class="text-right">
-    <button class="btn btn-secondary">Absenden</button>
-</div>
-
-<pre>
-
-</pre>

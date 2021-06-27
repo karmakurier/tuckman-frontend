@@ -1,0 +1,33 @@
+
+<div class="container">
+    <p>Schritt 2 von 2</p>
+    <h4>Deine persönliche Tuckman Analyse</h4>
+    <p>visuelles Ergebnis</p>
+    <img src="assets/tmp/images/OverviewMember.png" alt="Member Overview Tuckman Result">
+    <p>Dein Ergebnis - Aufklärung/Bedeutung </p>
+    <pre>PLACE HOLDER ACCORDEONS</pre>
+
+    <pre>
+
+    </pre>
+
+    <div>
+        <p>Was möchtest du mit deiner Auswertung tun?</p>
+        <button class="btn btn-secondary" style="margin-right: 5%;" (click)="exportPDF(memberid)">PDF exportieren</button>
+        <button class="btn btn-secondary" style="margin-right: 5%;" (click)="printPDF(memberid)">Drucken</button>
+        <button class="btn btn-secondary" style="margin-right: 5%;" (click)="share(memberid)">Teilen</button>
+    </div>
+
+    <hr>
+
+    <h4>Persönlicher Link</h4>
+    <app-button-link link=placeholderforlink></app-button-link>
+    <p style="font-size: x-small;">Mit diesem Link hast du wieder Zugriff auf deine persönliche Auswertung. Speicher dir den Link ab oder schicke ihn dir per E-Mail.</p>
+
+    <h4>schick dir deinen persönlichen Link</h4>
+    <app-mail-link link=placeholderforlink, email="enteryourmail"></app-mail-link>
+    <p style="font-size: x-small;">Deine E-Mail wird nicht bei uns gespeichert. Mit dieser Eingabe deiner E-Mail schickst du dir selbst den Link für deine persönliche Auswertung,  mit welchem Du deine Ergebnisse jederzeit abrufen kannst.</p>
+
+</div>
+
+
