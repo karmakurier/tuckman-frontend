@@ -1,0 +1,8 @@
+<p>shared-component-button-w-link works!</p>
+
+<div>
+    <form class="form-inline">
+        <input class="form-control  mb-2"  type="text" value={{link}} #linktocopy readonly>
+        <button type="button" class="btn btn-primary mb-2 btn-clipboard" (click)="copyLink(linktocopy)" value="linkToCopy">Copy </button> 
+    </form>
+</div>
