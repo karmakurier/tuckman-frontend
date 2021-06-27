@@ -9,13 +9,15 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { RoomService } from './services/rooms.service';
 import { QuestionsService } from './services/questions.service';
 import { TeamtestComponent } from './teamtest/teamtest.component';
+import { ButtonLinkComponent } from './components/button-link/button-link.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    TeamtestComponent
+    TeamtestComponent,
+    ButtonLinkComponent
   ],
   imports: [
     BrowserModule,
