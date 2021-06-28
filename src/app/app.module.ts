@@ -13,6 +13,8 @@ import { MemberQuestionsComponent } from './homepage/member-questions/member-que
 import { MemberDetailsComponent } from './homepage/member-details/member-details.component';
 import { CreateRoomComponent } from './homepage/create-room/create-room.component';
 import { MailLinkComponent } from './components/mail-link/mail-link.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -28,9 +30,11 @@ import { MailLinkComponent } from './components/mail-link/mail-link.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [RoomService, QuestionsService],
   bootstrap: [AppComponent]
