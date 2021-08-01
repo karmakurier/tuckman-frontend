@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://tolleseite.de/api/'
+  API_BASE_PATH: 'http://localhost:3000'
 };
 
 /*

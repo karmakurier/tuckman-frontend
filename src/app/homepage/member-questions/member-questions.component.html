@@ -31,39 +31,44 @@
                     <th>fast <br>immer</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let fragen of Fragen | async">
+            <tbody *ngFor="let question of questions">
                 <tr>
                     <td class=rowname>
-                        {{fragen.Frage}} <br><br>
+                        {{question.questionString}} <br><br>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name={{fragen.id}} id=option1{{fragen.id}} value="1" aria-label="...">
+                            <input class="form-check-input" type="radio" name={{question.id}} id=option1{{question.id}}
+                                value="1" aria-label="...">
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name={{fragen.id}} id=option2{{fragen.id}} value="2" aria-label="...">
+                            <input class="form-check-input" type="radio" name={{question.id}} id=option2{{question.id}}
+                                value="2" aria-label="...">
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name={{fragen.id}} id=option3{{fragen.id}} value="3" aria-label="...">
+                            <input class="form-check-input" type="radio" name={{question.id}} id=option3{{question.id}}
+                                value="3" aria-label="...">
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name={{fragen.id}} id=option4{{fragen.id}} value="4" aria-label="...">
+                            <input class="form-check-input" type="radio" name={{question.id}} id=option4{{question.id}}
+                                value="4" aria-label="...">
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name={{fragen.id}} id=option5{{fragen.id}} value="5" aria-label="...">
+                            <input class="form-check-input" type="radio" name={{question.id}} id=option5{{question.id}}
+                                value="5" aria-label="...">
                         </div>
                     </td>
-                </tr>    
+                </tr>
             </tbody>
-        
+
         </table>
     </div>
 
