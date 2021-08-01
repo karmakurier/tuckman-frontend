@@ -1,19 +1,23 @@
-import { Component, Input} from '@angular/core';
-import { QuestionsService } from '../../services/questions.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Question, QuestionsService } from 'generated/api';
 
 @Component({
   selector: 'app-member-questions',
   templateUrl: './member-questions.component.html',
   styleUrls: ['./member-questions.component.scss']
 })
-export class MemberQuestionsComponent{
+export class MemberQuestionsComponent implements OnInit {
 
-  @Input() teamid: string="Awsometeam3"
+  @Input() teamid: string = "Awsometeam3"
+  questions: Question[];
 
+  constructor(private questionService: QuestionsService) {
+  }
 
-  Fragen = this.questionsService.getQuestion();
-
-  constructor(
-    private questionsService: QuestionsService) {
-   }
+  async ngOnInit() {
+    this.questionService.questionsControllerFindAll().subscribe(questions => {
+      console.log(questions);
+      this.questions = questions;
+    });
+  }
 }

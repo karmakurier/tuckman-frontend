@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Questionnaire } from '../models/questionnaire.model';
 import { Room } from '../models/room.model';
-import { RoomService } from '../services/rooms.service';
 
 @Component({
   selector: 'app-homepage',
@@ -13,10 +12,9 @@ export class HomepageComponent implements OnInit {
   email: string = "test123";
   rooms: Room[] = [];
 
-  constructor(private roomService: RoomService) { }
+  constructor() { }
 
   async ngOnInit() {
-    this.rooms = await this.roomService.getAllRooms();
   }
 
   showResults() {

@@ -1,27 +1,23 @@
-# Demo
+## Tuckman - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
+The frontend for the tuckman analysis tool of karmakurier. This is an Angular project, so make sure you have the sufficient tooling (most importantly Node.JS) installed on your local machine.
 
-## Development server
+### Development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- First, install dependencies so the project can be started locally.
 
-## Code scaffolding
+```bash
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Next, run backend locally (for now, later we might add the url of the swagger here). This is needed so we can retrieve the Swagger file. The swagger file is then used to generate the api services in typescript for us. to generate swagger files, then run this:
 
-## Build
+```bash
+npm run openapi-generate-all
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Finally, run development server. After it compiled and started you will be able to see the application at http://localhost:4200
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+ng serve
+```
