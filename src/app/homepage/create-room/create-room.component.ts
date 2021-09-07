@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CreateRoom, Question, QuestionnairesService, RoomsService } from 'generated/api';
+import { Questionnaire } from 'src/app/models/questionnaire.model';
+import { Room } from 'src/app/models/room.model';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,8 +15,11 @@ export class CreateRoomComponent implements OnInit {
   accordionExpanded: number = -1;
   isNonProfit: boolean = true;
   timed: boolean = false;
+  room: CreateRoom = {} as CreateRoom;
+  questions: Question[];
 
-  constructor() { }
+  constructor(private roomService: RoomsService, private questionnaireService: QuestionnairesService, private router: Router) {
+  }
 
   changeNonProfit(isIt: boolean) {
     this.isNonProfit = isIt;
@@ -27,6 +35,15 @@ export class CreateRoomComponent implements OnInit {
     }
   }
 
+  createRoom() {
+    console.log(this.room);
+    this.roomService.roomsControllerCreateSingle(this.room).subscribe(createdR => {
+      this.router.navigate(['/room', createdR.roomUUID]);
+    });
+
+
+  }
+
   expandAccordion(num: number) {
     if(num === this.accordionExpanded) {
       this.accordionExpanded = -1;
@@ -36,6 +53,9 @@ export class CreateRoomComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
+      this.questions = questionnaire.questions;
+    })
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { QuestionnaireResult, QuestionnaireresultService, Room, RoomsService } from 'generated/api';
 
 @Component({
   selector: 'app-room-details',
@@ -9,8 +11,10 @@ export class RoomDetailsComponent implements OnInit {
 
   @Input() teamid: string="AwsomeTeam2";
   accordionExpanded: number = -1;
+  room: Room = {} as Room;
+  questionnaireResults: QuestionnaireResult[] = [];
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private roomService: RoomsService, private questionnaireResultService: QuestionnaireresultService) { }
 
   expandAccordion(num: number) {
     if(num === this.accordionExpanded) {
@@ -38,7 +42,29 @@ export class RoomDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.roomService.roomsControllerFindAll(this.activatedRoute.snapshot.paramMap.get('id')).subscribe(rooms => {
+      this.room = rooms;
+      this.questionnaireResultService.questionnaireResultControllerFindAll(this.room.roomUUID).subscribe(results => {
+        this.questionnaireResults = results;
+      })
+    })
   }
 
+  hasExpiry() {
+    let datestring = new Date(this.room.expiresAt);
+    if( datestring > new Date()) {
+      return true;
+    }
+    return false;
+  }
+
+
+  getLinkForParticipants() {
+    return window.location.origin + '/participate/' + this.room.participateUUID;
+  }
+
+  getLinkForResults() {
+    return window.location;
+  }
 
 }

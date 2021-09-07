@@ -3,7 +3,7 @@
 <div class="container">
   <p> Schritt 1 von 2</p>
     <div class="form-group">
-      <input type="text" name="teamname" class="form-control karma-input" placeholder="Name des Teams">
+      <input type="text" name="teamname" class="form-control karma-input" [(ngModel)]="room.teamName" placeholder="Name des Teams">
     </div>
 
     <div class="form-group">
@@ -19,11 +19,11 @@
 
     </div>
     <div class="form-group">
-      <input type="email" name="mail" class="form-control karma-input" placeholder="Initator E-Mail">
+      <input type="email" name="mail" class="form-control karma-input" [(ngModel)]="room.initiatorEmail" placeholder="Initator E-Mail">
       <p style="font-size: small;">Deine E-Mail wird nicht bei uns gespeichert. Nach Erstellen der Analyse erhältst du eine E-Mail mit einem Link von uns, mit welchem Du deine Ergebnisse jederzeit abrufen kannst.</p>
     </div>
     <div class="form-group">
-      <textarea name="notes" class="form-control karma-input" placeholder="Notiz hinzufügen (optional)"></textarea>
+      <textarea name="notes" class="form-control karma-input" [(ngModel)]="room.notes" placeholder="Notiz hinzufügen (optional)" ></textarea>
     </div>
     <h5>Tuckman Analyse</h5>
 
@@ -35,7 +35,9 @@
       </div>
       <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
         <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          <ol>
+            <li *ngFor="let question of questions">{{question.questionString}}</li>
+          </ol>
         </div>
       </div>
     </div>
@@ -74,11 +76,12 @@
       placeholder="Teilnahmefrist"
       placement="top"
       class="form-control karma-input"
+      [(ngModel)]="room.expiresAt"
       bsDatepicker>
     </div>
 
 
     <div class="text-right">
-        <button class="btn btn-secondary karma-button" [routerLink]="['/roomdetails']" [disabled]="!isNonProfit"> Erstellen</button>
+        <button class="btn btn-secondary karma-button" (click)="createRoom()" [disabled]="!isNonProfit"> Erstellen</button>
     </div>
 </div>

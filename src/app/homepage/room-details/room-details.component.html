@@ -3,7 +3,7 @@
 
   <div>
     <h3>Teilnehmer einladen</h3>
-    <app-button-link link=placeholderforlink (link2)="oncopy($event)"></app-button-link>
+    <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForParticipants()"></app-button-link>
     <p style="font-size: x-small;">Jeder mit diesem Link kann teilnehmen. Für die Teilnahme ist kein Konto oder eine
       E-Mail erforderlich.</p>
   </div>
@@ -12,7 +12,7 @@
 
   <div>
     <h3>Link zu dieser Seite</h3>
-    <app-button-link link=placeholderforlink (link2)="oncopy($event)"></app-button-link>
+    <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForResults()"></app-button-link>
     <p style="font-size: x-small;">Jeder mit diesem Link kann diese Auswertung sehen</p>
   </div>
 
@@ -21,10 +21,9 @@
 
 
     <p>
-      Team: {{teamid}} <br>
-      Teamleiter: xxx <br>
-      Frist: xxx <br><br>
-      Insgesamt haben XX Teilnehmer teilgenommen
+      Team: {{room.teamName}}
+      <ng-container *ngIf="hasExpiry()"><br> Frist: {{room.expiresAt | date: 'dd.MM.yyyy'}}</ng-container> <br><br>
+      Insgesamt haben {{questionnaireResults.length}} Teilnehmer teilgenommen
     </p>
   </div>
 
