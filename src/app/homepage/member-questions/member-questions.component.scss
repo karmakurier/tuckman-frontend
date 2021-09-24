@@ -1,7 +1,25 @@
 //.tableFixHead          { overflow: auto; height: 100px; }
-.tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
+.tableFixHead thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 
 /* Just common table stuff. Really. */
-table  { border-collapse: collapse; width: 100%; }
-th, td { padding: 8px 16px; }
-th, tbody  { background:#eee; }
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  padding: 8px 16px;
+}
+th,
+tbody {
+  background: #eee;
+}
+
+.table-container {
+  border-radius: 10px;
+  background: rgba(196, 196, 196, 0.28);
+}
