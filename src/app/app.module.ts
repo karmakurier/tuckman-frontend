@@ -15,6 +15,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApiConfiguration } from 'generated/api';
 import { environment } from 'src/environments/environment';
+import { SpiderchartComponent } from './components/spiderchart/spiderchart.component';
+import { DotchartComponent } from './components/dotchart/dotchart.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { environment } from 'src/environments/environment';
     MemberQuestionsComponent,
     MemberDetailsComponent,
     CreateRoomComponent,
-    MailLinkComponent
+    MailLinkComponent,
+    SpiderchartComponent,
+    DotchartComponent
   ],
   imports: [
     BrowserModule,
