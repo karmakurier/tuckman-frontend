@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
 
 
@@ -7,7 +7,7 @@ import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
   templateUrl: './dotchart.component.html',
   styleUrls: ['./dotchart.component.scss']
 })
-export class DotchartComponent implements OnInit, AfterViewChecked{
+export class DotchartComponent implements OnInit, AfterViewInit{
 
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;  
@@ -26,19 +26,8 @@ export class DotchartComponent implements OnInit, AfterViewChecked{
   constructor() { }
 
   ngOnInit(): void { };
-  ngAfterViewChecked(): void {
+  ngAfterViewInit(): void {
 
-    function getSyncScriptParams() {
-      var scripts = document.getElementsByTagName('canvas');
-      var lastScript = scripts[scripts.length-1];
-      var scriptName = lastScript;
-      return {
-          arraydata : scriptName.getAttribute('array'),
-          height : scriptName.getAttribute('height'),
-          width : scriptName.getAttribute('width'),
-          thiks : scriptName.getAttribute('thiks')
-      };
-    };
     function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
       if (typeof stroke === 'undefined') {
         stroke = true;
@@ -90,7 +79,15 @@ export class DotchartComponent implements OnInit, AfterViewChecked{
     // draw from here 
 
   this.ctx = this.canvas.nativeElement.getContext('2d');
-  let params = getSyncScriptParams()
+
+  let params = {
+    arraydata:this.canvas.nativeElement.attributes.getNamedItem("array").value,
+    height:this.canvas.nativeElement.attributes.getNamedItem("height").value,
+    width:this.canvas.nativeElement.attributes.getNamedItem("width").value,
+    thiks:this.canvas.nativeElement.attributes.getNamedItem("thiks").value}
+
+  console.log(params)
+  
 
   let frameheigth = Number(params.height)
   let framewidth = Number(params.width)
@@ -110,6 +107,9 @@ export class DotchartComponent implements OnInit, AfterViewChecked{
   let thickstop = framewidth-thickstart
   let thickspace =  Math.round((thickstop-thickstart)/(nthick-1))
 
+  this.ctx.canvas.width=framewidth;
+  this.ctx.canvas.height=frameheigth*1.4;
+  
   this.ctx.fillStyle = '#FFF0EB';
 
   roundRect(this.ctx, 1, 1, framewidth, frameheigth, Math.floor(frameheigth/2),true, false);
@@ -133,7 +133,7 @@ export class DotchartComponent implements OnInit, AfterViewChecked{
   this.ctx.stroke();
 
 
-  this.ctx.font="600 "+Math.floor(0.4*frameheigth)+"px Quicksand";
+  this.ctx.font="600 "+Math.floor(0.2*frameheigth)+"px Quicksand";
   this.ctx.textAlign="center"; 
   this.ctx.textBaseline = "middle";
 

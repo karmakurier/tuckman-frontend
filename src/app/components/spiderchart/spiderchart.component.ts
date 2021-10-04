@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit, Input, AfterViewInit, AfterContentInit, AfterViewChecked} from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, Input, AfterViewChecked} from '@angular/core';
 import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
 
 
@@ -30,7 +30,23 @@ export class SpiderchartComponent implements OnInit, AfterViewChecked{
   ngAfterViewChecked(): void{
     // wie kann ich die maximale größe vom parent rein bekommen 
     //let parentWidth = this.parent.nativeElement.offsetWidth;
-    let parentWidth = 700
+
+    function getSyncScriptParams() {
+      var scripts = document.getElementsByName('spiderchart');
+      var lastScript = scripts[scripts.length-1];
+      var scriptName = lastScript;
+      return {
+          height : scriptName.getAttribute('height'),
+          width : scriptName.getAttribute('width')
+      };
+    };
+
+    let params = {
+      height:this.canvas.nativeElement.attributes.getNamedItem("height").value,
+      width:this.canvas.nativeElement.attributes.getNamedItem("width").value}
+
+
+    let parentWidth = Number(params.width)
   
     
     this.ctx = this.canvas.nativeElement.getContext('2d');
