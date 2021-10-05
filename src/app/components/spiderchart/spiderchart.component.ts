@@ -47,14 +47,13 @@ export class SpiderchartComponent implements OnInit, AfterViewChecked{
 
 
     let parentWidth = Number(params.width)
+    let parentHeigth = Number(params.height)
   
     
     this.ctx = this.canvas.nativeElement.getContext('2d');
     this.ctx.canvas.width = parentWidth;
-    console.log(this.ctx.canvas.width)
-    this.ctx.canvas.height = this.ctx.canvas.width/1.5;
+    this.ctx.canvas.height = parentHeigth;
 
-    
     var size = Math.min(this.canvas.nativeElement.width, this.canvas.nativeElement.height);
 
     let chartInfo = {
@@ -63,11 +62,10 @@ export class SpiderchartComponent implements OnInit, AfterViewChecked{
         width: size,
         height: size,
         copyStyle: "#000000",
-        radius: (size-100) / 2,
+        radius: (size-size*0.3) / 2,
         radianOffset: 0
       };
 
-    var stepSize = chartInfo.max / chartInfo.steps;
     var hSteps = this.headers.length;
     var hStepSize = (Math.PI * 2) / hSteps;
     var radianOffset = chartInfo.radianOffset;
@@ -96,7 +94,7 @@ export class SpiderchartComponent implements OnInit, AfterViewChecked{
     this.ctx.lineCap = "round"
     this.ctx.lineWidth = Math.round(size*0.005)
     this.ctx.textAlign = "center";
-    this.ctx.font="600 "+ Math.floor(0.04*size)+"px Quicksand";
+    this.ctx.font="600 "+ 36+"px Quicksand";
 
     this.ctx.beginPath()
     for (var i = 0; i < hSteps; i++) {

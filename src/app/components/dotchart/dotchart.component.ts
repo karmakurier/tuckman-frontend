@@ -13,6 +13,8 @@ export class DotchartComponent implements OnInit, AfterViewInit{
   canvas: ElementRef<HTMLCanvasElement>;  
 
   @Input() dataset:SpiderchartData;
+  //@Input() dimension:string;
+
 
   private ctx: CanvasRenderingContext2D;
 
@@ -21,6 +23,9 @@ export class DotchartComponent implements OnInit, AfterViewInit{
     "Storming",
     "Norming",
     "Performing"];
+
+  dimension = "Norming";  
+
 
 
   constructor() { }
@@ -79,20 +84,32 @@ export class DotchartComponent implements OnInit, AfterViewInit{
     // draw from here 
 
   this.ctx = this.canvas.nativeElement.getContext('2d');
+  var arraydata:Array<number>=[]
 
+  
+
+  let dimscore = this.headers.indexOf(this.dimension, 0)
+  
+  
+  for (let i=0; i<this.dataset.datasets.length;i++){
+    arraydata.push(this.dataset.datasets[i].data[dimscore])
+  } 
+
+
+  
   let params = {
-    arraydata:this.canvas.nativeElement.attributes.getNamedItem("array").value,
+    arraydata:arraydata,
     height:this.canvas.nativeElement.attributes.getNamedItem("height").value,
     width:this.canvas.nativeElement.attributes.getNamedItem("width").value,
     thiks:this.canvas.nativeElement.attributes.getNamedItem("thiks").value}
 
-  console.log(params)
+ 
   
 
   let frameheigth = Number(params.height)
   let framewidth = Number(params.width)
   let nthick = Number(params.thiks)
-  let dataset=params.arraydata.split(",").map(Number)
+  let dataset=arraydata
 
   let toplot = dataset
 
@@ -155,7 +172,7 @@ export class DotchartComponent implements OnInit, AfterViewInit{
   let occur=Array.from(toplottmp.values());
 
   for (var i=0; i<unique.length; i++){
-      let score=unique[i];
+      let score:number=unique[i];
       let pos=thickstart+(score-1)*thickspace;
       let posy = new Array();
 

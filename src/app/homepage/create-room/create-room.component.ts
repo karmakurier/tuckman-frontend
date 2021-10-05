@@ -25,10 +25,15 @@ export class CreateRoomComponent implements OnInit {
   room: CreateRoom = {} as CreateRoom;
   questions: Question[];
   spiderchartdatset:SpiderchartData = {} as SpiderchartData;
-
+  Forming:string;
+  Storming:string;
+  Norming:string;
+  Performing:string;
   
   constructor(private roomService: RoomsService, private questionnaireService: QuestionnairesService, private router: Router,
-    private quesstionairResultService: QuestionnaireresultService){}
+    private quesstionairResultService: QuestionnaireresultService){
+    }
+
 
   changeNonProfit(isIt: boolean) {
     this.isNonProfit = isIt;
@@ -62,6 +67,12 @@ export class CreateRoomComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.Forming="Forming"
+    this.Storming="Storming"
+    this.Norming="Norming"
+    this.Performing="Perorming"
+
+    console.log(this.Norming)
     this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
       this.questions = questionnaire.questions;
       
