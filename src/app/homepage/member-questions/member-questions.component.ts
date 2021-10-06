@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Question, QuestionnaireResultCreate, QuestionnaireresultService, QuestionResultCreate, QuestionsService, RoomsService } from 'generated/api';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Question, QuestionnaireResultCreate, QuestionnaireresultService, QuestionnairesService, QuestionResultCreate, QuestionsService, RoomsService } from 'generated/api';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-member-questions',
@@ -9,12 +10,15 @@ import { Question, QuestionnaireResultCreate, QuestionnaireresultService, Questi
 })
 export class MemberQuestionsComponent implements OnInit {
 
-  @Input() teamid: string = "Awsometeam3"
   questions: Question[];
   questionnaireResult: QuestionnaireResultCreate = {} as QuestionnaireResultCreate;
   participateId: string;
 
-  constructor(private questionService: QuestionsService, private roomService: RoomsService, private activatedRoute: ActivatedRoute, private questionnaireResultService: QuestionnaireresultService) {
+  constructor(
+    private router: Router,
+    private questionnaireService: QuestionnairesService,
+    private activatedRoute: ActivatedRoute,
+    private questionnaireResultService: QuestionnaireresultService) {
   }
 
   async ngOnInit() {
@@ -22,18 +26,17 @@ export class MemberQuestionsComponent implements OnInit {
     this.participateId = this.activatedRoute.snapshot.paramMap.get('id');
     this.questionnaireResult.participateId = this.participateId;
     this.questionnaireResult.QuestionResults = [] as QuestionResultCreate[];
-    this.questionService.questionsControllerFindAll().subscribe(questions => {
-      this.questions = questions;
+    this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
+      this.questions = questionnaire.questions;
       for (let i = 0; i < this.questions.length; i++) {
         this.questionnaireResult.QuestionResults.push({ questionId: this.questions[i].id, answer: 1 })
       }
-
-      console.log(this.questionnaireResult);
     });
   }
 
   public sendQuestionnaire() {
-    console.log(this.questionnaireResult);
-    this.questionnaireResultService.questionnaireResultControllerCreateSingle(this.participateId, this.questionnaireResult).subscribe(() => { });
+    this.questionnaireResultService.questionnaireResultControllerCreateSingle(this.participateId, this.questionnaireResult).subscribe((createdResult) => {
+      this.router.navigate(['results', createdResult.uuid])
+    });
   }
 }

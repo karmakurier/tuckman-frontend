@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { QuestionnaireResult, QuestionnaireresultService, QuestionResult } from 'generated/api';
+import { Question, QuestionnaireResult, QuestionnaireresultService, QuestionnairesService, QuestionResult } from 'generated/api';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-member-details',
@@ -10,10 +11,27 @@ import { QuestionnaireResult, QuestionnaireresultService, QuestionResult } from 
 export class MemberDetailsComponent implements OnInit {
 
   resultId: string;
+  accordionExpanded: number = -1;
+  questions: Question[];
   questionnaireResult: QuestionnaireResult;
   @Input() memberid: string = "AwsomeMember";
-  constructor(private activatedRoute: ActivatedRoute, private questionnaireResultService: QuestionnaireresultService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private questionnaireService: QuestionnairesService,
+    private questionnaireResultService: QuestionnaireresultService
+  ) { }
 
+  expandAccordion(num: number) {
+    if (num === this.accordionExpanded) {
+      this.accordionExpanded = -1;
+    } else {
+      this.accordionExpanded = num;
+    }
+  }
+
+  getQuestionsForCategoryId(id: number) {
+    return this.questions.filter(q => q.category.id == id);
+  }
   exportPDF(memberid: string) {
     console.log("pdf export triggered for " + memberid)
   }
@@ -31,6 +49,14 @@ export class MemberDetailsComponent implements OnInit {
     this.questionnaireResultService.questionnaireResultControllerFindAll(null, this.resultId).subscribe(result => {
       this.questionnaireResult = result[0];
     })
+
+    this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
+      this.questions = questionnaire.questions;
+    })
+  }
+
+  getLinkForResults() {
+    return window.location;
   }
 
 }

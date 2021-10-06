@@ -1,19 +1,73 @@
-
 <div class="container">
     <p>Schritt 2 von 2</p>
     <h4>Deine persönliche Tuckman Analyse</h4>
     <p>visuelles Ergebnis</p>
     <img src="assets/tmp/images/OverviewMember.png" alt="Member Overview Tuckman Result">
-    <p>Dein Ergebnis - Aufklärung/Bedeutung </p>
-    <pre>PLACE HOLDER ACCORDEONS</pre>
+    <p>Forming </p>
+    <div class="card">
+        <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)">
+            <h5 class="mb-0 acc-header">
+                Forming
+            </h5>
+        </div>
+        <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
+            <div class="card-body">
+                <ol>
+                    <li *ngFor="let question of getQuestionsForCategoryId(1)">{{question.questionString}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
 
-    <pre>
+    <div class="card">
+        <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(1)">
+            <h5 class="mb-0 acc-header">
+                Storming
+            </h5>
+        </div>
+        <div class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
+            <div class="card-body">
+                <ol>
+                    <li *ngFor="let question of getQuestionsForCategoryId(2)">{{question.questionString}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
 
-    </pre>
+    <div class="card">
+        <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(2)">
+            <h5 class="mb-0 acc-header">
+                Norming
+            </h5>
+        </div>
+        <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
+            <div class="card-body">
+                <ol>
+                    <li *ngFor="let question of getQuestionsForCategoryId(3)">{{question.questionString}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(3)">
+            <h5 class="mb-0 acc-header">
+                Performing
+            </h5>
+        </div>
+        <div class="collapse" [ngClass]="{'show': accordionExpanded === 3}">
+            <div class="card-body">
+                <ol>
+                    <li *ngFor="let question of getQuestionsForCategoryId(4)">{{question.questionString}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
 
     <div>
         <p>Was möchtest du mit deiner Auswertung tun?</p>
-        <button class="btn btn-secondary" style="margin-right: 5%;" (click)="exportPDF(memberid)">PDF exportieren</button>
+        <button class="btn btn-secondary" style="margin-right: 5%;" (click)="exportPDF(memberid)">PDF
+            exportieren</button>
         <button class="btn btn-secondary" style="margin-right: 5%;" (click)="printPDF(memberid)">Drucken</button>
         <button class="btn btn-secondary" style="margin-right: 5%;" (click)="share(memberid)">Teilen</button>
     </div>
@@ -21,13 +75,14 @@
     <hr>
 
     <h4>Persönlicher Link</h4>
-    <app-button-link link=placeholderforlink></app-button-link>
-    <p style="font-size: x-small;">Mit diesem Link hast du wieder Zugriff auf deine persönliche Auswertung. Speicher dir den Link ab oder schicke ihn dir per E-Mail.</p>
+    <app-button-link [link]="getLinkForResults()"></app-button-link>
+    <p style="font-size: x-small;">Mit diesem Link hast du wieder Zugriff auf deine persönliche Auswertung. Speicher dir
+        den Link ab oder schicke ihn dir per E-Mail.</p>
 
     <h4>schick dir deinen persönlichen Link</h4>
     <app-mail-link link=placeholderforlink, email="enteryourmail"></app-mail-link>
-    <p style="font-size: x-small;">Deine E-Mail wird nicht bei uns gespeichert. Mit dieser Eingabe deiner E-Mail schickst du dir selbst den Link für deine persönliche Auswertung,  mit welchem Du deine Ergebnisse jederzeit abrufen kannst.</p>
+    <p style="font-size: x-small;">Deine E-Mail wird nicht bei uns gespeichert. Mit dieser Eingabe deiner E-Mail
+        schickst du dir selbst den Link für deine persönliche Auswertung, mit welchem Du deine Ergebnisse jederzeit
+        abrufen kannst.</p>
 
 </div>
-
-
