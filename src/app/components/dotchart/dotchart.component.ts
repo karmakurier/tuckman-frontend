@@ -13,18 +13,18 @@ export class DotchartComponent implements OnInit, AfterViewInit{
   canvas: ElementRef<HTMLCanvasElement>;  
 
   @Input() dataset:SpiderchartData;
-  //@Input() dimension:string;
+  @Input() dimension:string;
 
 
   private ctx: CanvasRenderingContext2D;
 
+  // ziehen der Kategorien aus DB
   headers = [
     "Forming",
     "Storming",
     "Norming",
     "Performing"];
 
-  dimension = "Norming";  
 
 
 
