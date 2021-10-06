@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Question, QuestionsService } from 'generated/api';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Question, QuestionnaireResultCreate, QuestionnaireresultService, QuestionnairesService, QuestionResultCreate, QuestionsService, RoomsService } from 'generated/api';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-member-questions',
@@ -8,16 +10,33 @@ import { Question, QuestionsService } from 'generated/api';
 })
 export class MemberQuestionsComponent implements OnInit {
 
-  @Input() teamid: string = "Awsometeam3"
   questions: Question[];
+  questionnaireResult: QuestionnaireResultCreate = {} as QuestionnaireResultCreate;
+  participateId: string;
 
-  constructor(private questionService: QuestionsService) {
+  constructor(
+    private router: Router,
+    private questionnaireService: QuestionnairesService,
+    private activatedRoute: ActivatedRoute,
+    private questionnaireResultService: QuestionnaireresultService) {
   }
 
   async ngOnInit() {
-    this.questionService.questionsControllerFindAll().subscribe(questions => {
-      console.log(questions);
-      this.questions = questions;
+
+    this.participateId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.questionnaireResult.participateId = this.participateId;
+    this.questionnaireResult.QuestionResults = [] as QuestionResultCreate[];
+    this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
+      this.questions = questionnaire.questions;
+      for (let i = 0; i < this.questions.length; i++) {
+        this.questionnaireResult.QuestionResults.push({ questionId: this.questions[i].id, answer: 1 })
+      }
+    });
+  }
+
+  public sendQuestionnaire() {
+    this.questionnaireResultService.questionnaireResultControllerCreateSingle(this.participateId, this.questionnaireResult).subscribe((createdResult) => {
+      this.router.navigate(['results', createdResult.uuid])
     });
   }
 }

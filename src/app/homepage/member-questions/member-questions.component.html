@@ -4,79 +4,83 @@
     <h4>Willkommen bei der Tuckman Analyse</h4>
 
     <p>
-        Team: {{teamid}} <br>
-        Teamleiter: xxx <br>
-        Frist: xxx <br>
         <br>
         Bitte fülle die folgenden 32 Fragen aus und nimm nur einmal an der Umfrage teil. Danke.
     </p>
 
-    <div class="tableFixHead">
-        <table style="width: 100%;">
-            <colgroup>
-                <col span="1" style="width: 50%;">
-                <col span="1" style="width: 10%;">
-                <col span="1" style="width: 10%;">
-                <col span="1" style="width: 10%;">
-                <col span="1" style="width: 10%;">
-                <col span="1" style="width: 10%;">
-            </colgroup>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>so gut <br>wie nie</th>
-                    <th>selten</th>
-                    <th>manchmal</th>
-                    <th>häufig</th>
-                    <th>fast <br>immer</th>
-                </tr>
-            </thead>
-            <tbody *ngFor="let question of questions">
-                <tr>
-                    <td class=rowname>
-                        {{question.questionString}} <br><br>
-                    </td>
-                    <td>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name={{question.id}} id=option1{{question.id}}
-                                value="1" aria-label="...">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name={{question.id}} id=option2{{question.id}}
-                                value="2" aria-label="...">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name={{question.id}} id=option3{{question.id}}
-                                value="3" aria-label="...">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name={{question.id}} id=option4{{question.id}}
-                                value="4" aria-label="...">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name={{question.id}} id=option5{{question.id}}
-                                value="5" aria-label="...">
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
+    <div class="table-container">
+        <div class="tableFixHead">
+            <table style="width: 100%;">
+                <colgroup>
+                    <col span="1" style="width: 50%;">
+                    <col span="1" style="width: 10%;">
+                    <col span="1" style="width: 10%;">
+                    <col span="1" style="width: 10%;">
+                    <col span="1" style="width: 10%;">
+                    <col span="1" style="width: 10%;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>so gut <br>wie nie</th>
+                        <th>selten</th>
+                        <th>manchmal</th>
+                        <th>häufig</th>
+                        <th>fast <br>immer</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let question of questions; let i = index">
+                    <tr>
+                        <td class=rowname>
+                            {{question.questionString}} <br><br>
+                        </td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name={{question.id}}
+                                    id=option1{{question.id}} [value]="1"
+                                    [(ngModel)]="questionnaireResult.QuestionResults[i].answer" aria-label="...">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name={{question.id}}
+                                    id=option2{{question.id}} [value]="2"
+                                    [(ngModel)]="questionnaireResult.QuestionResults[i].answer" aria-label="...">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name={{question.id}}
+                                    id=option3{{question.id}} [value]="3"
+                                    [(ngModel)]="questionnaireResult.QuestionResults[i].answer" aria-label="...">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name={{question.id}}
+                                    id=option4{{question.id}} [value]="4"
+                                    [(ngModel)]="questionnaireResult.QuestionResults[i].answer" aria-label="...">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name={{question.id}}
+                                    id=option5{{question.id}} [value]="5"
+                                    [(ngModel)]="questionnaireResult.QuestionResults[i].answer" aria-label="...">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
 
-        </table>
+            </table>
+        </div>
     </div>
 
     <pre>
     </pre>
 
     <div class="text-right">
-        <button class="btn btn-secondary">Absenden</button>
+        <button class="btn btn-secondary" (click)="sendQuestionnaire()">Absenden</button>
     </div>
 
     <pre>

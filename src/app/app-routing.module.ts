@@ -8,11 +8,11 @@ import { RoomDetailsComponent } from './homepage/room-details/room-details.compo
 
 const routes: Routes = [
   { path: 'home', component: HomepageComponent },
-  { path: 'createRoom', component: CreateRoomComponent},
-  { path: 'room/:id', component: RoomDetailsComponent},
-  { path: 'memberQuestions', component: MemberQuestionsComponent},
-  { path: 'memberDetails', component: MemberDetailsComponent},
-  { path: '**', redirectTo: 'home' }
+  { path: 'createRoom', component: CreateRoomComponent },
+  { path: 'room/:id', component: RoomDetailsComponent },
+  { path: 'participate/:id', component: MemberQuestionsComponent },
+  { path: 'results/:id', component: MemberDetailsComponent },
+  { path: '**', redirectTo: 'createRoom' }
 ];
 
 @NgModule({
