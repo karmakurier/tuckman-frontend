@@ -26,14 +26,42 @@
       <textarea name="notes" class="form-control karma-input" [(ngModel)]="room.notes" placeholder="Notiz hinzufügen (optional)" ></textarea>
     </div>
     <h5>Tuckman Analyse</h5>
-
+    
+    <div #spiderchartplot class="card">
+      <div class="card-header handcursor" id="headingTwo" (click)="expandAccordion(0)">
+        <h5 class="mb-0 acc-header">
+            Teamscores Preview
+        </h5>
+      </div>
+      <div  class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
+        <div class="card-body">
+          <app-spiderchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"></app-spiderchart>
+        Wir zeigen euch wie euer Team gerade die Zusammenarbeit erlebt. Ein Team ist selten in einer einzelenen Phase alleine. 
+        Mit dem Teamüberblick seht ihr sofort welche Phase gerade dominiert, und ob alle Teammitglieder das ähnlich erleben oder nicht. 
+        Damit habt ihr eine gute Gesprächsgrundlage für euer nächstes Teammeeting.    
+        </div>
+      </div>
+    </div>
     <div class="card">
-      <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)">
+      <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(1)">
+        <h5 class="mb-0 acc-header">
+            Einzelscores Preview
+        </h5>
+      </div>
+      <div class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
+        <div class="card-body">
+          <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Norming"></app-dotchart>
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(2)">
         <h5 class="mb-0 acc-header">
             Fragen Preview
         </h5>
       </div>
-      <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
+      <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
         <div class="card-body">
           <ol>
             <li *ngFor="let question of questions">{{question.questionString}}</li>
@@ -41,30 +69,7 @@
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-header handcursor" id="headingTwo" (click)="expandAccordion(1)">
-        <h5 class="mb-0 acc-header">
-            Teamscores Preview
-        </h5>
-      </div>
-      <div  class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(2)">
-        <h5 class="mb-0 acc-header">
-            Einzelscores Preview
-        </h5>
-      </div>
-      <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
-    </div>
+
     <h5>Frist festlegen</h5>
     <p style="font-size: small;">Lege eine Frist fest an welcher alle aus deinem Team teilgenommen haben sollen. </p>
     <div class="form-check">
