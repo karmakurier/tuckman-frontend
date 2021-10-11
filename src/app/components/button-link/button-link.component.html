@@ -1,6 +1,5 @@
-<div>
-    <form class="form-inline">
-        <input class="form-control  mb-2"  type="text" value={{link}} #linktocopy readonly>
-        <button type="button" class="btn btn-primary mb-2 btn-clipboard" (click)="copyLink(linktocopy)" value="linkToCopy">Kopieren </button> 
-    </form>
-</div>
+<form class="form-inline">
+    <input class="form-control  mb-2" type="text" value={{link}} #linktocopy readonly>
+    <button type="button" class="btn btn-outline-primary mb-2 btn-clipboard" (click)="copyLink(linktocopy)"
+        value="linkToCopy">Kopieren </button>
+</form>
