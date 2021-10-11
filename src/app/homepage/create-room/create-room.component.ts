@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CreateRoom, Question, QuestionnaireresultService, QuestionnairesService, RoomsService} from 'generated/api';
-import { Questionnaire } from 'src/app/models/questionnaire.model';
-import { Room } from 'src/app/models/room.model';
+import { CreateRoom, QuestionnaireresultService, QuestionsService, RoomsService} from 'generated/api';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
-import { SpiderchartComponent } from 'src/app/components/spiderchart/spiderchart.component';
 import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
-import { JsonpClientBackend } from '@angular/common/http';
-import { cloneWithOffset } from 'ngx-bootstrap/chronos/units/offset';
 import { SpiderchartUserData } from 'src/app/models/spiderchartuserdata';
 
 
@@ -23,13 +18,14 @@ export class CreateRoomComponent implements OnInit {
   isNonProfit: boolean = true;
   timed: boolean = false;
   room: CreateRoom = {} as CreateRoom;
-  questions: Question[];
+  questions: {};
   spiderchartdatset:SpiderchartData = {} as SpiderchartData;
   
-  constructor(private roomService: RoomsService, private questionnaireService: QuestionnairesService, private router: Router,
+  constructor(private roomService: RoomsService, 
+    private questionService: QuestionsService,
+    private router: Router,
     private quesstionairResultService: QuestionnaireresultService){
     }
-
 
   changeNonProfit(isIt: boolean) {
     this.isNonProfit = isIt;
@@ -64,21 +60,27 @@ export class CreateRoomComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
-      this.questions = questionnaire.questions;
-      
-    })
+    this.questionService.questionsControllerFindAll().subscribe(singlequestions => {this.questions = singlequestions})
+
     this.quesstionairResultService.questionnaireResultControllerFindAll(environment.demoroom).subscribe(results => {
       this.spiderchartdatset = {datasets:[]};
 
-      var tmp_SpiderUserdata = new SpiderchartUserData; 
-
-      const Forming=[0, 4, 9, 14, 17, 20, 26, 28];
-      const Storming=[1, 6, 8, 15, 19, 22, 27, 30];
-      const Norming=[3, 5, 10, 12, 18, 23, 24, 29];
-      const Performing=[2, 7, 11, 13, 16, 21, 25, 31];
+      function getAllCategroies(obj, val){
+        var indexes = [], i;
+          for(i = 0; i < obj.length; i++){
+            if (obj[i].category.name === val){
+            indexes.push(i);}
+          }
+          return indexes;
+      }
+      
+      var Forming=getAllCategroies(this.questions, "Forming");
+      var Storming=getAllCategroies(this.questions, "Storming")
+      var Norming=getAllCategroies(this.questions, "Norming")
+      var Performing=getAllCategroies(this.questions, "Performing")
 
       for(let i = 0; i < results.length; i++){  
+        var tmp_SpiderUserdata = new SpiderchartUserData; 
         var userRes= results[i].QuestionResults
         
         var forming = 0;
@@ -122,7 +124,6 @@ export class CreateRoomComponent implements OnInit {
         tmp_SpiderUserdata.label = results[i].uuid
         tmp_SpiderUserdata.data = [forming,storming,norming,performing]
         this.spiderchartdatset.datasets.push(tmp_SpiderUserdata)
-        console.log(this.spiderchartdatset)
       }
     }
     )

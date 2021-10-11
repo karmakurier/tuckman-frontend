@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
 
 
@@ -8,6 +8,7 @@ import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
   styleUrls: ['./dotchart.component.scss']
 })
 export class DotchartComponent implements OnInit, AfterViewInit{
+  headers : any[]
 
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;  
@@ -19,19 +20,18 @@ export class DotchartComponent implements OnInit, AfterViewInit{
   private ctx: CanvasRenderingContext2D;
 
   // ziehen der Kategorien aus DB
-  headers = [
-    "Forming",
-    "Storming",
-    "Norming",
-    "Performing"];
-
-
 
 
   constructor() { }
 
   ngOnInit(): void { };
   ngAfterViewInit(): void {
+
+    this.headers = ["Forming",
+      "Storming",
+      "Norming",
+      "Performing"];
+
 
     function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
       if (typeof stroke === 'undefined') {
@@ -83,10 +83,7 @@ export class DotchartComponent implements OnInit, AfterViewInit{
     };
     // draw from here 
 
-  this.ctx = this.canvas.nativeElement.getContext('2d');
   var arraydata:Array<number>=[]
-
-  
 
   let dimscore = this.headers.indexOf(this.dimension, 0)
   
@@ -95,16 +92,19 @@ export class DotchartComponent implements OnInit, AfterViewInit{
     arraydata.push(this.dataset.datasets[i].data[dimscore])
   } 
 
-
-  
   let params = {
     arraydata:arraydata,
     height:this.canvas.nativeElement.attributes.getNamedItem("height").value,
     width:this.canvas.nativeElement.attributes.getNamedItem("width").value,
     thiks:this.canvas.nativeElement.attributes.getNamedItem("thiks").value}
 
- 
+  let parentWidth = Number(params.width)
+  let parentHeigth = Number(params.height)
   
+  
+  this.ctx = this.canvas.nativeElement.getContext('2d');
+  this.ctx.canvas.width = parentWidth;
+  this.ctx.canvas.height = parentHeigth;
 
   let frameheigth = Number(params.height)
   let framewidth = Number(params.width)

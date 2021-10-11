@@ -1,4 +1,6 @@
-import { Component, ViewChild, ElementRef, OnInit, Input, AfterViewChecked} from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, Input, AfterViewChecked, AfterViewInit} from '@angular/core';
+import { Router } from '@angular/router';
+import {QuestionnaireresultService, QuestionsService, RoomsService } from 'generated/api';
 import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
 
 
@@ -7,7 +9,9 @@ import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
   templateUrl: './spiderchart.component.html',
   styleUrls: ['./spiderchart.component.scss']
 })
-export class SpiderchartComponent implements OnInit, AfterViewChecked{
+export class SpiderchartComponent implements OnInit, AfterViewInit{
+  questions: {};
+  headers: any[];
 
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;  
@@ -16,31 +20,32 @@ export class SpiderchartComponent implements OnInit, AfterViewChecked{
   parent: ElementRef<HTMLElement>; 
   
   @Input() dataset:SpiderchartData;
-  
+
+  constructor (private questionService: QuestionsService){}
+
   private ctx: CanvasRenderingContext2D;
 
-  headers = [
-    "Forming",
-    "Storming",
-    "Norming",
-    "Performing"];
-
   
-  ngOnInit(): void { }
-  ngAfterViewChecked(): void{
-    // wie kann ich die maximale größe vom parent rein bekommen 
-    //let parentWidth = this.parent.nativeElement.offsetWidth;
+  ngOnInit(): void {}
 
-    function getSyncScriptParams() {
-      var scripts = document.getElementsByName('spiderchart');
-      var lastScript = scripts[scripts.length-1];
-      var scriptName = lastScript;
-      return {
-          height : scriptName.getAttribute('height'),
-          width : scriptName.getAttribute('width')
-      };
-    };
+  ngAfterViewInit(): void{
 
+    // to do: get the questions in here dow yield empty object 
+    this.questionService.questionsControllerFindAll().subscribe(results => {this.questions=results})
+
+    console.log(this.questions)
+
+    function getUniqueCategories(obj){
+      var names = [];
+        for(var i = 0; i < obj.length; i++){
+          names.push(obj[i].category.name)
+          names=[...new Set(names)]}
+        return names;
+    }
+
+    this.headers = ["Froming", "Storming", "Norming", "Performing"]
+
+    
     let params = {
       height:this.canvas.nativeElement.attributes.getNamedItem("height").value,
       width:this.canvas.nativeElement.attributes.getNamedItem("width").value}
