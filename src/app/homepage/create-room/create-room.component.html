@@ -35,10 +35,17 @@
       </div>
       <div  class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
         <div class="card-body">
-          <app-spiderchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"></app-spiderchart>
-        Wir zeigen euch wie euer Team gerade die Zusammenarbeit erlebt. Ein Team ist selten in einer einzelenen Phase alleine. 
-        Mit dem Teamüberblick seht ihr sofort welche Phase gerade dominiert, und ob alle Teammitglieder das ähnlich erleben oder nicht. 
-        Damit habt ihr eine gute Gesprächsgrundlage für euer nächstes Teammeeting.    
+          <table>
+            <tr>
+              <td style="width:40%">
+                <app-spiderchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"></app-spiderchart>
+              </td>
+              <td>Wir zeigen euch wie euer Team gerade die Zusammenarbeit erlebt. Ein Team ist selten in einer einzelenen Phase alleine. 
+                Mit dem Teamüberblick seht ihr sofort welche Phase gerade dominiert, und ob alle Teammitglieder das ähnlich erleben oder nicht. 
+                Damit habt ihr eine gute Gesprächsgrundlage für euer nächstes Teammeeting.    
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
@@ -50,8 +57,55 @@
       </div>
       <div class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
         <div class="card-body">
-          <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Norming"></app-dotchart>
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          <table >
+            <tr >
+              <h4>Forming</h4>
+            </tr>
+            <tr>
+              <td style="width:40%">
+              <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Forming"></app-dotchart>
+              </td>
+              <td>
+                Das Forming gilt auch als Orientierungsphase. Die Teammitglieder lernen sich kennen und sammeln erste Eindrücke.
+               </td>
+            </tr>
+            <tr>
+              <h4>Storming</h4>
+            </tr>
+            <tr>
+              <td>
+              <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Storming"></app-dotchart>
+              </td>
+              <td>
+                Die Konfrontationsphase zeichnet sich durch Konflikte im Team aus. Reibepunkte werden sichtbar und werden aus dem Weg geräumt. Ungeklärtheiten/Frustrationen werden identifiziert, Teamrollen werden definiert. 
+              </td>
+            </tr>
+
+            <tr>
+              <h4>Norming</h4>
+            </tr>
+            <tr>
+              <td>
+              <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Norming"></app-dotchart>
+              </td>
+              <td>
+                In der Übereinkommensphase haben sich Spannungen neutralisiert und gelten Normen und Strukturen die von jedem gelebt werden. Die Teamrollen haben sich etabliert und die gegenseitige Akzeptanz herscht vor.
+              </td>
+            </tr>
+
+            <tr>
+              <h4>Performing</h4>
+            </tr>
+            <tr>
+              <td>
+              <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Performing"></app-dotchart>
+              </td>
+              <td>
+                Hier steht die Performance im Vordergund, das Team ist eingespielt und für die Situation optimal ausgestattet. Hier ist operative Umsetzung am stärksten. Neuausrichtung passiert selten. 
+              </td>
+            </tr>
+            
+          </table>
         </div>
       </div>
     </div>
