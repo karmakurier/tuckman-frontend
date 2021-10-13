@@ -3,10 +3,44 @@
   cursor: pointer;
 }
 
+@font-face {
+  font-family: "Quicksand";
+  src: url("assets/fonts/Quicksand-VariableFont_wght.ttf") format("opentype");
+}
+
 .karma-button {
-  background: #FF966E;
-  border-color: #FF966E;
+  background: #ff966e;
+  border-color: #ff966e;
   border-radius: 10px;
   min-height: 58px;
 }
 
+body,
+html {
+  background-color: #fef0eb !important;
+  font-family: "Quicksand";
+}
+
+.container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: #ffffff;
+  border-radius: 10px;
+  font-family: "Quicksand";
+}
+
+.karma-header {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 35px;
+  text-align: center;
+
+  color: #ff966e;
+}
+
+.center {
+  text-align: center;
+}

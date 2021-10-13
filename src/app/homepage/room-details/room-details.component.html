@@ -1,21 +1,47 @@
 <div class="container">
-  <p> Schritt 2 von 2</p>
+  <div class="karma-header">
+    Willkommen bei der Tuckman Analyse
+  </div>
+  <p class="center"> Schritt 2 von 2</p>
+  <p> Super!<br /> Wir haben für Dich eine neue Tuckman Analyse angelegt.<br /> Auf dieser Seite findest Du alle
+    Informationen
+    um
+    gemeinsam
+    mit
+    deinem Team loszulegen. <br />Anschließend kannst Du dir hier auch das Ergebnis deines Teams anschauen. Viel
+    Spaß! </p>
 
+  <hr />
   <div>
     <h3>Teilnehmer einladen</h3>
-    <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForParticipants()"></app-button-link>
-    <p style="font-size: x-small;">Jeder mit diesem Link kann teilnehmen. Für die Teilnahme ist kein Konto oder eine
-      E-Mail erforderlich.</p>
+    <p>Versende den nachfolgenden Link an alle Teilnehmer, sodass sie den Fragebogen beantworten können.</p>
+    <div class="row">
+      <div class="col">
+        <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForParticipants()">
+        </app-button-link>
+        <p style="font-size: small;">Jeder mit diesem Link kann teilnehmen. Für die Teilnahme ist kein Konto oder eine
+          E-Mail erforderlich.</p>
+      </div>
+      <div class="col">
+        <a class="btn btn-primary" [href]="generateMailToForParticipants()">Link via E-Mail senden</a>
+      </div>
+    </div>
+
+
   </div>
 
-  <hr>
+  <hr />
 
   <div>
     <h3>Link zu dieser Seite</h3>
+    <p>Wenn Du zu dieser Seite zurückkehren willst um Dir die Analyse anzusehen, kannst Du nachfolgenden Link kopieren.
+    </p>
     <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForResults()"></app-button-link>
-    <p style="font-size: x-small;">Jeder mit diesem Link kann diese Auswertung sehen</p>
+
+    <p style="font-size: small;">Jeder mit diesem Link kann diese Auswertung sehen</p>
   </div>
 
+  <hr />
   <div>
     <h3>Auswertung Tuckman Analyse</h3>
 
@@ -28,58 +54,78 @@
   </div>
 
   <div>
-    <img  class="img-responsive" src="assets/tmp/images/OverviewTeam.png" alt="Überblick Tuckman Team Analyse Ergebnis">
+    <img class="img-responsive" src="assets/tmp/images/OverviewTeam.png" alt="Überblick Tuckman Team Analyse Ergebnis">
   </div>
 
   <div>
     <p>Auswertung der Einzelantworten</p>
   </div>
 
-    <div class="card">
-      <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)">
-        <h5 class="mb-0 acc-header">
-            Forming
-        </h5>
-      </div>
-      <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
+  <div class="card">
+    <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)">
+      <h5 class="mb-0 acc-header">
+        Forming
+      </h5>
+    </div>
+    <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+        officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+        butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+        haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
-    <div class="card">
-      <div class="card-header handcursor" id="headingTwo" (click)="expandAccordion(1)">
-        <h5 class="mb-0 acc-header">
-            Storming
-        </h5>
-      </div>
-      <div  class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
+  </div>
+  <div class="card">
+    <div class="card-header handcursor" id="headingTwo" (click)="expandAccordion(1)">
+      <h5 class="mb-0 acc-header">
+        Storming
+      </h5>
+    </div>
+    <div class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+        officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+        butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+        haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
-    <div class="card">
-      <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(2)">
-        <h5 class="mb-0 acc-header">
-            Norming
-        </h5>
-      </div>
-      <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
+  </div>
+  <div class="card">
+    <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(2)">
+      <h5 class="mb-0 acc-header">
+        Norming
+      </h5>
+    </div>
+    <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+        officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+        butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+        haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
-    <div class="card">
+  </div>
+  <div class="card">
     <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(3)">
       <h5 class="mb-0 acc-header">
-          Performing
+        Performing
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 3}">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+        officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+        butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+        haven't heard of them accusamus labore sustainable VHS.
       </div>
     </div>
   </div>
