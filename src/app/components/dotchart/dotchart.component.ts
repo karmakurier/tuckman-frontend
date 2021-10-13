@@ -142,7 +142,8 @@ export class DotchartComponent implements OnInit, AfterViewInit{
   this.ctx.fillStyle = "#000000";
 
   this.ctx.lineCap = "round"
-  this.ctx.lineWidth = 2;
+  this.ctx.lineWidth = Math.floor(0.04*frameheigth)
+  ;
 
   this.ctx.beginPath();
   this.ctx.moveTo(linestart, linecenter);
