@@ -10,7 +10,7 @@ export const environment = {
   Forming:"Forming",
   Storming:"Storming",
   Norming:"Norming",
-  Performing:"Perorming"
+  Performing:"Performing"
 };
 
 
