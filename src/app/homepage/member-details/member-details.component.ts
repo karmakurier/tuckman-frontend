@@ -14,7 +14,7 @@ export class MemberDetailsComponent implements OnInit {
 
   resultId: string;
   accordionExpanded: number = -1;
-  questions: Question[];
+  questions: Question[] = [];
   questionnaireResult: QuestionnaireResult[];
   spiderchartdatset: SpiderchartData = {} as SpiderchartData;
   userRes: QuestionResult[];

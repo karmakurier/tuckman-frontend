@@ -16,7 +16,7 @@ export class RoomDetailsComponent implements OnInit {
   room: Room = {} as Room;
   questionnaireResults: QuestionnaireResult[] = [];
   spiderchartdatset: SpiderchartData = {} as SpiderchartData
-  questions: Question[];
+  questions: Question[] = [];
 
   userResSum: QuestionResult[];
   userResSingle: QuestionResult[];

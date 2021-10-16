@@ -23,8 +23,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h5> Dein Mittelwert </h5>
-                        <app-dotchart *ngIf="userRes" [dataset]="userRes" dimension="Forming">
-                        </app-dotchart>
+                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Forming">
+                        </app-dotchartsingle>
                         <p></p>
                     </div>
                     <div class="col-md-8">
@@ -205,5 +205,5 @@
     <p style="font-size: x-small;">Deine E-Mail wird nicht bei uns gespeichert. Mit dieser Eingabe deiner E-Mail
         schickst du dir selbst den Link für deine persönliche Auswertung, mit welchem Du deine Ergebnisse jederzeit
         abrufen kannst.</p>
-
 </div>
+

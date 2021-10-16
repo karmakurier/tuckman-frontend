@@ -10,8 +10,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./dotchartsingle.component.scss']
 })
 export class DotchartsingleComponent implements OnInit {
-  questionnaire: Question[]
-  questions: {}
+  questionnaire: Question[]=[]
+  questions: {};
   headers: any[]
 
 
@@ -19,7 +19,7 @@ export class DotchartsingleComponent implements OnInit {
   canvas: ElementRef<HTMLCanvasElement>;
 
   @Input() dataset: QuestionResult[];
-  @Input() datasetfull: QuestionnaireResult[];
+  @Input() datasetfull: QuestionnaireResult[] = [];
   @Input() dimension: string;
   @Input() id: number;
 
@@ -88,6 +88,7 @@ export class DotchartsingleComponent implements OnInit {
     };
 
     if (category != "none") {
+      console.log(this.dataset)
       var dimid: Array<number> = []
       for (let a = 0; a < this.questionnaire.length; a++) {
         if (this.questionnaire[a].category.name == category) {
@@ -105,14 +106,16 @@ export class DotchartsingleComponent implements OnInit {
       var arraydata: Array<number> = []
       if (this.datasetfull.length >= 1) {
         for (let i = 0; i < this.datasetfull.length; i++) {
-          var answer = this.datasetfull[i].QuestionResults.filter(q => q.id==this.id)
+          var answer = this.datasetfull[i].QuestionResults.filter(q => q.id == this.id)
           arraydata.push(answer[0].answer)
         }
       }
-    } else {
-      for (let i = 0; i < this.dataset.length; i++) {
-        if (this.dataset[i].question.id == id) {
-          arraydata.push(this.dataset[i].answer)
+      else {
+        var arraydata: Array<number> = []
+        for (let i = 0; i < this.dataset.length; i++) {
+          if (this.dataset[i].question.id == id) {
+            arraydata.push(this.dataset[i].answer)
+          }
         }
       }
     }
