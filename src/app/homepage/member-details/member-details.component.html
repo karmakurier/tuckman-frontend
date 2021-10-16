@@ -8,11 +8,8 @@
             <app-spiderchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"></app-spiderchart>
         </div>
         <div class="col-md-8">
-            Wir zeigen euch wie euer Team gerade die Zusammenarbeit erlebt. Ein Team ist selten in einer
-            einzelenen Phase alleine.
-            Mit dem Teamüberblick seht ihr sofort welche Phase gerade dominiert, und ob alle Teammitglieder das
-            ähnlich erleben oder nicht.
-            Damit habt ihr eine gute Gesprächsgrundlage für euer nächstes Teammeeting.
+            Hier zeigen wir dir wie Du gerade die Zusammenarbeit erlebst. Du kannst ableiten welche Phase gerade für Dich dominiert,
+            und ob das deinen Erartungen entspricht. Für mehr Details kannst Du Dir die Einzelnen Fragen anschauen. 
         </div>
     </div>
     <div class="card">
@@ -26,8 +23,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h5> Dein Mittelwert </h5>
-                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Forming">
-                        </app-dotchartsingle>
+                        <app-dotchart *ngIf="userRes" [dataset]="userRes" dimension="Forming">
+                        </app-dotchart>
                         <p></p>
                     </div>
                     <div class="col-md-8">

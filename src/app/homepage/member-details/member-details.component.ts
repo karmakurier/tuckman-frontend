@@ -15,7 +15,7 @@ export class MemberDetailsComponent implements OnInit {
   resultId: string;
   accordionExpanded: number = -1;
   questions: Question[];
-  questionnaireResult: QuestionnaireResult;
+  questionnaireResult: QuestionnaireResult[];
   spiderchartdatset: SpiderchartData = {} as SpiderchartData;
   userRes: QuestionResult[];
 
@@ -79,6 +79,7 @@ export class MemberDetailsComponent implements OnInit {
       var Performing = getAllCategories(this.questions, "Performing")
 
       var tmp_SpiderUserdata = new SpiderchartUserData;
+
       this.userRes = results[0].QuestionResults
 
       var forming = 0;
@@ -120,8 +121,10 @@ export class MemberDetailsComponent implements OnInit {
       tmp_SpiderUserdata.label = this.resultId
       tmp_SpiderUserdata.data = [forming, storming, norming, performing]
       this.spiderchartdatset.datasets.push(tmp_SpiderUserdata)
+      this.questionnaireResult = results
     }
     )
+    
   }
 }
 

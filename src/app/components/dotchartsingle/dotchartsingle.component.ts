@@ -1,6 +1,6 @@
-import { Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import { Question, QuestionnairesService, QuestionResult, QuestionsService } from 'generated/api';
-import { of } from 'rxjs';
+import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Question, QuestionnaireResult, QuestionnairesService, QuestionResult, QuestionsService } from 'generated/api';
 import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
 import { environment } from 'src/environments/environment';
 
@@ -10,23 +10,23 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./dotchartsingle.component.scss']
 })
 export class DotchartsingleComponent implements OnInit {
-  questionnaire:Question[]
+  questionnaire: Question[]
   questions: {}
   headers: any[]
-  
+
 
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
 
   @Input() dataset: QuestionResult[];
+  @Input() datasetfull: QuestionnaireResult[];
   @Input() dimension: string;
-  @Input() questionid: number;
-  @Input() id:number;
+  @Input() id: number;
 
   private ctx: CanvasRenderingContext2D;
 
   constructor(private questionService: QuestionsService,
-    private questionnaireService:QuestionnairesService) { }
+    private questionnaireService: QuestionnairesService) { }
 
   getUniqueCategories(obj) {
     var names = [];
@@ -37,7 +37,7 @@ export class DotchartsingleComponent implements OnInit {
     return names;
   }
 
-  plotdotchartsingle(id=-1, category = "none"){
+  plotdotchartsingle(id = -1, category = "none") {
     function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
       if (typeof stroke === 'undefined') {
         stroke = true;
@@ -87,26 +87,31 @@ export class DotchartsingleComponent implements OnInit {
       }
     };
 
-    if (category != "none"){
-      var dimid:Array<number> = [] 
-      for(let a = 0; a < this.questionnaire.length; a++){
-        if(this.questionnaire[a].category.name == category){
+    if (category != "none") {
+      var dimid: Array<number> = []
+      for (let a = 0; a < this.questionnaire.length; a++) {
+        if (this.questionnaire[a].category.name == category) {
           dimid.push(this.questionnaire[a].id)
         }
-      }   
-      
-      var arraydata:Array<number> = [] 
-      for (let i = 0; i < this.dataset.length; i++){
-        if (dimid.indexOf(this.dataset[i].question.id)>=0){
+      }
+      var arraydata: Array<number> = []
+      for (let i = 0; i < this.dataset.length; i++) {
+        if (dimid.indexOf(this.dataset[i].question.id) >= 0) {
           arraydata.push(this.dataset[i].answer)
         }
       }
     }
-
-    if (id != -1){
+    if (id != -1) {
       var arraydata: Array<number> = []
+      if (this.datasetfull.length >= 1) {
+        for (let i = 0; i < this.datasetfull.length; i++) {
+          var answer = this.datasetfull[i].QuestionResults.filter(q => q.id==this.id)
+          arraydata.push(answer[0].answer)
+        }
+      }
+    } else {
       for (let i = 0; i < this.dataset.length; i++) {
-        if(this.dataset[i].question.id == id){
+        if (this.dataset[i].question.id == id) {
           arraydata.push(this.dataset[i].answer)
         }
       }
@@ -215,7 +220,7 @@ export class DotchartsingleComponent implements OnInit {
       }
     }
   }
-  
+
   ngOnInit(): void {
     this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
       this.questionnaire = questionnaire.questions;
@@ -224,7 +229,7 @@ export class DotchartsingleComponent implements OnInit {
     this.questionService.questionsControllerFindAll().subscribe(results => {
       this.questions = results
       this.headers = this.getUniqueCategories(this.questions)
-      this.plotdotchartsingle(this.id, this.dimension)    
+      this.plotdotchartsingle(this.id, this.dimension)
     })
   }
 }
