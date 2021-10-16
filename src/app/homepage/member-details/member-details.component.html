@@ -1,9 +1,20 @@
 <div class="container">
     <p>Schritt 2 von 2</p>
-    <h4>Deine persönliche Tuckman Analyse</h4>
-    <p>visuelles Ergebnis</p>
-    <img src="assets/tmp/images/OverviewMember.png" alt="Member Overview Tuckman Result">
-    <p>Forming </p>
+    <h4 class="mb-0 acc-header">
+        Deine persönliche Tuckman Analyse
+    </h4>
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <app-spiderchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"></app-spiderchart>
+        </div>
+        <div class="col-md-8">
+            Wir zeigen euch wie euer Team gerade die Zusammenarbeit erlebt. Ein Team ist selten in einer
+            einzelenen Phase alleine.
+            Mit dem Teamüberblick seht ihr sofort welche Phase gerade dominiert, und ob alle Teammitglieder das
+            ähnlich erleben oder nicht.
+            Damit habt ihr eine gute Gesprächsgrundlage für euer nächstes Teammeeting.
+        </div>
+    </div>
     <div class="card">
         <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)">
             <h5 class="mb-0 acc-header">
@@ -12,8 +23,36 @@
         </div>
         <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
             <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5> Dein Mittelwert </h5>
+                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Forming">
+                        </app-dotchartsingle>
+                        <p></p>
+                    </div>
+                    <div class="col-md-8">
+                        <h5> Bedeutung</h5>
+                        <p> In der Orientierungsphase lernen sich die Teammitglieder kennen und sammeln erste Eindrücke. Der Umgang miteinander ist von höflicher Distanz geprägt. Diese Situation wiederholt sich im Teambildung sobald eine neue Person dazu kommt. Die Teammitglieder bringen verschiedene Erwartungen und Kompetenzen mit ein, die die Anderen zum Ende des Formings kennen und einzuordnen wissen. Erste Ziele und Regeln wurden definiert. 
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p></p>
+                        <h5>Einzelfragen</h5>
+                    </div>
+                </div>
                 <ol>
-                    <li *ngFor="let question of getQuestionsForCategoryId(1)">{{question.questionString}}</li>
+                    <div class="row" *ngFor="let question of getQuestionsForCategoryId(1)">
+                        <div class="col-md-4">
+                            <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}>
+                            </app-dotchartsingle>
+                            <p></p>
+                        </div>
+                        <div class="col-md-8">
+                            <li>{{question.questionString}}</li>
+                        </div>
+                    </div>
                 </ol>
             </div>
         </div>
@@ -27,8 +66,36 @@
         </div>
         <div class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
             <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5> Dein Mittelwert </h5>
+                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Storming">
+                        </app-dotchartsingle>
+                        <p></p>
+                    </div>
+                    <div class="col-md-8">
+                        <h5> Bedeutung</h5>
+                        <p>Die Konfrontationsphase zeichnet sich durch Konflikte im Team aus. Sie ist geprägt von Stillstand, Widerständen durch Meinungsverschiedenheiten, Kompetenzgerangel oder verschiedener Zielorientierungen. Reibepunkte werden sichtbar und werden aus dem Weg geräumt. Ungeklärtheiten/Frustrationen werden identifiziert, Teamrollen werden definiert. Der Stillstand wird behoben und das geminsame, unbeschwerte Arbeiten beginnt.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p></p>
+                        <h5>Einzelfragen</h5>
+                    </div>
+                </div>
                 <ol>
-                    <li *ngFor="let question of getQuestionsForCategoryId(2)">{{question.questionString}}</li>
+                    <div class="row" *ngFor="let question of getQuestionsForCategoryId(2)">
+                        <div class="col-md-4">
+                            <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}>
+                            </app-dotchartsingle>
+                            <p></p>
+                        </div>
+                        <div class="col-md-8">
+                            <li>{{question.questionString}}</li>
+                        </div>
+                    </div>
                 </ol>
             </div>
         </div>
@@ -42,8 +109,36 @@
         </div>
         <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
             <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5> Dein Mittelwert </h5>
+                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Norming">
+                        </app-dotchartsingle>
+                        <p></p>
+                    </div>
+                    <div class="col-md-8">
+                        <h5> Bedeutung</h5>
+                        <p>In der Übereinkommensphase haben sich Spannungen neutralisiert und gelten Normen und Strukturen die von jedem gelebt werden. Die Teamrollen haben sich etabliert und die gegenseitige Akzeptanz herscht vor.  ..... noch nicht fertig
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p></p>
+                        <h5>Einzelfragen</h5>
+                    </div>
+                </div>
                 <ol>
-                    <li *ngFor="let question of getQuestionsForCategoryId(3)">{{question.questionString}}</li>
+                    <div class="row" *ngFor="let question of getQuestionsForCategoryId(3)">
+                        <div class="col-md-4">
+                            <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}>
+                            </app-dotchartsingle>
+                            <p></p>
+                        </div>
+                        <div class="col-md-8">
+                            <li>{{question.questionString}}</li>
+                        </div>
+                    </div>
                 </ol>
             </div>
         </div>
@@ -57,8 +152,37 @@
         </div>
         <div class="collapse" [ngClass]="{'show': accordionExpanded === 3}">
             <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5> Dein Mittelwert </h5>
+                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Performing">
+                        </app-dotchartsingle>
+                        <p></p>
+                    </div>
+                    <div class="col-md-8">
+                        <h5> Bedeutung</h5>
+                        <p>Minions ipsum poulet tikka masala baboiii daa me want bananaaa! Po kass jeje poopayee bee do bee do bee do wiiiii. 
+                            Jeje jeje underweaaar baboiii aaaaaah. Para tú pepete aaaaaah potatoooo tatata bala tu po kass wiiiii pepete la bodaaa bappleees.  
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p></p>
+                        <h5>Einzelfragen</h5>
+                    </div>
+                </div>
                 <ol>
-                    <li *ngFor="let question of getQuestionsForCategoryId(4)">{{question.questionString}}</li>
+                    <div class="row" *ngFor="let question of getQuestionsForCategoryId(4)">
+                        <div class="col-md-4">
+                            <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}>
+                            </app-dotchartsingle>
+                            <p></p>
+                        </div>
+                        <div class="col-md-8">
+                            <li>{{question.questionString}}</li>
+                        </div>
+                    </div>
                 </ol>
             </div>
         </div>

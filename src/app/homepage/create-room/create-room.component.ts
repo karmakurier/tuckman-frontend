@@ -24,7 +24,7 @@ export class CreateRoomComponent implements OnInit {
   constructor(private roomService: RoomsService, 
     private questionService: QuestionsService,
     private router: Router,
-    private quesstionairResultService: QuestionnaireresultService){
+    private questionnairResultService: QuestionnaireresultService){
     }
 
   changeNonProfit(isIt: boolean) {
@@ -62,10 +62,10 @@ export class CreateRoomComponent implements OnInit {
 
     this.questionService.questionsControllerFindAll().subscribe(singlequestions => {this.questions = singlequestions})
 
-    this.quesstionairResultService.questionnaireResultControllerFindAll(environment.demoroom).subscribe(results => {
+    this.questionnairResultService.questionnaireResultControllerFindAll(environment.demoroom).subscribe(results => {
       this.spiderchartdatset = {datasets:[]};
 
-      function getAllCategroies(obj, val){
+      function getAllCategories(obj, val){
         var indexes = [], i;
           for(i = 0; i < obj.length; i++){
             if (obj[i].category.name === val){
@@ -74,10 +74,10 @@ export class CreateRoomComponent implements OnInit {
           return indexes;
       }
       
-      var Forming=getAllCategroies(this.questions, "Forming");
-      var Storming=getAllCategroies(this.questions, "Storming")
-      var Norming=getAllCategroies(this.questions, "Norming")
-      var Performing=getAllCategroies(this.questions, "Performing")
+      var Forming=getAllCategories(this.questions, "Forming");
+      var Storming=getAllCategories(this.questions, "Storming")
+      var Norming=getAllCategories(this.questions, "Norming")
+      var Performing=getAllCategories(this.questions, "Performing")
 
       for(let i = 0; i < results.length; i++){  
         var tmp_SpiderUserdata = new SpiderchartUserData; 
