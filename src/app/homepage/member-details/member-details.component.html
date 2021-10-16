@@ -12,6 +12,7 @@
             und ob das deinen Erartungen entspricht. Für mehr Details kannst Du Dir die Einzelnen Fragen anschauen. 
         </div>
     </div>
+
     <div class="card">
         <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)">
             <h5 class="mb-0 acc-header">
@@ -36,7 +37,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <p></p>
-                        <h5>Einzelfragen</h5>
+                        <h5>Einzelfragen<br><br></h5>
                     </div>
                 </div>
                 <ol>
@@ -44,10 +45,10 @@
                         <div class="col-md-4">
                             <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}>
                             </app-dotchartsingle>
-                            <p></p>
+                            <br><br>
                         </div>
                         <div class="col-md-8">
-                            <li>{{question.questionString}}</li>
+                            <li>{{question.questionString}}<br><br></li>
                         </div>
                     </div>
                 </ol>
@@ -79,7 +80,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <p></p>
-                        <h5>Einzelfragen</h5>
+                        <h5>Einzelfragen<br><br></h5>
                     </div>
                 </div>
                 <ol>
@@ -90,7 +91,7 @@
                             <p></p>
                         </div>
                         <div class="col-md-8">
-                            <li>{{question.questionString}}</li>
+                            <li>{{question.questionString}}<br><br></li>
                         </div>
                     </div>
                 </ol>
@@ -122,7 +123,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <p></p>
-                        <h5>Einzelfragen</h5>
+                        <h5>Einzelfragen<br><br></h5>
                     </div>
                 </div>
                 <ol>
@@ -133,7 +134,7 @@
                             <p></p>
                         </div>
                         <div class="col-md-8">
-                            <li>{{question.questionString}}</li>
+                            <li>{{question.questionString}}<br><br></li>
                         </div>
                     </div>
                 </ol>
@@ -166,7 +167,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <p></p>
-                        <h5>Einzelfragen</h5>
+                        <h5>Einzelfragen<br><br></h5>
                     </div>
                 </div>
                 <ol>
@@ -174,10 +175,10 @@
                         <div class="col-md-4">
                             <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}>
                             </app-dotchartsingle>
-                            <p></p>
+                            <br><br>
                         </div>
                         <div class="col-md-8">
-                            <li>{{question.questionString}}</li>
+                            <li>{{question.questionString}}<br><br></li>
                         </div>
                     </div>
                 </ol>
