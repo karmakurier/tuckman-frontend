@@ -1,13 +1,39 @@
 <div class="container">
-  <div class="karma-header">
-    Willkommen bei der Tuckman Analyse
-  </div>
+
+
+  <!-- Block Welcome -->
   <p class="center"> Schritt 1 von 2</p>
+  <div class="karma-header py-3">
+    Willkommen bei eurer persönlichen Tuckman Analyse!
+  </div>
+  <div class="row align-items-center py-3">
+    <div class="col col-md-6">
+      <div>
+        <img src="assets/SVGSurvey.svg" alt="People makeing a team survey and analyzing results"
+          class="rounded mx-auto d-block">
+      </div>
+      <br><br>
+    </div>
+    <div class="col col-md-6">
+      <h5>Mache dein Team noch stärker</h5>
+      <br><br>
+      Der amerikanische Psychologe und Hochschullehrer Bruce Wayne Tuckman (1938-2016) entwickelte im Jahr 1965 das
+      Tuckman-Phasenmodell als Ausgangspunkt in der Teamentwicklung. Es ist nach wie vor der Gold-Standard bei der
+      Beschreibung von Teambildungsprozessen.
+      <br><br>
+      Beantworte die folgenden Fragen und leite im Anschluss den Link an dein Team weiter. Wir schicken dir dann eine
+      persönliche Auswertung - so erfährst du, in welcher Phase ihr euch befindet und wie ihr optimal zusammen arbeiten
+      könnt.
+    </div>
+  </div>
+  <br><br>
+
+
+  <!-- Block Anmeldung -->
   <div class="form-group">
     <input type="text" name="teamname" class="form-control karma-input" [(ngModel)]="room.teamName"
       placeholder="Name des Teams">
   </div>
-
   <div class="form-group">
     <div class="row">
       <div class="col col-md-6">
@@ -21,8 +47,6 @@
           (click)="changeNonProfit(false)">nicht gemeinnützig</button>
       </div>
     </div>
-
-
   </div>
   <div class="form-group">
     <input type="email" name="mail" class="form-control karma-input" [(ngModel)]="room.initiatorEmail"
@@ -34,13 +58,16 @@
     <textarea name="notes" class="form-control karma-input" [(ngModel)]="room.notes"
       placeholder="Notiz hinzufügen (optional)"></textarea>
   </div>
-  <h5>Tuckman Analyse</h5>
 
+  <!-- Block Vorschau -->
+
+  <br><br>
+  <h5 class="py-3">Vorschau Tuckman Analyse</h5>
   <div #spiderchartplot class="card">
     <div class="card-header handcursor" id="headingTwo" (click)="expandAccordion(0)">
 
       <h5 class="mb-0 acc-header">
-        Teamscores Preview
+        Der Teamscore
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
@@ -63,13 +90,13 @@
   <div class="card">
     <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(1)">
       <h5 class="mb-0 acc-header">
-        Einzelscores Preview
+        Die Phasen
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
       <div class="card-body">
 
-        <h4>Forming</h4>
+        <h4 class="py-3">Forming</h4>
         <div class="row">
           <div class="col-md-4">
             <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Forming">
@@ -81,7 +108,7 @@
           </div>
         </div>
 
-        <h4>Storming</h4>
+        <h4 class="py-3">Storming</h4>
         <div class="row">
           <div class="col-md-4">
             <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Storming">
@@ -94,7 +121,7 @@
           </div>
         </div>
 
-        <h4>Norming</h4>
+        <h4 class="py-3">Norming</h4>
         <div class="row">
           <div class="col-md-4">
             <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Norming">
@@ -106,7 +133,7 @@
           </div>
         </div>
 
-        <h4>Performing</h4>
+        <h4 class="py-3">Performing</h4>
         <div class="row">
           <div class="col-md-4">
             <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Performing">
@@ -123,13 +150,13 @@
   <div class="card">
     <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(2)">
       <h5 class="mb-0 acc-header">
-        Fragen Preview
+        Die Fragen
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
       <div class="card-body">
         <ol>
-          <li *ngFor="let question of questions">{{question.questionString}}</li>
+          <li *ngFor="let question of questions" class="py-2">{{question.questionString}}</li>
         </ol>
       </div>
     </div>
@@ -137,7 +164,8 @@
 
   </div>
 
-  <h5>Frist festlegen</h5>
+  <!-- Block Frist -->
+  <h5 class="py-3">Frist festlegen</h5>
   <p style="font-size: small;">Lege eine Frist fest an welcher alle aus deinem Team teilgenommen haben sollen. </p>
   <div class="form-check">
     <input type="checkbox" class="form-check-input" (change)="timed = !timed">
@@ -148,6 +176,9 @@
       class="form-control karma-input" [(ngModel)]="room.expiresAt" bsDatepicker>
   </div>
 
+
+
+  <!-- Block Submit -->
 
   <div class="text-right">
     <button class="btn btn-secondary karma-button" (click)="createRoom()" [disabled]="!isNonProfit">
