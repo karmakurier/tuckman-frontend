@@ -8,8 +8,9 @@
             <app-spiderchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"></app-spiderchart>
         </div>
         <div class="col-md-8">
-            Hier zeigen wir dir wie Du gerade die Zusammenarbeit erlebst. Du kannst ableiten welche Phase gerade für Dich dominiert,
-            und ob das deinen Erartungen entspricht. Für mehr Details kannst Du Dir die Einzelnen Fragen anschauen. 
+            Hier zeigen wir dir wie Du gerade die Zusammenarbeit erlebst. Du kannst ableiten welche Phase gerade für
+            Dich dominiert,
+            und ob das deinen Erartungen entspricht. Für mehr Details kannst Du Dir die Einzelnen Fragen anschauen.
         </div>
     </div>
 
@@ -30,7 +31,11 @@
                     </div>
                     <div class="col-md-8">
                         <h5> Bedeutung</h5>
-                        <p> In der Orientierungsphase lernen sich die Teammitglieder kennen und sammeln erste Eindrücke. Der Umgang miteinander ist von höflicher Distanz geprägt. Diese Situation wiederholt sich im Teambildung sobald eine neue Person dazu kommt. Die Teammitglieder bringen verschiedene Erwartungen und Kompetenzen mit ein, die die Anderen zum Ende des Formings kennen und einzuordnen wissen. Erste Ziele und Regeln wurden definiert. 
+                        <p> In der Orientierungsphase lernen sich die Teammitglieder kennen und sammeln erste Eindrücke.
+                            Der Umgang miteinander ist von höflicher Distanz geprägt. Diese Situation wiederholt sich im
+                            Teambildung sobald eine neue Person dazu kommt. Die Teammitglieder bringen verschiedene
+                            Erwartungen und Kompetenzen mit ein, die die Anderen zum Ende des Formings kennen und
+                            einzuordnen wissen. Erste Ziele und Regeln wurden definiert.
                         </p>
                     </div>
                 </div>
@@ -40,7 +45,7 @@
                         <h5>Einzelfragen<br><br></h5>
                     </div>
                 </div>
-                <ol>
+                <ol style="margin-left:0px">
                     <div class="row" *ngFor="let question of getQuestionsForCategoryId(1)">
                         <div class="col-md-4">
                             <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}>
@@ -73,7 +78,11 @@
                     </div>
                     <div class="col-md-8">
                         <h5> Bedeutung</h5>
-                        <p>Die Konfrontationsphase zeichnet sich durch Konflikte im Team aus. Sie ist geprägt von Stillstand, Widerständen durch Meinungsverschiedenheiten, Kompetenzgerangel oder verschiedener Zielorientierungen. Reibepunkte werden sichtbar und werden aus dem Weg geräumt. Ungeklärtheiten/Frustrationen werden identifiziert, Teamrollen werden definiert. Der Stillstand wird behoben und das geminsame, unbeschwerte Arbeiten beginnt.
+                        <p>Die Konfrontationsphase zeichnet sich durch Konflikte im Team aus. Sie ist geprägt von
+                            Stillstand, Widerständen durch Meinungsverschiedenheiten, Kompetenzgerangel oder
+                            verschiedener Zielorientierungen. Reibepunkte werden sichtbar und werden aus dem Weg
+                            geräumt. Ungeklärtheiten/Frustrationen werden identifiziert, Teamrollen werden definiert.
+                            Der Stillstand wird behoben und das geminsame, unbeschwerte Arbeiten beginnt.
                         </p>
                     </div>
                 </div>
@@ -116,7 +125,9 @@
                     </div>
                     <div class="col-md-8">
                         <h5> Bedeutung</h5>
-                        <p>In der Übereinkommensphase haben sich Spannungen neutralisiert und gelten Normen und Strukturen die von jedem gelebt werden. Die Teamrollen haben sich etabliert und die gegenseitige Akzeptanz herscht vor.  ..... noch nicht fertig
+                        <p>In der Übereinkommensphase haben sich Spannungen neutralisiert und gelten Normen und
+                            Strukturen die von jedem gelebt werden. Die Teamrollen haben sich etabliert und die
+                            gegenseitige Akzeptanz herscht vor. ..... noch nicht fertig
                         </p>
                     </div>
                 </div>
@@ -159,8 +170,10 @@
                     </div>
                     <div class="col-md-8">
                         <h5> Bedeutung</h5>
-                        <p>Minions ipsum poulet tikka masala baboiii daa me want bananaaa! Po kass jeje poopayee bee do bee do bee do wiiiii. 
-                            Jeje jeje underweaaar baboiii aaaaaah. Para tú pepete aaaaaah potatoooo tatata bala tu po kass wiiiii pepete la bodaaa bappleees.  
+                        <p>Minions ipsum poulet tikka masala baboiii daa me want bananaaa! Po kass jeje poopayee bee do
+                            bee do bee do wiiiii.
+                            Jeje jeje underweaaar baboiii aaaaaah. Para tú pepete aaaaaah potatoooo tatata bala tu po
+                            kass wiiiii pepete la bodaaa bappleees.
                         </p>
                     </div>
                 </div>
@@ -207,4 +220,3 @@
         schickst du dir selbst den Link für deine persönliche Auswertung, mit welchem Du deine Ergebnisse jederzeit
         abrufen kannst.</p>
 </div>
-
