@@ -17,6 +17,7 @@ import { ApiConfiguration } from 'generated/api';
 import { environment } from 'src/environments/environment';
 import { SpiderchartComponent } from './components/spiderchart/spiderchart.component';
 import { DotchartComponent } from './components/dotchart/dotchart.component';
+import { QuestionComponent } from './components/question/question.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { DotchartComponent } from './components/dotchart/dotchart.component';
     CreateRoomComponent,
     MailLinkComponent,
     SpiderchartComponent,
-    DotchartComponent
+    DotchartComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
