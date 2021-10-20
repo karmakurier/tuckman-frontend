@@ -18,6 +18,7 @@ import { environment } from 'src/environments/environment';
 import { SpiderchartComponent } from './components/spiderchart/spiderchart.component';
 import { DotchartComponent } from './components/dotchart/dotchart.component';
 import { QuestionComponent } from './components/question/question.component';
+import { NgHcaptchaModule } from 'ng-hcaptcha';
 
 
 @NgModule({
@@ -40,7 +41,11 @@ import { QuestionComponent } from './components/question/question.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    NgHcaptchaModule.forRoot({
+      siteKey: environment.hCaptchaSiteKey,
+      languageCode: 'de' // optional, will default to browser language
+    }),
   ],
   providers: [
     {

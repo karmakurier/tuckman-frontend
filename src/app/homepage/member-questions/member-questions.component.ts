@@ -30,7 +30,7 @@ export class MemberQuestionsComponent implements OnInit {
     this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
       this.questions = questionnaire.questions;
       for (let i = 0; i < this.questions.length; i++) {
-        this.questionnaireResult.QuestionResults.push({ questionId: this.questions[i].id, answer: 1 })
+        this.questionnaireResult.QuestionResults.push({ questionId: this.questions[i].id, answer: null })
       }
     });
   }
