@@ -11,11 +11,13 @@ export class QuestionComponent implements OnInit {
   @Input() Question: Question;
   @Input() QuestionNumber: number;
   @Input() QuestionsMax: number;
+  answer: number;
   @Output() actionTaken = new EventEmitter();
   constructor() { }
 
 
   ngOnInit(): void {
+
   }
 
 }

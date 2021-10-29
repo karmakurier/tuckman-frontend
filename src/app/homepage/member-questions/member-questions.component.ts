@@ -13,7 +13,7 @@ export class MemberQuestionsComponent implements OnInit {
   questions: Question[];
   questionnaireResult: QuestionnaireResultCreate = {} as QuestionnaireResultCreate;
   participateId: string;
-  currentquestion: 0;
+  currentquestion: number = 0;
 
   constructor(
     private router: Router,
