@@ -2,3 +2,74 @@
   background: #ffffff;
   border-radius: 10px;
 }
+
+.card-text {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+input[type="radio"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(--form-background);
+  /* Not removed via appearance */
+  margin: 0;
+
+  font: inherit;
+  color: currentColor;
+  width: 2em;
+  height: 2em;
+  border: 0.2em solid #ff966e;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.radio-label {
+  width: 2em;
+  text-align: center;
+  height: 3em;
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.radio-container {
+  width: 100%;
+  max-width: 600px;
+  height: 100px;
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="radio"]::before {
+  content: "";
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: #ff966e;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="radio"]:focus {
+}

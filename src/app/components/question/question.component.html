@@ -2,32 +2,29 @@
 <p class="card-text">{{Question.questionString}}</p>
 <small>1 = stimme voll und ganz zu; 5 = stimme überhaupt nicht zu</small>
 
-
-<div class="row" style="width: 400px;">
-    <div class="col">1</div>
-    <div class="col">2</div>
-    <div class="col">3</div>
-    <div class="col">4</div>
-    <div class="col">5</div>
-</div>
-<div class="row" style="width: 400px;">
+<div class="row radio-container">
     <div class="col">
+        <div class="radio-label">1</div>
         <input class="form-check-input" type="radio" name={{Question.id}} id=option1{{Question.id}} [value]="1"
             [(ngModel)]="answer" aria-label="...">
     </div>
     <div class="col">
+        <div class="radio-label">2</div>
         <input class="form-check-input" type="radio" name={{Question.id}} id=option1{{Question.id}} [value]="2"
             [(ngModel)]="answer" aria-label="...">
     </div>
     <div class="col">
+        <div class="radio-label">3</div>
         <input class="form-check-input" type="radio" name={{Question.id}} id=option1{{Question.id}} [value]="3"
             [(ngModel)]="answer" aria-label="...">
     </div>
     <div class="col">
+        <div class="radio-label">4</div>
         <input class="form-check-input" type="radio" name={{Question.id}} id=option1{{Question.id}} [value]="4"
             [(ngModel)]="answer" aria-label="...">
     </div>
     <div class="col">
+        <div class="radio-label">5</div>
         <input class="form-check-input" type="radio" name={{Question.id}} id=option1{{Question.id}} [value]="5"
             [(ngModel)]="answer" aria-label="...">
     </div>
