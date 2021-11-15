@@ -19,6 +19,8 @@ import { SpiderchartComponent } from './components/spiderchart/spiderchart.compo
 import { DotchartComponent } from './components/dotchart/dotchart.component';
 import { QuestionComponent } from './components/question/question.component';
 import { NgHcaptchaModule } from 'ng-hcaptcha';
+import { QuestionWelcomeComponent } from './components/question-welcome/question-welcome.component';
+import { QuestionFinishComponent } from './components/question-finish/question-finish.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { NgHcaptchaModule } from 'ng-hcaptcha';
     MailLinkComponent,
     SpiderchartComponent,
     DotchartComponent,
-    QuestionComponent
+    QuestionComponent,
+    QuestionWelcomeComponent,
+    QuestionFinishComponent
   ],
   imports: [
     BrowserModule,

@@ -3,14 +3,64 @@
   border-radius: 10px;
 }
 
-.card-text {
+.card-title {
   font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 35px;
+}
+
+.back-button {
+  color: #58b893;
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+  text-align: center;
+  padding: 1em;
+}
+.positive-button {
+  background: #58b893;
+  border-color: #58b893;
+  border-radius: 10px;
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  padding: 1em;
+  min-width: 200px;
+}
+
+.card-subheader {
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.card-text {
+  font-family: Mulish;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
   line-height: 30px;
+  min-height: 4em;
 }
 
+.progress {
+  margin-bottom: 1em;
+  height: 5px;
+}
+
+.progress-bar {
+  background-color: #58b893;
+}
 input[type="radio"] {
   /* Add if not using autoprefixer */
   -webkit-appearance: none;

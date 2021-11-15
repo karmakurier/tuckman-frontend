@@ -1,0 +1,22 @@
+<div class="header-image">
+    <img src="assets/img/questions-finish.svg">
+</div>
+
+<div class="header-text">
+    Deine Antworten sind vorgemerkt
+</div>
+
+<div class="subheader-text">
+    Bitte fülle noch folgendes Captcha aus um die Umfrage abzusenden.
+</div>
+
+<div class="form-group">
+    <ng-hcaptcha (verify)="onVerify($event)" (expired)="onExpired($event)" (error)="onError($event)">
+    </ng-hcaptcha>
+</div>
+
+<div class="form-group">
+    <button class="btn positive-button" (click)="finishAndSend()" [disabled]="!isVerified">
+        Umfrage absenden und Auswertung anschauen <img src="assets/img/arrow-right.svg">
+    </button>
+</div>

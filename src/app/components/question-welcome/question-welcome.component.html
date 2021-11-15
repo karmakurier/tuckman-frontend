@@ -1,0 +1,33 @@
+<ng-container *ngIf="room">
+    <div class="header-image">
+        <img src="assets/img/questions-welcome.svg">
+    </div>
+
+    <div class="header-text">
+        Willkommen bei der Tuckman Analyse
+    </div>
+
+    <div class="subheader-text">
+        Bitte fülle die folgenden 32 Fragen aus und nimm nur einmal an der Umfrage teil. Danke.
+    </div>
+
+    <div class="details-box">
+        <div class="row">
+            <div class="col col-md-2">Team:</div>
+            <div class="col col-md-10">{{room.teamName}}</div>
+        </div>
+        <div class="row">
+            <div class="col col-md-2">Frist:</div>
+            <div class="col col-md-10" *ngIf="!hasNoExpireDate()">{{room.expiresAt | date: 'dd.MM.yyyy'}}</div>
+            <div class="col col-md-10" *ngIf="hasNoExpireDate()">Keine Teilnahmefrist</div>
+        </div>
+        <div class="row" *ngIf="isExpired()">
+            <div class="col col-md-2"></div>
+            <div class="col col-md-10">Die Frist ist leider abgelaufen!</div>
+        </div>
+    </div>
+
+    <div class="positive-button" (click)="start()" *ngIf="!isExpired()">
+        Los geht's <img src="assets/img/arrow-right.svg">
+    </div>
+</ng-container>

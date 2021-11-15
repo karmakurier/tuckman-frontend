@@ -1,38 +1,53 @@
+<div class="progress">
+    <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="QuestionNumber" aria-valuemin="0"
+        [attr.aria-valuemax]="QuestionMax" [style.width]="(QuestionNumber/QuestionMax*100).toFixed(1) + '%'">
+    </div>
+</div>
 <h5 class="card-title">Frage {{QuestionNumber}}</h5>
 <p class="card-text">{{Question.questionString}}</p>
-<small>1 = stimme voll und ganz zu; 5 = stimme überhaupt nicht zu</small>
+<p class="card-subheader">1 = stimme voll und ganz zu; 5 = stimme überhaupt nicht zu</p>
 
 <div class="row radio-container">
     <div class="col">
         <div class="radio-label">1</div>
         <input class="form-check-input" type="radio" name={{Question.id}} id=option1{{Question.id}} [value]="1"
-            [(ngModel)]="answer" aria-label="...">
+            [(ngModel)]="answer" aria-label="..." (change)="selectedValue()">
     </div>
     <div class="col">
         <div class="radio-label">2</div>
-        <input class="form-check-input" type="radio" name={{Question.id}} id=option1{{Question.id}} [value]="2"
-            [(ngModel)]="answer" aria-label="...">
+        <input class="form-check-input" type="radio" name={{Question.id}} id=option2{{Question.id}} [value]="2"
+            [(ngModel)]="answer" aria-label="..." (change)="selectedValue()">
     </div>
     <div class="col">
         <div class="radio-label">3</div>
-        <input class="form-check-input" type="radio" name={{Question.id}} id=option1{{Question.id}} [value]="3"
-            [(ngModel)]="answer" aria-label="...">
+        <input class="form-check-input" type="radio" name={{Question.id}} id=option3{{Question.id}} [value]="3"
+            [(ngModel)]="answer" aria-label="..." (change)="selectedValue()">
     </div>
     <div class="col">
         <div class="radio-label">4</div>
-        <input class="form-check-input" type="radio" name={{Question.id}} id=option1{{Question.id}} [value]="4"
-            [(ngModel)]="answer" aria-label="...">
+        <input class="form-check-input" type="radio" name={{Question.id}} id=option4{{Question.id}} [value]="4"
+            [(ngModel)]="answer" aria-label="..." (change)="selectedValue()">
     </div>
     <div class="col">
         <div class="radio-label">5</div>
-        <input class="form-check-input" type="radio" name={{Question.id}} id=option1{{Question.id}} [value]="5"
-            [(ngModel)]="answer" aria-label="...">
+        <input class="form-check-input" type="radio" name={{Question.id}} id=option5{{Question.id}} [value]="5"
+            [(ngModel)]="answer" aria-label="..." (change)="selectedValue()">
     </div>
 </div>
 <br />
 
+<div class="row">
+    <div class="col">
+        <a class="btn back-button" (click)="back()" *ngIf="QuestionNumber > 1">zurück</a>
+    </div>
+    <div class="col">
+        <div class="text-right">
+            <button class="btn btn-secondary positive-button" (click)="nextQuestion()" [disabled]="!answer"
+                *ngIf="!(QuestionNumber == QuestionMax)">zur nächsten
+                Frage <img src="assets/img/arrow-right.svg"></button>
 
-<div class="text-right">
-    <a class="btn btn-primary">zurück</a>
-    <a class="btn btn-primary">zur nächsten Frage</a>
+            <button class="btn btn-secondary positive-button" *ngIf="QuestionNumber == QuestionMax" (click)="finish()"
+                [disabled]="!answer">Fertig! <img src="assets/img/arrow-right.svg"></button>
+        </div>
+    </div>
 </div>

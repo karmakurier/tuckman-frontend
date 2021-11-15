@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Question, QuestionnaireResultCreate, QuestionnaireresultService, QuestionnairesService, QuestionResultCreate, QuestionsService, RoomsService } from 'generated/api';
+import { ParticipateRoom, Question, QuestionnaireResultCreate, QuestionnaireresultService, QuestionnairesService, QuestionResultCreate, QuestionsService, RoomsService } from 'generated/api';
+import { ActionTaken } from 'src/app/components/question/actionTaken.model';
+import { QuestionActionType } from 'src/app/components/question/questionActionType';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -14,18 +16,25 @@ export class MemberQuestionsComponent implements OnInit {
   questionnaireResult: QuestionnaireResultCreate = {} as QuestionnaireResultCreate;
   participateId: string;
   currentquestion: number = 0;
+  started: boolean = true;
+  finished: boolean = true;
+  room: ParticipateRoom;
 
   constructor(
     private router: Router,
     private questionnaireService: QuestionnairesService,
     private activatedRoute: ActivatedRoute,
-    private questionnaireResultService: QuestionnaireresultService) {
+    private questionnaireResultService: QuestionnaireresultService,
+    private roomService: RoomsService) {
   }
 
   async ngOnInit() {
-
     this.participateId = this.activatedRoute.snapshot.paramMap.get('id');
     this.questionnaireResult.participateId = this.participateId;
+    this.roomService.roomsControllerFindForParticipant(this.participateId).subscribe(room => {
+      console.log(this.room)
+      this.room = room;
+    })
     this.questionnaireResult.QuestionResults = [] as QuestionResultCreate[];
     this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
       this.questions = questionnaire.questions;
@@ -33,6 +42,31 @@ export class MemberQuestionsComponent implements OnInit {
         this.questionnaireResult.QuestionResults.push({ questionId: this.questions[i].id, answer: null })
       }
     });
+  }
+
+  questionnaireStarted() {
+    this.started = true;
+  }
+
+  handleAction(event: ActionTaken) {
+    if (event.actionType == QuestionActionType.next) {
+      this.currentquestion++;
+    }
+
+    if (event.actionType == QuestionActionType.back) {
+      if (this.currentquestion > 0) {
+        this.currentquestion--;
+      }
+    }
+
+    if (event.actionType == QuestionActionType.value) {
+      this.questionnaireResult.QuestionResults[this.currentquestion].answer = event.value;
+      console.log(this.questionnaireResult.QuestionResults[this.currentquestion]);
+    }
+
+    if (event.actionType == QuestionActionType.finish) {
+      this.finished = true;
+    }
   }
 
   public sendQuestionnaire() {
