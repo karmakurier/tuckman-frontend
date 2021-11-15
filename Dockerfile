@@ -1,7 +1,7 @@
-FROM node:alpine AS build-env
+FROM timbru31/java-node:latest AS build-env
 WORKDIR /app
 COPY . .
-RUN npm ci && npm run openapi-generate-all && npm run build
+RUN npm ci && npm run openapi-generate-all && npm run buildprod
 
 
 FROM nginx:alpine
