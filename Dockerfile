@@ -1,7 +1,7 @@
 FROM node:alpine AS build-env
 WORKDIR /app
 COPY . .
-RUN npm ci && npm run build
+RUN npm ci && npm run openapi-generate-all && npm run build
 
 
 FROM nginx:alpine
