@@ -5,5 +5,5 @@
         [QuestionNumber]="currentquestion + 1" [answer]="questionnaireResult.QuestionResults[currentquestion].answer"
         [QuestionMax]="questions.length" (actionTaken)="handleAction($event)">
     </app-question>
-    <app-question-finish *ngIf="finished"></app-question-finish>
+    <app-question-finish *ngIf="finished" (finishWithCaptcha)="handleFinish($event)"></app-question-finish>
 </div>

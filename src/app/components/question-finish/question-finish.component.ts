@@ -29,7 +29,7 @@ export class QuestionFinishComponent implements OnInit {
   }
 
   finishAndSend() {
-
+    this.finishWithCaptcha.next(this.hcaptchaValue);
   }
 
 }

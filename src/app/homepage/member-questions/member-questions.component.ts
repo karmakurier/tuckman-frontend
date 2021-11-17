@@ -16,8 +16,8 @@ export class MemberQuestionsComponent implements OnInit {
   questionnaireResult: QuestionnaireResultCreate = {} as QuestionnaireResultCreate;
   participateId: string;
   currentquestion: number = 0;
-  started: boolean = true;
-  finished: boolean = true;
+  started: boolean = false;
+  finished: boolean = false;
   room: ParticipateRoom;
 
   constructor(
@@ -67,6 +67,11 @@ export class MemberQuestionsComponent implements OnInit {
     if (event.actionType == QuestionActionType.finish) {
       this.finished = true;
     }
+  }
+
+  handleFinish(hcaptchaValue: string) {
+    this.questionnaireResult.hcaptchaValue = hcaptchaValue;
+    this.sendQuestionnaire();
   }
 
   public sendQuestionnaire() {
