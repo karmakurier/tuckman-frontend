@@ -1,33 +1,44 @@
 <div class="container">
-  <div class="karma-header">
-    Willkommen bei der Tuckman Analyse
+  <p class="center"> Schritt 1 von 2</p>
+  <div class="karma-header py-3">
+    Willkommen bei eurer persönlichen Tuckman Analyse!
   </div>
-  <p class="center"> Schritt 2 von 2</p>
-  <p> Super!<br /> Wir haben für Dich eine neue Tuckman Analyse angelegt.<br /> Auf dieser Seite findest Du alle
-    Informationen
-    um
-    gemeinsam
-    mit
-    deinem Team loszulegen. <br />Anschließend kannst Du dir hier auch das Ergebnis deines Teams anschauen. Viel
-    Spaß! </p>
+  <div class="row align-items-center py-3">
+    <div class="col col-md-6">
+      <div>
+        <img src="assets/SVGSurvey.svg" alt="People makeing a team survey and analyzing results"
+          class="rounded mx-auto d-block">
+      </div>
+      <br><br>
+    </div>
+    <div class="col col-md-6">
+      <h5>Hier gehts richtig los</h5>
+      <br><br>
+      Wir haben für Dich eine Tuckman Analyse angelegt.<br /> Hier findest Du alle
+        Informationen um gemeinsam mit deinem Team loszulegen. <br />
+        Versende den Link für die Teilnehmer an eure Teamitglieder. So können sie die Fragen ausfüllen. 
+        Wir speicher keine email und keine Daten, daher bewahrt die Links gut auf. 
+        Kehre Auf diese Seite zurück um die Ergebnisse zu sehen<br />
+        Viel Spaß, und vergiss nicht selbst mitzumachen! 
+    </div>
+  </div>
 
   <hr />
   <div>
     <h3>Teilnehmer einladen</h3>
     <p>Versende den nachfolgenden Link an alle Teilnehmer, sodass sie den Fragebogen beantworten können.</p>
     <div class="row">
-      <div class="col">
+      <div class="col col-md-8">
         <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForParticipants()">
         </app-button-link>
-        <p style="font-size: small;">Jeder mit diesem Link kann teilnehmen. Für die Teilnahme ist kein Konto oder eine
+        <p style="font-size: small;">Jeder mit diesem Link kann teilnehmen.
+          Für die Teilnahme ist kein Konto oder eine
           E-Mail erforderlich.</p>
       </div>
       <div class="col">
         <a class="btn btn-primary" [href]="generateMailToForParticipants()">Link via E-Mail senden</a>
       </div>
     </div>
-
-
   </div>
 
   <hr />
@@ -37,28 +48,29 @@
     <p>Wenn Du zu dieser Seite zurückkehren willst um Dir die Analyse anzusehen, kannst Du nachfolgenden Link kopieren.
     </p>
     <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForResults()"></app-button-link>
-
     <p style="font-size: small;">Jeder mit diesem Link kann diese Auswertung sehen</p>
   </div>
 
   <hr />
   <div>
     <h3>Auswertung Tuckman Analyse</h3>
-
-
     <p>
       Team: {{room.teamName}}
       <ng-container *ngIf="hasExpiry()"><br> Frist: {{room.expiresAt | date: 'dd.MM.yyyy'}}</ng-container> <br><br>
-      Insgesamt haben {{questionnaireResults.length}} Teilnehmer teilgenommen
     </p>
   </div>
 
-  <div>
-    <img class="img-responsive" src="assets/tmp/images/OverviewTeam.png" alt="Überblick Tuckman Team Analyse Ergebnis">
-  </div>
-
-  <div>
-    <p>Auswertung der Einzelantworten</p>
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <app-spiderchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"></app-spiderchart>
+      Insgesamt haben {{questionnaireResults.length}} Teilnehmer teilgenommen <br><br>
+    </div>
+    <div class="col-md-6">
+      Hier zeigen wir euch wie euer Team gerade die Zusammenarbeit erlebt. Ein Team ist selten in einer
+      einzelenen Phase alleine. Mit dem Teamüberblick seht ihr welche Phase gerade dominiert, und ob alle Teammitglieder
+      das
+      ähnlich erleben oder nicht. Damit habt ihr eine gute Gesprächsgrundlage für euer nächstes Teammeeting.
+    </div>
   </div>
 
   <div class="card">
@@ -69,66 +81,179 @@
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-        officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-        butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-        haven't heard of them accusamus labore sustainable VHS.
+        <div class="row">
+          <div class="col-md-4">
+            <h5> Dein Mittelwert </h5>
+            <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Forming">
+            </app-dotchart>
+            <p></p>
+          </div>
+          <div class="col-md-8">
+            <h5> Bedeutung</h5>
+            <p> In der Orientierungsphase lernen sich die Teammitglieder kennen und sammeln erste Eindrücke. Der Umgang
+              miteinander ist von höflicher Distanz geprägt. Diese Situation wiederholt sich im Teambildung sobald eine
+              neue Person dazu kommt. Die Teammitglieder bringen verschiedene Erwartungen und Kompetenzen mit ein, die
+              die Anderen zum Ende des Formings kennen und einzuordnen wissen. Erste Ziele und Regeln wurden definiert.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <p></p>
+            <h5>Einzelfragen<br><br></h5>
+          </div>
+        </div>
+        <ol>
+          <div class="row" *ngFor="let question of getQuestionsForCategoryId(1)">
+            <div class="col-md-4">
+              <app-dotchartsingle *ngIf="questionnaireResults[0]" [datasetfull]="questionnaireResults" id={{question.id}}>
+              </app-dotchartsingle>
+              <br><br>
+            </div>
+            <div class="col-md-8">
+              <li>{{question.questionString}}<br><br></li>
+            </div>
+          </div>
+        </ol>
       </div>
     </div>
   </div>
+
   <div class="card">
-    <div class="card-header handcursor" id="headingTwo" (click)="expandAccordion(1)">
+    <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(1)">
       <h5 class="mb-0 acc-header">
         Storming
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-        officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-        butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-        haven't heard of them accusamus labore sustainable VHS.
+        <div class="row">
+          <div class="col-md-4">
+            <h5> Dein Mittelwert </h5>
+            <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Storming">
+            </app-dotchart>
+            <br><br>
+          </div>
+          <div class="col-md-8">
+            <h5> Bedeutung</h5>
+            <p>Die Konfrontationsphase zeichnet sich durch Konflikte im Team aus. Sie ist geprägt von Stillstand,
+              Widerständen durch Meinungsverschiedenheiten, Kompetenzgerangel oder verschiedener Zielorientierungen.
+              Reibepunkte werden sichtbar und werden aus dem Weg geräumt. Ungeklärtheiten/Frustrationen werden
+              identifiziert, Teamrollen werden definiert. Der Stillstand wird behoben und das geminsame, unbeschwerte
+              Arbeiten beginnt.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <p></p>
+            <h5>Einzelfragen<br><br></h5>
+          </div>
+        </div>
+        <ol>
+          <div class="row" *ngFor="let question of getQuestionsForCategoryId(2)">
+            <div class="col-md-4">
+              <app-dotchartsingle *ngIf="questionnaireResults[0]" [datasetfull]="questionnaireResults" id={{question.id}}>
+              </app-dotchartsingle>
+              <br><br>
+            </div>
+            <div class="col-md-8">
+              <li>{{question.questionString}}<br><br></li>
+            </div>
+          </div>
+        </ol>
       </div>
     </div>
   </div>
+
   <div class="card">
-    <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(2)">
+    <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(2)">
       <h5 class="mb-0 acc-header">
         Norming
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-        officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-        butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-        haven't heard of them accusamus labore sustainable VHS.
+        <div class="row">
+          <div class="col-md-4">
+            <h5> Dein Mittelwert </h5>
+            <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Norming">
+            </app-dotchart>
+            <p></p>
+          </div>
+          <div class="col-md-8">
+            <h5> Bedeutung</h5>
+            <p>In der Übereinkommensphase haben sich Spannungen neutralisiert und gelten Normen und Strukturen die von
+              jedem gelebt werden. Die Teamrollen haben sich etabliert und die gegenseitige Akzeptanz herscht vor. .....
+              noch nicht fertig
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <p></p>
+            <h5>Einzelfragen<br><br></h5>
+          </div>
+        </div>
+        <ol>
+          <div class="row" *ngFor="let question of getQuestionsForCategoryId(3)">
+            <div class="col-md-4">
+              <app-dotchartsingle *ngIf="questionnaireResults[0]" [datasetfull]="questionnaireResults" id={{question.id}}>
+              </app-dotchartsingle>
+              <br><br>
+            </div>
+            <div class="col-md-8">
+              <li>{{question.questionString}} <br><br></li>
+            </div>
+          </div>
+        </ol>
       </div>
     </div>
   </div>
+
   <div class="card">
-    <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(3)">
+    <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(3)">
       <h5 class="mb-0 acc-header">
         Performing
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 3}">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-        officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-        butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-        haven't heard of them accusamus labore sustainable VHS.
+        <div class="row">
+          <div class="col-md-4">
+            <h5> Dein Mittelwert </h5>
+            <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Performing">
+            </app-dotchart>
+            <p></p>
+          </div>
+          <div class="col-md-8">
+            <h5> Bedeutung</h5>
+            <p> In der Orientierungsphase lernen sich die Teammitglieder kennen und sammeln erste Eindrücke. Der Umgang miteinander ist von höflicher Distanz geprägt. Diese Situation wiederholt sich im Teambildung sobald eine neue Person dazu kommt. Die Teammitglieder bringen verschiedene Erwartungen und Kompetenzen mit ein, die die Anderen zum Ende des Formings kennen und einzuordnen wissen. Erste Ziele und Regeln wurden definiert. 
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <p></p>
+            <h5>Einzelfragen<br><br></h5>
+          </div>
+        </div>
+        <ol>
+          <div class="row" *ngFor="let question of getQuestionsForCategoryId(4)">
+            <div class="col-md-4">
+              <app-dotchartsingle *ngIf="questionnaireResults[0]" [datasetfull]="questionnaireResults" id={{question.id}}>
+              </app-dotchartsingle>
+              <br><br>
+            </div>
+            <div class="col-md-8">
+              <li>{{question.questionString}}<br><br></li>
+            </div>
+          </div>
+        </ol>
       </div>
     </div>
   </div>
+
 
   <div>
     <p>Was möchtest du mit deiner Auswertung tun?</p>

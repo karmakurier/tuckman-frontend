@@ -1,28 +1,32 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { QuestionsService } from 'generated/api';
+import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Question, QuestionnaireResult, QuestionnairesService, QuestionResult, QuestionsService } from 'generated/api';
 import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
-
+import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-dotchart',
-  templateUrl: './dotchart.component.html',
-  styleUrls: ['./dotchart.component.scss']
+  selector: 'app-dotchartsingle',
+  templateUrl: './dotchartsingle.component.html',
+  styleUrls: ['./dotchartsingle.component.scss']
 })
-
-export class DotchartComponent implements OnInit, AfterViewInit {
+export class DotchartsingleComponent implements OnInit {
+  questionnaire: Question[]=[]
   questions: {};
-  headers: any[];
+  headers: any[]
+
 
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
 
-  @Input() dataset: SpiderchartData;
+  @Input() dataset: QuestionResult[];
+  @Input() datasetfull: QuestionnaireResult[] = [];
   @Input() dimension: string;
-
+  @Input() id: number;
 
   private ctx: CanvasRenderingContext2D;
 
-  constructor(private questionService: QuestionsService) { }
+  constructor(private questionService: QuestionsService,
+    private questionnaireService: QuestionnairesService) { }
 
   getUniqueCategories(obj) {
     var names = [];
@@ -33,7 +37,7 @@ export class DotchartComponent implements OnInit, AfterViewInit {
     return names;
   }
 
-  plotdotchart() {
+  plotdotchartsingle(id = -1, category = "none") {
     function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
       if (typeof stroke === 'undefined') {
         stroke = true;
@@ -82,13 +86,38 @@ export class DotchartComponent implements OnInit, AfterViewInit {
         ctx.stroke()
       }
     };
-    // draw from here 
 
-    var arraydata: Array<number> = []
-
-    let dimscore = this.headers.indexOf(this.dimension, 0)
-    for (let i = 0; i < this.dataset.datasets.length; i++) {
-      arraydata.push(this.dataset.datasets[i].data[dimscore])
+    if (category != "none") {
+      console.log(this.dataset)
+      var dimid: Array<number> = []
+      for (let a = 0; a < this.questionnaire.length; a++) {
+        if (this.questionnaire[a].category.name == category) {
+          dimid.push(this.questionnaire[a].id)
+        }
+      }
+      var arraydata: Array<number> = []
+      for (let i = 0; i < this.dataset.length; i++) {
+        if (dimid.indexOf(this.dataset[i].question.id) >= 0) {
+          arraydata.push(this.dataset[i].answer)
+        }
+      }
+    }
+    if (id != -1) {
+      var arraydata: Array<number> = []
+      if (this.datasetfull.length >= 1) {
+        for (let i = 0; i < this.datasetfull.length; i++) {
+          var answer = this.datasetfull[i].QuestionResults.filter(q => q.id == this.id)
+          arraydata.push(answer[0].answer)
+        }
+      }
+      else {
+        var arraydata: Array<number> = []
+        for (let i = 0; i < this.dataset.length; i++) {
+          if (this.dataset[i].question.id == id) {
+            arraydata.push(this.dataset[i].answer)
+          }
+        }
+      }
     }
 
     let params = {
@@ -100,7 +129,6 @@ export class DotchartComponent implements OnInit, AfterViewInit {
 
     let parentWidth = Number(params.width)
     let parentHeigth = Number(params.height)
-
 
     this.ctx = this.canvas.nativeElement.getContext('2d');
     this.ctx.canvas.width = parentWidth;
@@ -196,12 +224,15 @@ export class DotchartComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngOnInit(): void { };
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
+    this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
+      this.questionnaire = questionnaire.questions;
+    });
+
     this.questionService.questionsControllerFindAll().subscribe(results => {
       this.questions = results
       this.headers = this.getUniqueCategories(this.questions)
-      this.plotdotchart()
-    });
+      this.plotdotchartsingle(this.id, this.dimension)
+    })
   }
 }

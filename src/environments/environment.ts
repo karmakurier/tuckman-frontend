@@ -10,7 +10,7 @@ export const environment = {
   Forming: "Forming",
   Storming: "Storming",
   Norming: "Norming",
-  Performing: "Perorming",
+  Performing: "Performing",
   hCaptchaSiteKey: 'de91ace6-9b70-42ee-a6bd-cf3bae843328'
 };
 

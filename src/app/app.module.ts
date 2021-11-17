@@ -21,6 +21,7 @@ import { QuestionComponent } from './components/question/question.component';
 import { NgHcaptchaModule } from 'ng-hcaptcha';
 import { QuestionWelcomeComponent } from './components/question-welcome/question-welcome.component';
 import { QuestionFinishComponent } from './components/question-finish/question-finish.component';
+import { DotchartsingleComponent } from './components/dotchartsingle/dotchartsingle.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { QuestionFinishComponent } from './components/question-finish/question-f
     DotchartComponent,
     QuestionComponent,
     QuestionWelcomeComponent,
-    QuestionFinishComponent
+    QuestionFinishComponent,
+    DotchartsingleComponent
   ],
   imports: [
     BrowserModule,

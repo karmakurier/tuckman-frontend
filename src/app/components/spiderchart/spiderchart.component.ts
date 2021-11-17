@@ -66,9 +66,6 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
     var radianOffset = chartInfo.radianOffset;
     var radius = chartInfo.radius;
 
-
-
-
     // draw web
     this.ctx.translate(this.canvas.nativeElement.width / 2, this.canvas.nativeElement.height / 2);
 
@@ -147,7 +144,8 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
     // to do: map funktion funkioniert hier nicht warum? 
 
     // plot mean of this.datasets
-    let sum = this.dataset.datasets[0].data;
+    if (this.dataset.datasets.length>1) {
+      let sum = this.dataset.datasets[0].data;
     for (i = 1; i < this.dataset.datasets.length; i++) {
       sum = sum.map((value: number, idx: number) => { return (value + this.dataset.datasets[i].data[idx]) })
     }
@@ -174,7 +172,7 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
     this.ctx.textBaseline = "middle"
     this.ctx.textAlign = "left"
     this.ctx.fillStyle = 'black'
-    this.ctx.fillText("Teamscore", -this.canvas.nativeElement.width / 2 + 0.28 * radius, -radius + 0.2 * radius)
+    this.ctx.fillText("Teamscore", -this.canvas.nativeElement.width / 2 + 0.28 * radius, -radius + 0.2 * radius)}
   }
 
   ngOnInit(): void { }
