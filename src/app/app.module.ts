@@ -18,6 +18,7 @@ import { environment } from 'src/environments/environment';
 import { SpiderchartComponent } from './components/spiderchart/spiderchart.component';
 import { DotchartComponent } from './components/dotchart/dotchart.component';
 import { DotchartsingleComponent } from './components/dotchartsingle/dotchartsingle.component';
+import { PrintRoomDetailsComponent } from './homepage/print-room-details/print-room-details.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { DotchartsingleComponent } from './components/dotchartsingle/dotchartsin
     MailLinkComponent,
     SpiderchartComponent,
     DotchartComponent,
-    DotchartsingleComponent
+    DotchartsingleComponent,
+    PrintRoomDetailsComponent
   ],
   imports: [
     BrowserModule,

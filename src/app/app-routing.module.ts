@@ -4,6 +4,7 @@ import { CreateRoomComponent } from './homepage/create-room/create-room.componen
 import { HomepageComponent } from './homepage/homepage.component';
 import { MemberDetailsComponent } from './homepage/member-details/member-details.component';
 import { MemberQuestionsComponent } from './homepage/member-questions/member-questions.component';
+import { PrintRoomDetailsComponent } from './homepage/print-room-details/print-room-details.component';
 import { RoomDetailsComponent } from './homepage/room-details/room-details.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'room/:id', component: RoomDetailsComponent },
   { path: 'participate/:id', component: MemberQuestionsComponent },
   { path: 'results/:id', component: MemberDetailsComponent },
+  { path: 'printRoom', component: PrintRoomDetailsComponent },
   { path: '**', redirectTo: 'createRoom' }
 ];
 
