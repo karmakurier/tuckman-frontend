@@ -32,12 +32,9 @@
       <div class="col col-md-8">
         <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForParticipants()">
         </app-button-link>
-        <p style="font-size: small;">Jeder mit diesem Link kann teilnehmen.
-          Für die Teilnahme ist kein Konto oder eine
-          E-Mail erforderlich.</p>
+        <p style="font-size: small;">Jeder mit diesem Link kann teilnehmen. Es ist keine Anmeldung erforderlich.</p>
       </div>
       <div class="col">
-        
         <a class="btn btn-primary" [href]="generateMailToForParticipants()">Link via E-Mail senden</a>
       </div>
     </div>
