@@ -43,11 +43,10 @@
     <div class="col">
         <div class="text-right">
             <button class="btn btn-secondary positive-button" (click)="nextQuestion()" [disabled]="!answer"
-                *ngIf="!(QuestionNumber == QuestionMax)">zur nächsten
-                Frage <img src="assets/img/arrow-right.svg"></button>
+                *ngIf="!(QuestionNumber == QuestionMax)">Weiter<img class="px-2" src="assets/img/arrow-right.svg"></button>
 
             <button class="btn btn-secondary positive-button" *ngIf="QuestionNumber == QuestionMax" (click)="finish()"
-                [disabled]="!answer">Fertig! <img src="assets/img/arrow-right.svg"></button>
+                [disabled]="!answer">Fertig! <img class="px-2" src="assets/img/arrow-right.svg"></button>
         </div>
     </div>
 </div>

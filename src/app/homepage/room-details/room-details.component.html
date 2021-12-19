@@ -15,16 +15,17 @@
       <h5>Hier gehts richtig los</h5>
       <br><br>
       Wir haben für Dich eine Tuckman Analyse angelegt.<br /> Hier findest Du alle
-        Informationen um gemeinsam mit deinem Team loszulegen. <br />
-        Versende den Link für die Teilnehmer an eure Teamitglieder. So können sie die Fragen ausfüllen. 
-        Wir speicher keine email und keine Daten, daher bewahrt die Links gut auf. 
-        Kehre Auf diese Seite zurück um die Ergebnisse zu sehen<br />
+        Informationen, um gemeinsam mit Deinem Team loszulegen. <br />
+        Versende den Link für die Teilnehmer an Eure Teamitglieder. So können sie die Fragen ausfüllen. 
+        Wir speicher keine E-Mail und keine Daten, daher bewahrt die Links gut auf. 
+        Kehre Auf diese Seite zurück um die Ergebnisse zu sehen.<br />
         Viel Spaß, und vergiss nicht selbst mitzumachen! 
     </div>
   </div>
 
   <hr />
   <div>
+
     <h3>Teilnehmer einladen</h3>
     <p>Versende den nachfolgenden Link an alle Teilnehmer, sodass sie den Fragebogen beantworten können.</p>
     <div class="row">
@@ -36,6 +37,7 @@
           E-Mail erforderlich.</p>
       </div>
       <div class="col">
+        
         <a class="btn btn-primary" [href]="generateMailToForParticipants()">Link via E-Mail senden</a>
       </div>
     </div>
@@ -228,7 +230,11 @@
           </div>
           <div class="col-md-8">
             <h5> Bedeutung</h5>
-            <p> In der Orientierungsphase lernen sich die Teammitglieder kennen und sammeln erste Eindrücke. Der Umgang miteinander ist von höflicher Distanz geprägt. Diese Situation wiederholt sich im Teambildung sobald eine neue Person dazu kommt. Die Teammitglieder bringen verschiedene Erwartungen und Kompetenzen mit ein, die die Anderen zum Ende des Formings kennen und einzuordnen wissen. Erste Ziele und Regeln wurden definiert. 
+            <p> Diese Phase bezeichnet man unter anderem als Arbeitsphase. 
+                            Das Team wird produktiv, es arbeitet effizient und selbstständig. 
+                            Es agiert im Team, denn gemeinsame Strukturen und definierte Ziele werden fokussiert. 
+                            So wird von nun an stark wertschätzend und mit einer hohen Akzeptanz zusammengearbeitet. 
+                            Eine kooperative Kultur des miteinander und sich gegenseitig helfen wird etabliert.
             </p>
           </div>
         </div>
@@ -254,15 +260,15 @@
     </div>
   </div>
 
-
+<!-- Block Auswertung versenden
   <div>
     <p>Was möchtest du mit deiner Auswertung tun?</p>
     <button class="btn btn-secondary" style="margin-right: 5%;" (click)="exportPDF(teamid)">PDF exportieren</button>
     <button class="btn btn-secondary" style="margin-right: 5%;" (click)="printPDF(teamid)">Drucken</button>
     <button class="btn btn-secondary" style="margin-right: 5%;" (click)="share(teamid)">Teilen</button>
   </div>
-
-
+ -->
+ 
   <pre>
 
     </pre>
