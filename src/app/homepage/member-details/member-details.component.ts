@@ -92,19 +92,20 @@ export class MemberDetailsComponent implements OnInit {
       var cntStorming = 0;
       var cntPerforming = 0;
       for (let a = 0; a < this.userRes.length; a++) {
+        
         if (Forming.includes(this.userRes[a].question.id)) {
           forming = forming + this.userRes[a].answer;
           cntForming = ++cntForming
         }
 
-        if (Norming.includes(this.userRes[a].question.id)) {
-          norming = norming + this.userRes[a].answer;
-          cntNorming = ++cntNorming
-        }
-
         if (Storming.includes(this.userRes[a].question.id)) {
           storming = storming + this.userRes[a].answer;
           cntStorming = ++cntStorming
+        }
+
+        if (Norming.includes(this.userRes[a].question.id)) {
+          norming = norming + this.userRes[a].answer;
+          cntNorming = ++cntNorming
         }
 
         if (Performing.includes(this.userRes[a].question.id)) {

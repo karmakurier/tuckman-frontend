@@ -200,7 +200,7 @@ export class DotchartComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.questionService.questionsControllerFindAll().subscribe(results => {
       this.questions = results
-      this.headers = this.getUniqueCategories(this.questions)
+      this.headers = ["Forming", "Storming", "Norming", "Performing"]
       this.plotdotchart()
     });
   }

@@ -18,16 +18,17 @@
       <h5>Mache dein Team noch stärker</h5>
       <br><br>
       Der amerikanische Psychologe und Hochschullehrer Bruce Wayne Tuckman (1938-2016) entwickelte im Jahr 1965 das
-      Tuckman-Phasenmodell als Ausgangspunkt in der Teamentwicklung. Es ist nach wie vor der Gold-Standard bei der
+      Tuckman-Phasenmodell als Ausgangspunkt in der Teamentwicklung. Es ist nach wie vor ein Gold-Standard bei der
       Beschreibung von Teambildungsprozessen.
       <br><br>
-      Beantworte die folgenden Fragen und leite im Anschluss den Link an dein Team weiter. Wir schicken dir dann eine
-      persönliche Auswertung - so erfährst du, in welcher Phase ihr euch befindet und wie ihr optimal zusammen arbeiten
-      könnt.
+      Hier erstellen wir für Dich einen Fragebogen, den Du im Anschluss an Dein Team weiterleiten kannst. 
+      Jedes Teammitglied erhält dann eine individuelle Auswertung. 
+      Zudem erstellen wir für Euch eine teamspezifische Auswertung. 
+      So erkennt Ihr, in welcher Phase Ihr Euch befindet und wie Ihr optimal zusammen arbeiten könnt. 
+      Spannend ist es vor allem zu sehen, wo das Team eine einheitliche Wahrnehmung hat und wo Ihr unterschiedliche Perspektiven einnehmt.
     </div>
   </div>
   <br><br>
-
 
   <!-- Block Anmeldung -->
   <div class="form-group">
@@ -62,10 +63,10 @@
   <!-- Block Vorschau -->
 
   <br><br>
-  <h5 class="py-3">Vorschau Tuckman Analyse</h5>
+  <h5 class="py-1">Vorschau Tuckman Analyse</h5>
+  <p style="font-size: small;">Klicke auf die Reiter um eine Vorschau der Teamanalyse zu bekommen</p>
   <div #spiderchartplot class="card">
     <div class="card-header handcursor" id="headingTwo" (click)="expandAccordion(0)">
-
       <h5 class="mb-0 acc-header">
         Der Teamscore
       </h5>
@@ -87,6 +88,8 @@
       </div>
     </div>
   </div>
+
+   <!-- Block Accordion -->
   <div class="card">
     <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(1)">
       <h5 class="mb-0 acc-header">
@@ -163,7 +166,7 @@
   </div>
 
   <!-- Block Frist -->
-  <h5 class="py-3">Frist festlegen</h5>
+  <h5 class="py-2">Frist festlegen</h5>
   <p style="font-size: small;">Lege eine Frist fest an welcher alle aus deinem Team teilgenommen haben sollen. </p>
   <div class="form-check">
     <input type="checkbox" class="form-check-input" (change)="timed = !timed">
@@ -180,12 +183,10 @@
   </div>
 
 
-
-
   <!-- Block Submit -->
 
   <div class="text-right">
-    <button class="btn btn-secondary karma-button" (click)="createRoom()" [disabled]="!isNonProfit || !isVerified">
+    <button class="btn btn-secondary karma-button px-3 mx-3" (click)="createRoom()" [disabled]="!isNonProfit || !isVerified">
       Erstellen</button>
   </div>
 </div>

@@ -125,6 +125,7 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
 
       var cRad = radius * (this.dataset.datasets[i].data[0] / chartInfo.max);
       this.ctx.moveTo(Math.cos(radianOffset) * cRad, Math.sin(radianOffset) * cRad);
+      console.log(this.dataset.datasets[i].data)
       for (var j = 1; j < hSteps; j++) {
         cRad = radius * (this.dataset.datasets[i].data[j] / chartInfo.max);
         this.ctx.lineTo(Math.cos(hStepSize * j + radianOffset) * cRad, Math.sin(hStepSize * j + radianOffset) * cRad);
@@ -181,7 +182,7 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
 
     this.questionService.questionsControllerFindAll().subscribe(results => {
       this.questions = results
-      this.headers = this.getUniqueCategories(this.questions)
+      this.headers = ["Forming", "Storming", "Norming", "Performing"]
       this.plotspiderchart()
     })
     

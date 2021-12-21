@@ -11,14 +11,17 @@
 
 
 .card {
-  background: rgba(196, 196, 196, 0.28);
-  border-radius: 10px;
-  margin-bottom: 9px;
+  background: #fff;
+  border-radius: 10px !important;
+  margin-bottom: 10px;
 }
 
-.card-body {
-  background: white;
+.card-header {
+  background: #B1B1B1;
+  border-radius: 10px;
+  color:#fff;
 }
+
 
 .acc-header {
   font-style: normal;
@@ -38,4 +41,18 @@
 th, td {
   padding: 15px;
 }
+
+.btn-outline-primary {
+  color: #57B894;
+  background-color: #fff;
+  border-color: #57B894; /*set the color you want here*/
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
+  color: #fff;
+  background-color: #57B894;
+  border-color: #57B894; /*set the color you want here*/
+}
+
+
+
 

@@ -231,7 +231,7 @@ export class DotchartsingleComponent implements OnInit {
 
     this.questionService.questionsControllerFindAll().subscribe(results => {
       this.questions = results
-      this.headers = this.getUniqueCategories(this.questions)
+      this.headers = ["Forming", "Storming", "Norming", "Performing"]
       this.plotdotchartsingle(this.id, this.dimension)
     })
   }
