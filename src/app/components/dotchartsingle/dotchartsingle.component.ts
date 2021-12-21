@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./dotchartsingle.component.scss']
 })
 export class DotchartsingleComponent implements OnInit {
-  questionnaire: Question[]=[]
+  questionnaire: Question[] = []
   questions: {};
   headers: any[]
 
@@ -88,7 +88,6 @@ export class DotchartsingleComponent implements OnInit {
     };
 
     if (category != "none") {
-      console.log(this.dataset)
       var dimid: Array<number> = []
       for (let a = 0; a < this.questionnaire.length; a++) {
         if (this.questionnaire[a].category.name == category) {

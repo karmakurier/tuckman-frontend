@@ -33,9 +33,9 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
     }
     return names;
   }
-  
 
-  plotspiderchart(){
+
+  plotspiderchart() {
     let params = {
       height: this.canvas.nativeElement.attributes.getNamedItem("height").value,
       width: this.canvas.nativeElement.attributes.getNamedItem("width").value
@@ -125,7 +125,6 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
 
       var cRad = radius * (this.dataset.datasets[i].data[0] / chartInfo.max);
       this.ctx.moveTo(Math.cos(radianOffset) * cRad, Math.sin(radianOffset) * cRad);
-      console.log(this.dataset.datasets[i].data)
       for (var j = 1; j < hSteps; j++) {
         cRad = radius * (this.dataset.datasets[i].data[j] / chartInfo.max);
         this.ctx.lineTo(Math.cos(hStepSize * j + radianOffset) * cRad, Math.sin(hStepSize * j + radianOffset) * cRad);
@@ -145,35 +144,36 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
     // to do: map funktion funkioniert hier nicht warum? 
 
     // plot mean of this.datasets
-    if (this.dataset.datasets.length>1) {
+    if (this.dataset.datasets.length > 1) {
       let sum = this.dataset.datasets[0].data;
-    for (i = 1; i < this.dataset.datasets.length; i++) {
-      sum = sum.map((value: number, idx: number) => { return (value + this.dataset.datasets[i].data[idx]) })
+      for (i = 1; i < this.dataset.datasets.length; i++) {
+        sum = sum.map((value: number, idx: number) => { return (value + this.dataset.datasets[i].data[idx]) })
+      }
+
+      var mean = sum.map(i => i / this.dataset.datasets.length);
+
+      this.ctx.beginPath();
+      this.ctx.strokeStyle = 'rgba(255, 197, 57, 1)';
+
+      var cRad = radius * (mean[0] / chartInfo.max);
+      this.ctx.moveTo(Math.cos(radianOffset) * cRad, Math.sin(radianOffset) * cRad);
+      for (var j = 1; j < hSteps; j++) {
+        cRad = radius * (mean[j] / chartInfo.max);
+        this.ctx.lineTo(Math.cos(hStepSize * j + radianOffset) * cRad, Math.sin(hStepSize * j + radianOffset) * cRad);
+      }
+      this.ctx.closePath();
+      this.ctx.stroke();
+
+      this.ctx.beginPath();
+      this.ctx.font = "400 " + Math.floor(0.05 * size) + "px Quicksand";
+      this.ctx.fillStyle = 'rgba(255, 197, 57, 1)'
+      this.ctx.arc(-this.canvas.nativeElement.width / 2 + 0.2 * radius, - radius + 0.2 * radius, 0.04 * radius, 0, 360)
+      this.ctx.fill()
+      this.ctx.textBaseline = "middle"
+      this.ctx.textAlign = "left"
+      this.ctx.fillStyle = 'black'
+      this.ctx.fillText("Teamscore", -this.canvas.nativeElement.width / 2 + 0.28 * radius, -radius + 0.2 * radius)
     }
-
-    var mean = sum.map(i => i / this.dataset.datasets.length);
-
-    this.ctx.beginPath();
-    this.ctx.strokeStyle = 'rgba(255, 197, 57, 1)';
-
-    var cRad = radius * (mean[0] / chartInfo.max);
-    this.ctx.moveTo(Math.cos(radianOffset) * cRad, Math.sin(radianOffset) * cRad);
-    for (var j = 1; j < hSteps; j++) {
-      cRad = radius * (mean[j] / chartInfo.max);
-      this.ctx.lineTo(Math.cos(hStepSize * j + radianOffset) * cRad, Math.sin(hStepSize * j + radianOffset) * cRad);
-    }
-    this.ctx.closePath();
-    this.ctx.stroke();
-
-    this.ctx.beginPath();
-    this.ctx.font = "400 " + Math.floor(0.05 * size) + "px Quicksand";
-    this.ctx.fillStyle = 'rgba(255, 197, 57, 1)'
-    this.ctx.arc(-this.canvas.nativeElement.width / 2 + 0.2 * radius, - radius + 0.2 * radius, 0.04 * radius, 0, 360)
-    this.ctx.fill()
-    this.ctx.textBaseline = "middle"
-    this.ctx.textAlign = "left"
-    this.ctx.fillStyle = 'black'
-    this.ctx.fillText("Teamscore", -this.canvas.nativeElement.width / 2 + 0.28 * radius, -radius + 0.2 * radius)}
   }
 
   ngOnInit(): void { }
@@ -185,7 +185,7 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
       this.headers = ["Forming", "Storming", "Norming", "Performing"]
       this.plotspiderchart()
     })
-    
+
   }
 }
 

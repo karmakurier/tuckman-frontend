@@ -32,7 +32,6 @@ export class MemberQuestionsComponent implements OnInit {
     this.participateId = this.activatedRoute.snapshot.paramMap.get('id');
     this.questionnaireResult.participateId = this.participateId;
     this.roomService.roomsControllerFindForParticipant(this.participateId).subscribe(room => {
-      console.log(this.room)
       this.room = room;
     })
     this.questionnaireResult.QuestionResults = [] as QuestionResultCreate[];
@@ -61,7 +60,6 @@ export class MemberQuestionsComponent implements OnInit {
 
     if (event.actionType == QuestionActionType.value) {
       this.questionnaireResult.QuestionResults[this.currentquestion].answer = event.value;
-      console.log(this.questionnaireResult.QuestionResults[this.currentquestion]);
     }
 
     if (event.actionType == QuestionActionType.finish) {
