@@ -11,16 +11,27 @@
 
     <div class="details-box">
         <div class="my-2 row ">
-        <div class="col col-md-12 font-weight-normal">
-            <b>Herzlich willkommen liebes Mitglied von {{room.teamName}} <br> </b>
-            <br> 
-            Ihr habt Euch entschieden Euer Team unter die Lupe zu nehmen, fülle dazu bitte die folgenden 32 Fragen so ehrlich wie möglich zu Eurer Zusammenarbeit aus. <br><br>
-            Es gibt hierbei kein Richtig oder Falsch. Am Ende siehst nur Du Deine eigenen Antworten. Diese speichern wir vollkommen anonym.
-            <br><br>Es müssen alle Fragen beantwortet werden. Ihr könnt die Einzelfragen dann im Team diskutieren. <br><br>
-            Insgesamgt dauert die Beantwortung 10 Minuten. <br>
-            Viel Spaß.<br>
+            <div class="col col-md-12 font-weight-normal">
+                <b>Herzlich willkommen liebes Mitglied von {{room.teamName}}, </b>
+                <p>
+                    Ihr habt Euch entschieden Euer Team unter die Lupe zu nehmen, fülle dazu bitte die folgenden 32
+                    Fragen so ehrlich wie möglich zu Eurer Zusammenarbeit aus.
+                </p>
+                <p>
+                    Es gibt hierbei kein Richtig oder Falsch. Am Ende siehst nur Du Deine eigenen Antworten. Diese
+                    speichern wir vollkommen anonym.
+                </p>
+                <p>
+                    Es müssen alle Fragen beantwortet werden. Ihr könnt die Einzelfragen dann im Team diskutieren.
+                </p>
+                <p>
+                    Insgesamt dauert die Beantwortung 10 Minuten.
+                </p>
+                <p>
+                    Viel Spaß!
+                </p>
+            </div>
         </div>
-    </div>
         <div class="my-2 row">
             <div class="col col-md-2">Frist:</div>
             <div class="col col-md-10" *ngIf="!hasNoExpireDate()">{{room.expiresAt | date: 'dd.MM.yyyy'}}</div>
@@ -32,4 +43,3 @@
         </div>
     </div>
 </ng-container>
-

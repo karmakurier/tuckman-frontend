@@ -7,25 +7,26 @@
     Willkommen bei eurer persönlichen Tuckman Analyse!
   </div>
   <div class="row align-items-center py-3">
-    <div class="col col-md-6">
-      <div>
+    <div class="col col-md-6 col-12">
+      <div class="full-width">
         <img src="assets/SVGSurvey.svg" alt="People makeing a team survey and analyzing results"
-          class="rounded mx-auto d-block">
+          class="rounded mx-auto d-bloc full-width">
       </div>
       <br><br>
     </div>
-    <div class="col col-md-6">
+    <div class="col col-md-6 col-12">
       <h5>Mache dein Team noch stärker</h5>
       <br><br>
       Der amerikanische Psychologe und Hochschullehrer Bruce Wayne Tuckman (1938-2016) entwickelte im Jahr 1965 das
       Tuckman-Phasenmodell als Ausgangspunkt in der Teamentwicklung. Es ist nach wie vor ein Gold-Standard bei der
       Beschreibung von Teambildungsprozessen.
       <br><br>
-      Hier erstellen wir für Dich einen Fragebogen, den Du im Anschluss an Dein Team weiterleiten kannst. 
-      Jedes Teammitglied erhält dann eine individuelle Auswertung. 
-      Zudem erstellen wir für Euch eine teamspezifische Auswertung. 
-      So erkennt Ihr, in welcher Phase Ihr Euch befindet und wie Ihr optimal zusammen arbeiten könnt. 
-      Spannend ist es vor allem zu sehen, wo das Team eine einheitliche Wahrnehmung hat und wo Ihr unterschiedliche Perspektiven einnehmt.
+      Hier erstellen wir für Dich einen Fragebogen, den Du im Anschluss an Dein Team weiterleiten kannst.
+      Jedes Teammitglied erhält dann eine individuelle Auswertung.
+      Zudem erstellen wir für Euch eine teamspezifische Auswertung.
+      So erkennt Ihr, in welcher Phase Ihr Euch befindet und wie Ihr optimal zusammen arbeiten könnt.
+      Spannend ist es vor allem zu sehen, wo das Team eine einheitliche Wahrnehmung hat und wo Ihr unterschiedliche
+      Perspektiven einnehmt.
     </div>
   </div>
   <br><br>
@@ -89,7 +90,7 @@
     </div>
   </div>
 
-   <!-- Block Accordion -->
+  <!-- Block Accordion -->
   <div class="card">
     <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(1)">
       <h5 class="mb-0 acc-header">
@@ -186,7 +187,8 @@
   <!-- Block Submit -->
 
   <div class="text-right">
-    <button class="btn btn-secondary karma-button px-3 mx-3" (click)="createRoom()" [disabled]="!isNonProfit || !isVerified">
+    <button class="btn btn-secondary karma-button px-3 mx-3" (click)="createRoom()"
+      [disabled]="!isNonProfit || !isVerified">
       Erstellen</button>
   </div>
 </div>

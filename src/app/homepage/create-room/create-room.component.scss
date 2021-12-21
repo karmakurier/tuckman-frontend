@@ -9,6 +9,9 @@
   line-height: 28px;
 }
 
+.full-width {
+  width: 100%;
+}
 
 .card {
   background: #fff;
@@ -17,11 +20,10 @@
 }
 
 .card-header {
-  background: #B1B1B1;
+  background: #b1b1b1;
   border-radius: 10px;
-  color:#fff;
+  color: #fff;
 }
-
 
 .acc-header {
   font-style: normal;
@@ -30,29 +32,29 @@
   line-height: 21px;
 }
 
-
 .karma-button {
-  background: #FF966E;
-  border-color: #FF966E;
+  background: #ff966e;
+  border-color: #ff966e;
   border-radius: 10px;
   min-height: 58px;
 }
 
-th, td {
+th,
+td {
   padding: 15px;
 }
 
 .btn-outline-primary {
-  color: #57B894;
+  color: #57b894;
   background-color: #fff;
-  border-color: #57B894; /*set the color you want here*/
+  border-color: #57b894; /*set the color you want here*/
 }
-.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active,
+.btn-outline-primary.active,
+.open > .dropdown-toggle.btn-outline-primary {
   color: #fff;
-  background-color: #57B894;
-  border-color: #57B894; /*set the color you want here*/
+  background-color: #57b894;
+  border-color: #57b894; /*set the color you want here*/
 }
-
-
-
-
