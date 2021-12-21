@@ -7,7 +7,7 @@
 <p class="card-text">{{Question.questionString}}</p>
 <p class="card-subheader">1 = stimme voll und ganz zu; 5 = stimme überhaupt nicht zu</p>
 
-<div class="row radio-container">
+<div class="row row-cols-5 radio-container">
     <div class="col">
         <div class="radio-label">1</div>
         <input class="form-check-input" type="radio" name={{Question.id}} id=option1{{Question.id}} [value]="1"
