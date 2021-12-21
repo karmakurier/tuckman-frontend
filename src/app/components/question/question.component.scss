@@ -36,6 +36,22 @@
   min-width: 200px;
 }
 
+@media (max-width: 500px) {
+  .positive-button {
+    background: #58b893;
+    border-color: #58b893;
+    border-radius: 10px;
+    font-family: Quicksand;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: center;
+    padding: 1em;
+    min-width: 100px;
+  }
+}
+
 .card-subheader {
   font-family: Mulish;
   font-style: normal;
