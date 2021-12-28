@@ -34,8 +34,13 @@
         </app-button-link>
         <p style="font-size: small;">Jeder mit diesem Link kann teilnehmen. Es ist keine Anmeldung erforderlich.</p>
       </div>
-      <div class="col">
-        <a class="btn btn-primary" [href]="generateMailToForParticipants()">Link via E-Mail senden</a>
+    </div>
+    <p>Hier kannst du den Link direkt mit deinem E-Mail Programm an dein Team schicken</p>
+    <div class="row">
+      <div class="col col-md-8">
+        <app-mail-link [link]="getLinkForParticipants()" email="enteryourmail"></app-mail-link>
+        <p style="font-size: small;"> Mehrere Mail-Adressen können durch ";" getrennt werden. <br> Es werden keine
+          Emailadressen gespeichert. <br>Du kannst Betreff und Text vor dem Versenden bearbeiten.</p>
       </div>
     </div>
   </div>
@@ -76,7 +81,8 @@
     <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)">
       <h5 class="mb-0 acc-header">
         Forming
-        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 0}" src="assets/img/arrow-down-accordion.svg" alt="">
+        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 0}" src="assets/img/arrow-down-accordion.svg"
+          alt="">
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
@@ -124,7 +130,8 @@
     <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(1)">
       <h5 class="mb-0 acc-header">
         Storming
-        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 1}" src="assets/img/arrow-down-accordion.svg" alt="">
+        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 1}" src="assets/img/arrow-down-accordion.svg"
+          alt="">
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
@@ -173,7 +180,8 @@
     <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(2)">
       <h5 class="mb-0 acc-header">
         Norming
-        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 2}" src="assets/img/arrow-down-accordion.svg" alt="">
+        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 2}" src="assets/img/arrow-down-accordion.svg"
+          alt="">
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
@@ -220,7 +228,8 @@
     <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(3)">
       <h5 class="mb-0 acc-header">
         Performing
-        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 3}" src="assets/img/arrow-down-accordion.svg" alt="">
+        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 3}" src="assets/img/arrow-down-accordion.svg"
+          alt="">
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 3}">
