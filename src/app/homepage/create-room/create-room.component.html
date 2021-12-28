@@ -66,11 +66,15 @@
   <br><br>
   <h5 class="py-1">Vorschau Tuckman Analyse</h5>
   <p style="font-size: small;">Klicke auf die Reiter um eine Vorschau der Teamanalyse zu bekommen</p>
+
+   <!-- Block Accordion -->
+
   <div #spiderchartplot class="card">
-    <div class="card-header handcursor" id="headingTwo" (click)="expandAccordion(0)">
+    <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)"> 
       <h5 class="mb-0 acc-header">
         Der Teamscore
-      </h5>
+        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 0}" src="assets/img/arrow-down-accordion.svg" alt="">
+      </h5>     
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
       <div class="card-body">
@@ -90,11 +94,11 @@
     </div>
   </div>
 
-  <!-- Block Accordion -->
   <div class="card">
     <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(1)">
       <h5 class="mb-0 acc-header">
         Die Phasen
+        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 1}" src="assets/img/arrow-down-accordion.svg" alt="">
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
@@ -155,6 +159,7 @@
     <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(2)">
       <h5 class="mb-0 acc-header">
         Die Fragen
+        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 2}" src="assets/img/arrow-down-accordion.svg" alt="">
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">

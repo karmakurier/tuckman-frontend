@@ -17,6 +17,7 @@
         <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)">
             <h5 class="mb-0 acc-header">
                 Forming
+                <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 0}" src="assets/img/arrow-down-accordion.svg" alt="">
             </h5>
         </div>
         <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
@@ -64,6 +65,7 @@
         <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(1)">
             <h5 class="mb-0 acc-header">
                 Storming
+                <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 1}" src="assets/img/arrow-down-accordion.svg" alt="">
             </h5>
         </div>
         <div class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
@@ -111,6 +113,7 @@
         <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(2)">
             <h5 class="mb-0 acc-header">
                 Norming
+                <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 2}" src="assets/img/arrow-down-accordion.svg" alt="">
             </h5>
         </div>
         <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
@@ -156,6 +159,7 @@
         <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(3)">
             <h5 class="mb-0 acc-header">
                 Performing
+                <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 3}" src="assets/img/arrow-down-accordion.svg" alt="">
             </h5>
         </div>
         <div class="collapse" [ngClass]="{'show': accordionExpanded === 3}">

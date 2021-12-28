@@ -9,3 +9,13 @@
   border-radius: 10px;
   color:#fff;
 }
+
+.arrow {          
+  float: right;
+}
+
+.arrow.expanded {    
+  float: right;      
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);         
+}
