@@ -1,28 +1,28 @@
+
+
+
 <ng-container *ngIf="room">
-    <div class="header-image">
+    <div class="header-image" style="margin-top: 12vh;">
         <img src="assets/img/questions-welcome.svg" class="img-fluid">
     </div>
     <div class="header-text">
-        Willkommen bei der Tuckman Analyse für {{room.teamName}}
-    </div>
-    <div class="positive-button" (click)="start()" *ngIf="!isExpired()">
-        Los geht's <img class="px-2" src="assets/img/arrow-right.svg">
+        Willkommen bei der Tuckman Analyse
     </div>
 
     <div class="details-box">
         <div class="my-2 row ">
             <div class="col col-md-12 font-weight-normal">
-                <b>Herzlich willkommen liebes Mitglied von {{room.teamName}}, </b>
+                <p><b>Liebes Mitglied von {{room.teamName}}, </b></p>
                 <p>
-                    Ihr habt Euch entschieden Euer Team unter die Lupe zu nehmen, fülle dazu bitte die folgenden 32
-                    Fragen so ehrlich wie möglich zu Eurer Zusammenarbeit aus.
+                    Ihr habt Euch entschieden Euer Team unter die Lupe zu nehmen. Fülle dazu bitte die folgenden 32
+                    Fragen zu Eurer Zusammenarbeit so ehrlich wie möglich aus.
                 </p>
                 <p>
                     Es gibt hierbei kein Richtig oder Falsch. Am Ende siehst nur Du Deine eigenen Antworten. Diese
-                    speichern wir vollkommen anonym.
+                    speichern wir vollkommen anonym. 
                 </p>
                 <p>
-                    Es müssen alle Fragen beantwortet werden. Ihr könnt die Einzelfragen dann im Team diskutieren.
+                    Es müssen alle Fragen beantwortet werden. Einzelfragen die vielleicht auf Euer Team nicht zutreffen könnt ihr dann im Team diskutieren.
                 </p>
                 <p>
                     Insgesamt dauert die Beantwortung 10 Minuten.
@@ -41,5 +41,8 @@
             <div class="col col-md-2"></div>
             <div class="col col-md-10">Die Frist ist leider abgelaufen!</div>
         </div>
+    </div>
+    <div class="positive-button" (click)="start()" *ngIf="!isExpired()">
+        Los geht's <img class="px-2" src="assets/img/arrow-right.svg">
     </div>
 </ng-container>
