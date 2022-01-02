@@ -8,14 +8,15 @@
         <img src="assets/SVGSurvey.svg" alt="People makeing a team survey and analyzing results"
           class="rounded mx-auto d-block full-width">
       </div>
+      <p class="center">Aktuell haben {{questionnaireResults.length}} Personen teilgenommen</p>
+      <div class="center mx-auto py-3" [hidden]="questionnaireResults.length===0">
+        <a class="btn btn-primary" href="room/{{teamid}}#begin-auswertung" role="button">zur Auswertung</a>
+      </div>
+      <div class="center mx-auto py-3" [hidden]="questionnaireResults.length!=0">
+        <a class="btn btn-primary" href="room/{{teamid}}#invite" role="button">Team einladen</a>
+      </div>
     </div>
-    <p class="center">Aktuell haben {{questionnaireResults.length}} Personen teilgenommen</p>
-    <div class="mx-auto py-3" [hidden]="questionnaireResults.length===0">
-      <a class="btn btn-primary" href="room/{{teamid}}#begin-auswertung" role="button">zur Auswertung</a>
-    </div>
-    <div class="mx-auto py-3" [hidden]="questionnaireResults.length!=0">
-      <a class="btn btn-primary" href="room/{{teamid}}#invite" role="button">Team einladen</a>
-    </div>
+    
     <div class="col col-md-6 col-12">
       <p>
         Wir haben für Dich eine Tuckman Analyse angelegt.<br /> Hier findest Du alle
@@ -32,7 +33,6 @@
     <h3>Auswertung Tuckman Analyse</h3>
     <p>
       Team: {{room.teamName}} <br>
-      Insgesamt haben {{questionnaireResults.length}} Teilnehmer teilgenommen
       <ng-container *ngIf="hasExpiry()"><br> Frist: {{room.expiresAt | date: 'dd.MM.yyyy'}}</ng-container> <br><br>
     </p>
   </div>
