@@ -38,8 +38,7 @@ export class RoomDetailsComponent implements OnInit {
 
   oncopy(x: string) {
     console.log("printed")
-    console.log(x);
-  }
+    console.log(x);}
 
   exportPDF(teamid: string) {
     console.log("pdf export triggered for " + teamid)
