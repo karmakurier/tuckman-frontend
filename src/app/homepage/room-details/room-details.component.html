@@ -8,7 +8,7 @@
         <img src="assets/SVGSurvey.svg" alt="People makeing a team survey and analyzing results"
           class="rounded mx-auto d-block full-width">
       </div>
-      <p class="center">Aktuell haben {{questionnaireResults.length}} Personen teilgenommen</p>
+      <p class="center">Aktuell haben {{questionnaireResults.length}} Personen teilgenommen.</p>
       <div class="center mx-auto py-3" [hidden]="questionnaireResults.length===0">
         <a class="btn btn-primary" href="room/{{teamid}}#begin-auswertung" role="button">zur Auswertung</a>
       </div>
@@ -21,7 +21,7 @@
       <p>
         Wir haben für Dich eine Tuckman Analyse angelegt.<br /> Hier findest Du alle
         Informationen, um gemeinsam mit Deinem Team loszulegen. <br />
-        Versende den Link am Ende der Seite an die Teamitglieder. Dann können sie an der Analyse teilnehmen.
+        Versende den Link am Ende der Seite an alle Teamitglieder, damit sie an der Analyse teilnehmen können.
         Wir speicher keine Mail-Adressen und keine Daten, daher bewahrt die Links gut auf.
         Kehre Auf diese Seite zurück um die Ergebnisse zu sehen.<br />
         Viel Spaß, und vergiss nicht selbst mitzumachen!
@@ -47,10 +47,10 @@
     </div>
     <div class="col col-md-6 col-12">
       <p class="text-left align-middle py-2">
-        Hier zeigen wir euch wie euer Team gerade die Zusammenarbeit erlebt. Ein Team ist selten in einer
-        einzelnen Phase alleine. Mit dem Teamüberblick seht ihr welche Phase gerade dominiert, und ob alle
+        Hier zeigen wir Euch wie Euer Team aktuell die Zusammenarbeit erlebt. Ein Team ist selten in einer
+        einzelnen Phase alleine. Mit dem Teamüberblick seht Ihr welche Phase gerade dominiert, und ob alle
         Teammitglieder
-        das ähnlich erleben oder nicht. Damit habt ihr eine gute Gesprächsgrundlage für euer nächstes Teammeeting.
+        das ähnlich erleben oder nicht. Damit habt Ihr eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.
       </p>
       <p class="text-left align-middle py-2" [hidden]="questionnaireResults.length!=0">
         Sobald Personen aus dem Team die Fragen beantwortet haben, findest Du hier die Auswertung.
@@ -71,14 +71,14 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-4">
-            <h5> Dein Mittelwert </h5>
+            <h5> Euer Mittelwert </h5>
             <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Forming">
             </app-dotchart>
             <p></p>
           </div>
           <div class="col-md-8">
             <h5> Bedeutung</h5>
-            <p> In der Orientierungsphase lernen sich die Teammitglieder kennen und sammeln erste Eindrücke. Der Umgang
+            <p> In der Orientierungsphase lernen sich die Teammitglieder kennen und sammeln erste Eindrücke voneinander. Der Umgang
               miteinander ist von höflicher Distanz geprägt. Diese Situation wiederholt sich im Teambildung sobald eine
               neue Person dazu kommt. Die Teammitglieder bringen verschiedene Erwartungen und Kompetenzen mit ein, die
               die Anderen zum Ende des Formings kennen und einzuordnen wissen. Erste Ziele und Regeln wurden definiert.
@@ -119,7 +119,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-4">
-            <h5> Dein Mittelwert </h5>
+            <h5> Euer Mittelwert </h5>
             <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Storming">
             </app-dotchart>
             <br><br>
@@ -169,16 +169,17 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-4">
-            <h5> Dein Mittelwert </h5>
+            <h5> Euer Mittelwert </h5>
             <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Norming">
             </app-dotchart>
             <p></p>
           </div>
           <div class="col-md-8">
             <h5> Bedeutung</h5>
-            <p>In der Übereinkommensphase haben sich Spannungen neutralisiert und gelten Normen und Strukturen die von
-              jedem gelebt werden. Die Teamrollen haben sich etabliert und die gegenseitige Akzeptanz herscht vor. .....
-              noch nicht fertig
+            <p>In der Normingphase, welche auch Übereinkommensphase genannt wird, werden Spannungen neutralisiert. 
+              Es werde Normen und Strukturen deutlich, welche durch alle Teammitglieder gelebt werden. 
+              Es etablieren sich Teamrollen und die Kommunikation ist verstärkt von Arbeitsthemen geprägt. 
+              Gemeinsam werden Arbeitsprozesse definiert. Aufkommende Probleme werden gemeinsam diskutiert, um Lösungen zu finden. 
             </p>
           </div>
         </div>
@@ -217,7 +218,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-4">
-            <h5> Dein Mittelwert </h5>
+            <h5> Euer Mittelwert </h5>
             <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Performing">
             </app-dotchart>
             <p></p>
@@ -257,7 +258,7 @@
 
   <!-- Block Auswertung versenden
   <div>
-    <p>Was möchtest du mit deiner Auswertung tun?</p>
+    <p>Was möchtest du mit Der Auswertung tun?</p>
     <button class="btn btn-secondary" style="margin-right: 5%;" (click)="exportPDF(teamid)">PDF exportieren</button>
     <button class="btn btn-secondary" style="margin-right: 5%;" (click)="printPDF(teamid)">Drucken</button>
     <button class="btn btn-secondary" style="margin-right: 5%;" (click)="share(teamid)">Teilen</button>
@@ -266,7 +267,7 @@
  <div id="invite">
    <hr/>
   <h3>Teilnehmer einladen</h3>
-  <p>Versende den nachfolgenden Link an alle Teilnehmer, sodass sie den Fragebogen beantworten können.</p>
+  <p>Versende den nachfolgenden Link an alle Teilnehmer:innen, sodass sie den Fragebogen beantworten können.</p>
   <div class="row">
     <div class="col col-md-8">
       <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForParticipants()">
@@ -274,7 +275,7 @@
       <p style="font-size: small;">Jeder mit diesem Link kann teilnehmen. Es ist keine Anmeldung erforderlich.</p>
     </div>
   </div>
-  <p>Hier kannst du den Link direkt mit deinem E-Mail Programm an dein Team schicken</p>
+  <p>Hier kannst du den Link direkt mit Deinem E-Mail Programm an Dein Team schicken.</p>
   <div class="row">
     <div class="col col-md-8">
       <app-mail-link [link]="getLinkForParticipants()" email="enteryourmail"></app-mail-link>
