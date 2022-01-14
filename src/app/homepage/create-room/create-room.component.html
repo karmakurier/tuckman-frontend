@@ -12,7 +12,7 @@
       <br><br>
     </div>
     <div class="col col-md-6 col-12">
-      <h5>Mache dein Team noch stärker</h5>
+      <h5>Mache Dein Team noch stärker</h5>
       <p>
       Der amerikanische Psychologe und Hochschullehrer Bruce Wayne Tuckman (1938-2016) entwickelte im Jahr 1965 das Tuckman-Phasenmodell, 
       welches auch heute noch als optimaler Ausgangspunkt in der Teamentwicklung gilt. Es ist nach wie vor ein Gold-Standard bei der
@@ -51,9 +51,9 @@
   </div>
   <div class="form-group">
     <input type="email" name="mail" class="form-control karma-input" [(ngModel)]="room.initiatorEmail"
-      placeholder="Initator E-Mail">
-    <p style="font-size: small;">Deine E-Mail wird nicht bei uns gespeichert. Nach Erstellen der Analyse erhältst du
-      eine E-Mail mit einem Link von uns, mit welchem Du deine Ergebnisse jederzeit abrufen kannst.</p>
+      placeholder="Initiator E-Mail">
+    <p style="font-size: small;">Deine E-Mail wird nicht bei uns gespeichert. Nach Erstellen der Analyse erhältst Du
+      eine E-Mail mit einem Link von uns, mit welchem Du Deine Ergebnisse jederzeit abrufen kannst.</p>
   </div>
   <div class="form-group">
     <textarea name="notes" class="form-control karma-input" [(ngModel)]="room.notes"
@@ -64,7 +64,7 @@
 
   <br><br>
   <h5 class="py-1">Vorschau Tuckman Analyse</h5>
-  <p style="font-size: small;">Klicke auf die Reiter um eine Vorschau der Teamanalyse zu bekommen.</p>
+  <p style="font-size: small;">Klicke auf die Reiter, um eine Vorschau der Teamanalyse zu bekommen.</p>
 
    <!-- Block Accordion -->
 
@@ -82,11 +82,11 @@
             <app-spiderchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"></app-spiderchart>
           </div>
           <div class="col-md-8">
-            Wir zeigen euch wie euer Team gerade die Zusammenarbeit erlebt. Ein Team ist selten in einer
+            Wir zeigen Euch wie Euer Team gerade die Zusammenarbeit erlebt. Ein Team ist selten in einer
             einzelenen Phase alleine.
-            Mit dem Teamüberblick seht ihr sofort welche Phase gerade dominiert, und ob alle Teammitglieder das
+            Mit dem Teamüberblick seht Ihr sofort, welche Phase gerade dominiert und, ob alle Teammitglieder das
             ähnlich erleben oder nicht.
-            Damit habt ihr eine gute Gesprächsgrundlage für euer nächstes Teammeeting.
+            Damit habt Ihr eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.
           </div>
         </div>
       </div>
@@ -135,8 +135,8 @@
             </app-dotchart>
           </div>
           <div class="col-md-8">
-            In der Übereinkommensphase haben sich Spannungen neutralisiert und gelten Normen und Strukturen die von
-            jedem gelebt werden. Die Teamrollen haben sich etabliert und die gegenseitige Akzeptanz herscht vor.
+            In der Übereinkommensphase haben sich Spannungen neutralisiert und es gelten Normen und Strukturen, die von
+            jedem Mitglied im Team gelebt werden. Die Teamrollen haben sich etabliert und die gegenseitige Akzeptanz herrscht vor.
           </div>
         </div>
 
@@ -148,7 +148,7 @@
           </div>
           <div class="col-md-8">
             Hier steht die Performance im Vordergund, das Team ist eingespielt und für die Situation optimal
-            ausgestattet. Hier ist operative Umsetzung am stärksten. Neuausrichtung passiert selten.
+            ausgestattet. Hier ist die operative Umsetzung am stärksten. Eine Neuausrichtung passiert selten.
           </div>
         </div>
       </div>
@@ -172,10 +172,10 @@
 
   <!-- Block Frist -->
   <h5 class="py-2">Frist festlegen</h5>
-  <p style="font-size: small;">Lege eine Frist fest an welcher alle aus deinem Team teilgenommen haben sollen. </p>
+  <p style="font-size: small;">Lege ein Datum fest, bis zu welchem alle aus Deinem Team teilgenommen haben sollen. </p>
   <div class="form-check">
     <input type="checkbox" class="form-check-input" (change)="timed = !timed">
-    <label class="form-check-label" for="exampleCheck1">Jetzt Frist festlegen (Optional)</label>
+    <label class="form-check-label" for="exampleCheck1">Jetzt Frist festlegen (optional)</label>
   </div>
   <div class="form-group">
     <input *ngIf="timed === true" type="text" placeholder="Teilnahmefrist" placement="top"
