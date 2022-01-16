@@ -34,8 +34,8 @@ export class CreateRoomComponent implements OnInit {
     if (!this.isNonProfit) {
       Swal.fire({
         title: 'Sorry!',
-        text: 'Die Benutzung der kostenfreien Tuckman-Analyse ist nur für gemeinnützige Teams bestimmt. Bitte kontaktiere uns wenn du die Analyse für nicht gemeinnützige Teams nutzen möchtest!',
-        footer: 'Wir sind für dich da: <a href="mailto:info@karmakurier.de"> info@karmakurier.org</a>',
+        text: 'Die Benutzung der kostenfreien Tuckman-Analyse ist nur für gemeinnützige Teams bestimmt. Bitte kontaktiere uns, wenn Du die Analyse für nicht gemeinnützige Teams nutzen möchtest!',
+        footer: 'Wir sind für dich da:&nbsp;<a href="mailto:info@karmakurier.de">info@karmakurier.org</a>',
         icon: 'error'
       }
       )

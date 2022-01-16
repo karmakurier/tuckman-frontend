@@ -22,9 +22,9 @@
         Wir haben für Dich eine Tuckman Analyse angelegt.<br /> Hier findest Du alle
         Informationen, um gemeinsam mit Deinem Team loszulegen. <br />
         Versende den Link am Ende der Seite an alle Teamitglieder, damit sie an der Analyse teilnehmen können.
-        Wir speicher keine Mail-Adressen und keine Daten, daher bewahrt die Links gut auf.
-        Kehre Auf diese Seite zurück um die Ergebnisse zu sehen.<br />
-        Viel Spaß, und vergiss nicht selbst mitzumachen!
+        Wir speichern keine Mail-Adressen und keine Daten, daher bewahrt die Links gut auf.
+        Kehre auf diese Seite zurück, um die Ergebnisse zu sehen.<br />
+        Viel Spaß und vergiss nicht selbst mitzumachen!
       </p>
     </div>
   </div>
@@ -47,8 +47,8 @@
     </div>
     <div class="col col-md-6 col-12">
       <p class="text-left align-middle py-2">
-        Hier zeigen wir Euch wie Euer Team aktuell die Zusammenarbeit erlebt. Ein Team ist selten in einer
-        einzelnen Phase alleine. Mit dem Teamüberblick seht Ihr welche Phase gerade dominiert, und ob alle
+        Hier zeigen wir Euch, wie Euer Team aktuell die Zusammenarbeit erlebt. Ein Team ist selten in einer
+        einzelnen Phase alleine. Mit dem Teamüberblick seht Ihr, welche Phase gerade dominiert und, ob alle
         Teammitglieder
         das ähnlich erleben oder nicht. Damit habt Ihr eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.
       </p>
@@ -272,24 +272,24 @@
     <div class="col col-md-8">
       <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForParticipants()">
       </app-button-link>
-      <p style="font-size: small;">Jeder mit diesem Link kann teilnehmen. Es ist keine Anmeldung erforderlich.</p>
+      <p style="font-size: small;">Jede:r mit diesem Link kann teilnehmen. Es ist keine Anmeldung erforderlich.</p>
     </div>
   </div>
-  <p>Hier kannst du den Link direkt mit Deinem E-Mail Programm an Dein Team schicken.</p>
+  <p>Hier kannst Du den Link direkt mit Deinem E-Mail Programm an Dein Team schicken.</p>
   <div class="row">
     <div class="col col-md-8">
       <app-mail-link [link]="getLinkForParticipants()" email="enteryourmail"></app-mail-link>
-      <p style="font-size: small;"> Mehrere Mail-Adressen können durch ";" getrennt werden. <br> Es werden keine
-        Emailadressen gespeichert. <br>Du kannst Betreff und Text vor dem Versenden bearbeiten.</p>
+      <p style="font-size: small;"> Mehrere E-Mail Adressen können durch ";" getrennt werden. <br> Es werden keine
+        E-mail Adressen gespeichert. <br>Du kannst Betreff und Text vor dem Versenden bearbeiten.</p>
     </div>
   </div>
 </div>
 
-<hr />
+<hr/>
 
 <div>
   <h3>Link zu dieser Seite</h3>
-  <p>Wenn Du zu dieser Seite zurückkehren willst um Dir die Analyse anzusehen, kannst Du nachfolgenden Link kopieren.
+  <p>Wenn Du zu dieser Seite zurückkehren willst, um Dir die Analyse anzusehen, kannst Du nachfolgenden Link kopieren.
   </p>
   <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForResults()"></app-button-link>
   <p style="font-size: small;">Jeder mit diesem Link kann diese Auswertung sehen</p>
