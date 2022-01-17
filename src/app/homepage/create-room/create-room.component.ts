@@ -72,74 +72,75 @@ export class CreateRoomComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.questionService.questionsControllerFindAll().subscribe(singlequestions => { this.questions = singlequestions })
+    this.questionService.questionsControllerFindAll().subscribe(singlequestions => {
+      this.questions = singlequestions;
 
-    this.quesstionairResultService.questionnaireResultControllerFindAll(environment.demoroom).subscribe(results => {
-      this.spiderchartdatset = { datasets: [] };
+      this.quesstionairResultService.questionnaireResultControllerFindAll(environment.demoroom).subscribe(results => {
+        this.spiderchartdatset = { datasets: [] };
 
-      function getAllCategroies(obj, val) {
-        var indexes = [], i;
-        for (i = 0; i < obj.length; i++) {
-          if (obj[i].category.name === val) {
-            indexes.push(i);
+        function getAllCategroies(obj, val) {
+          var indexes = [], i;
+          for (i = 0; i < obj.length; i++) {
+            if (obj[i].category.name === val) {
+              indexes.push(i);
+            }
           }
-        }
-        return indexes;
-      }
-
-      var Forming = getAllCategroies(this.questions, "Forming");
-      var Storming = getAllCategroies(this.questions, "Storming")
-      var Norming = getAllCategroies(this.questions, "Norming")
-      var Performing = getAllCategroies(this.questions, "Performing")
-
-      for (let i = 0; i < results.length; i++) {
-        var tmp_SpiderUserdata = new SpiderchartUserData;
-        var userRes = results[i].QuestionResults
-
-        var forming = 0;
-        var norming = 0;
-        var storming = 0;
-        var performing = 0;
-
-        var cntForming = 0;
-        var cntNorming = 0;
-        var cntStorming = 0;
-        var cntPerforming = 0;
-
-        for (let a = 0; a < userRes.length; a++) {
-
-          if (Forming.includes(userRes[a].id)) {
-            forming = forming + userRes[a].answer;
-            cntForming = ++cntForming
-          }
-
-          if (Norming.includes(userRes[a].id)) {
-            norming = norming + userRes[a].answer;
-            cntNorming = ++cntNorming
-          }
-
-          if (Storming.includes(userRes[a].id)) {
-            storming = storming + userRes[a].answer;
-            cntStorming = ++cntStorming
-          }
-
-          if (Performing.includes(userRes[a].id)) {
-            performing = performing + userRes[a].answer;
-            cntPerforming = ++cntPerforming
-          }
+          return indexes;
         }
 
-        forming = forming / cntForming
-        storming = storming / cntStorming
-        norming = norming / cntNorming
-        performing = performing / cntPerforming
+        var Forming = getAllCategroies(this.questions, "Forming");
+        var Storming = getAllCategroies(this.questions, "Storming")
+        var Norming = getAllCategroies(this.questions, "Norming")
+        var Performing = getAllCategroies(this.questions, "Performing")
 
-        tmp_SpiderUserdata.label = results[i].uuid
-        tmp_SpiderUserdata.data = [forming, storming, norming, performing]
-        this.spiderchartdatset.datasets.push(tmp_SpiderUserdata)
-      }
-    }
-    )
+        for (let i = 0; i < results.length; i++) {
+          var tmp_SpiderUserdata = new SpiderchartUserData;
+          var userRes = results[i].QuestionResults
+
+          var forming = 0;
+          var norming = 0;
+          var storming = 0;
+          var performing = 0;
+
+          var cntForming = 0;
+          var cntNorming = 0;
+          var cntStorming = 0;
+          var cntPerforming = 0;
+
+          for (let a = 0; a < userRes.length; a++) {
+
+            if (Forming.includes(userRes[a].id)) {
+              forming = forming + userRes[a].answer;
+              cntForming = ++cntForming
+            }
+
+            if (Norming.includes(userRes[a].id)) {
+              norming = norming + userRes[a].answer;
+              cntNorming = ++cntNorming
+            }
+
+            if (Storming.includes(userRes[a].id)) {
+              storming = storming + userRes[a].answer;
+              cntStorming = ++cntStorming
+            }
+
+            if (Performing.includes(userRes[a].id)) {
+              performing = performing + userRes[a].answer;
+              cntPerforming = ++cntPerforming
+            }
+          }
+
+          forming = forming / cntForming
+          storming = storming / cntStorming
+          norming = norming / cntNorming
+          performing = performing / cntPerforming
+
+          tmp_SpiderUserdata.label = results[i].uuid
+          tmp_SpiderUserdata.data = [forming, storming, norming, performing]
+          this.spiderchartdatset.datasets.push(tmp_SpiderUserdata)
+        }
+      })
+    })
   }
 }
 
