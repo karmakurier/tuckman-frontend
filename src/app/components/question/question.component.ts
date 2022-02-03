@@ -36,7 +36,6 @@ export class QuestionComponent implements OnInit {
 
   selectedValue() {
     this.actionTaken.next(({ actionType: QuestionActionType.value, value: this.answer } as ActionTaken));
-    this.actionTaken.next(({ actionType: QuestionActionType.next } as ActionTaken));
   }
 
 }

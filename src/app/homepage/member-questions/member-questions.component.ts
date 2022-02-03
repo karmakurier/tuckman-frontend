@@ -60,6 +60,9 @@ export class MemberQuestionsComponent implements OnInit {
 
     if (event.actionType == QuestionActionType.value) {
       this.questionnaireResult.QuestionResults[this.currentquestion].answer = event.value;
+      setTimeout(() => {
+        this.currentquestion++;
+      }, 500)
     }
 
     if (event.actionType == QuestionActionType.finish) {
