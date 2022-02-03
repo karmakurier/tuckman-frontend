@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'app-button-link',
@@ -10,12 +11,13 @@ export class ButtonLinkComponent implements OnInit {
   @Input() link: string = "this is the link";
   @Output() link2: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private toasterService: ToasterService) { }
 
   copyLink(inputElement) {
     inputElement.select();
     document.execCommand("copy");
     inputElement.setSelectionRange(0, 0);
+    this.toasterService.pop('success', 'Super!', 'Der Link wurde in Deine Zwischenablage kopiert.')
   }
 
   ngOnInit(): void {

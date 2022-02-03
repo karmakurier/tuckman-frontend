@@ -22,6 +22,7 @@ import { NgHcaptchaModule } from 'ng-hcaptcha';
 import { QuestionWelcomeComponent } from './components/question-welcome/question-welcome.component';
 import { QuestionFinishComponent } from './components/question-finish/question-finish.component';
 import { DotchartsingleComponent } from './components/dotchartsingle/dotchartsingle.component';
+import { ToasterModule } from 'angular2-toaster';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { DotchartsingleComponent } from './components/dotchartsingle/dotchartsin
       siteKey: environment.hCaptchaSiteKey,
       languageCode: 'de' // optional, will default to browser language
     }),
+    ToasterModule.forRoot()
   ],
   providers: [
     {
