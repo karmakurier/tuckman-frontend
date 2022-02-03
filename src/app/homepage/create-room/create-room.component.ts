@@ -20,6 +20,7 @@ export class CreateRoomComponent implements OnInit {
   room: CreateRoom = {} as CreateRoom;
   questions: {};
   isVerified: boolean = false;
+  today: Date = new Date();
   hcaptchaValue: string;
   spiderchartdatset: SpiderchartData = {} as SpiderchartData;
 

@@ -14,17 +14,20 @@
     <div class="col col-md-6 col-12">
       <h5>Mache Dein Team noch stärker</h5>
       <p>
-      Der amerikanische Psychologe und Hochschullehrer Bruce Wayne Tuckman (1938-2016) entwickelte im Jahr 1965 das Tuckman-Phasenmodell, 
-      welches auch heute noch als optimaler Ausgangspunkt in der Teamentwicklung gilt. Es ist nach wie vor ein Gold-Standard bei der
-      Beschreibung von Teambildungsprozessen.
+        Der amerikanische Psychologe und Hochschullehrer Bruce Wayne Tuckman (1938-2016) entwickelte im Jahr 1965 das
+        Tuckman-Phasenmodell,
+        welches auch heute noch als optimaler Ausgangspunkt in der Teamentwicklung gilt. Es ist nach wie vor ein
+        Gold-Standard bei der
+        Beschreibung von Teambildungsprozessen.
       </p>
       <p>
-      Wir haben für Dich und Dein Team einen Fragebogen erstellt, den Du an jedes Teammitglied senden kannst. 
-      Nach Beantwortung der Fragen durch Dein Team, erhält jede:r ein eine individuelle Auswertung. 
-      Zudem erstellen wir für Euch eine teamspezifische Auswertung.
-      So erkennt Ihr, in welcher Phase Ihr Euch befindet und wie Ihr Eure Zusammenarbeit gegebenenfalls optimieren könnt.
-      Spannend ist es vor allem zu sehen, wo das Team eine einheitliche Wahrnehmung hat und wo Ihr unterschiedliche
-      Perspektiven einnehmt.
+        Wir haben für Dich und Dein Team einen Fragebogen erstellt, den Du an jedes Teammitglied senden kannst.
+        Nach Beantwortung der Fragen durch Dein Team, erhält jede:r ein eine individuelle Auswertung.
+        Zudem erstellen wir für Euch eine teamspezifische Auswertung.
+        So erkennt Ihr, in welcher Phase Ihr Euch befindet und wie Ihr Eure Zusammenarbeit gegebenenfalls optimieren
+        könnt.
+        Spannend ist es vor allem zu sehen, wo das Team eine einheitliche Wahrnehmung hat und wo Ihr unterschiedliche
+        Perspektiven einnehmt.
       </p>
     </div>
   </div>
@@ -66,14 +69,15 @@
   <h5 class="py-1">Vorschau Tuckman Analyse</h5>
   <p style="font-size: small;">Klicke auf die Reiter, um eine Vorschau der Teamanalyse zu bekommen.</p>
 
-   <!-- Block Accordion -->
+  <!-- Block Accordion -->
 
   <div #spiderchartplot class="card">
-    <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)"> 
+    <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)">
       <h5 class="mb-0 acc-header">
         Der Teamscore
-        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 0}" src="assets/img/arrow-down-accordion.svg" alt="">
-      </h5>     
+        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 0}" src="assets/img/arrow-down-accordion.svg"
+          alt="">
+      </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
       <div class="card-body">
@@ -97,7 +101,8 @@
     <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(1)">
       <h5 class="mb-0 acc-header">
         Die Phasen
-        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 1}" src="assets/img/arrow-down-accordion.svg" alt="">
+        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 1}" src="assets/img/arrow-down-accordion.svg"
+          alt="">
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
@@ -136,7 +141,8 @@
           </div>
           <div class="col-md-8">
             In der Übereinkommensphase haben sich Spannungen neutralisiert und es gelten Normen und Strukturen, die von
-            jedem Mitglied im Team gelebt werden. Die Teamrollen haben sich etabliert und die gegenseitige Akzeptanz herrscht vor.
+            jedem Mitglied im Team gelebt werden. Die Teamrollen haben sich etabliert und die gegenseitige Akzeptanz
+            herrscht vor.
           </div>
         </div>
 
@@ -158,7 +164,8 @@
     <div class="card-header handcursor" id="headingThree" (click)="expandAccordion(2)">
       <h5 class="mb-0 acc-header">
         Die Fragen
-        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 2}" src="assets/img/arrow-down-accordion.svg" alt="">
+        <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 2}" src="assets/img/arrow-down-accordion.svg"
+          alt="">
       </h5>
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
@@ -179,7 +186,7 @@
   </div>
   <div class="form-group">
     <input *ngIf="timed === true" type="text" placeholder="Teilnahmefrist" placement="top"
-      class="form-control karma-input" [(ngModel)]="room.expiresAt" bsDatepicker>
+      class="form-control karma-input" [(ngModel)]="room.expiresAt" bsDatepicker [minDate]="today">
   </div>
 
   <div class="form-group">
