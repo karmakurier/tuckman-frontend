@@ -16,7 +16,7 @@
         <a class="btn btn-primary" href="room/{{teamid}}#invite" role="button">Team einladen</a>
       </div>
     </div>
-    
+
     <div class="col col-md-6 col-12">
       <p>
         Wir haben für Dich eine Tuckman Analyse angelegt.<br /> Hier findest Du alle
@@ -29,7 +29,7 @@
     </div>
   </div>
   <hr />
-   <div id=begin-auswertung>
+  <div id=begin-auswertung>
     <h3>Auswertung Tuckman Analyse</h3>
     <p>
       Team: {{room.teamName}} <br>
@@ -78,7 +78,8 @@
           </div>
           <div class="col-md-8">
             <h5> Bedeutung</h5>
-            <p> In der Orientierungsphase lernen sich die Teammitglieder kennen und sammeln erste Eindrücke voneinander. Der Umgang
+            <p> In der Orientierungsphase lernen sich die Teammitglieder kennen und sammeln erste Eindrücke voneinander.
+              Der Umgang
               miteinander ist von höflicher Distanz geprägt. Diese Situation wiederholt sich im Teambildung sobald eine
               neue Person dazu kommt. Die Teammitglieder bringen verschiedene Erwartungen und Kompetenzen mit ein, die
               die Anderen zum Ende des Formings kennen und einzuordnen wissen. Erste Ziele und Regeln wurden definiert.
@@ -176,10 +177,11 @@
           </div>
           <div class="col-md-8">
             <h5> Bedeutung</h5>
-            <p>In der Normingphase, welche auch Übereinkommensphase genannt wird, werden Spannungen neutralisiert. 
-              Es werde Normen und Strukturen deutlich, welche durch alle Teammitglieder gelebt werden. 
-              Es etablieren sich Teamrollen und die Kommunikation ist verstärkt von Arbeitsthemen geprägt. 
-              Gemeinsam werden Arbeitsprozesse definiert. Aufkommende Probleme werden gemeinsam diskutiert, um Lösungen zu finden. 
+            <p>In der Normingphase, welche auch Übereinkommensphase genannt wird, werden Spannungen neutralisiert.
+              Es werde Normen und Strukturen deutlich, welche durch alle Teammitglieder gelebt werden.
+              Es etablieren sich Teamrollen und die Kommunikation ist verstärkt von Arbeitsthemen geprägt.
+              Gemeinsam werden Arbeitsprozesse definiert. Aufkommende Probleme werden gemeinsam diskutiert, um Lösungen
+              zu finden.
             </p>
           </div>
         </div>
@@ -229,7 +231,7 @@
               Das Team wird produktiv, es arbeitet effizient und selbstständig.
               Es agiert im Team, denn gemeinsame Strukturen und definierte Ziele werden fokussiert.
               So wird von nun an stark wertschätzend und mit einer hohen Akzeptanz zusammengearbeitet.
-              Eine kooperative Kultur des miteinander und sich gegenseitig helfen wird etabliert.
+              Eine kooperative Kultur des Miteinander und sich gegenseitig helfen wird etabliert.
             </p>
           </div>
         </div>
@@ -264,38 +266,38 @@
     <button class="btn btn-secondary" style="margin-right: 5%;" (click)="share(teamid)">Teilen</button>
   </div>
  -->
- <div id="invite">
-   <hr/>
-  <h3>Teilnehmer einladen</h3>
-  <p>Versende den nachfolgenden Link an alle Teilnehmer:innen, sodass sie den Fragebogen beantworten können.</p>
-  <div class="row">
-    <div class="col col-md-8">
-      <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForParticipants()">
-      </app-button-link>
-      <p style="font-size: small;">Jede:r mit diesem Link kann teilnehmen. Es ist keine Anmeldung erforderlich.</p>
+  <div id="invite">
+    <hr />
+    <h3>Teilnehmer einladen</h3>
+    <p>Versende den nachfolgenden Link an alle Teilnehmer:innen, sodass sie den Fragebogen beantworten können.</p>
+    <div class="row">
+      <div class="col col-md-8">
+        <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForParticipants()">
+        </app-button-link>
+        <p style="font-size: small;">Jede:r mit diesem Link kann teilnehmen. Es ist keine Anmeldung erforderlich.</p>
+      </div>
+    </div>
+    <p>Hier kannst Du den Link direkt mit Deinem E-Mail Programm an Dein Team schicken.</p>
+    <div class="row">
+      <div class="col col-md-8">
+        <app-mail-link [link]="getLinkForParticipants()" email="enteryourmail"></app-mail-link>
+        <p style="font-size: small;"> Mehrere E-Mail Adressen können durch ";" getrennt werden. <br> Es werden keine
+          E-mail Adressen gespeichert. <br>Du kannst Betreff und Text vor dem Versenden bearbeiten.</p>
+      </div>
     </div>
   </div>
-  <p>Hier kannst Du den Link direkt mit Deinem E-Mail Programm an Dein Team schicken.</p>
-  <div class="row">
-    <div class="col col-md-8">
-      <app-mail-link [link]="getLinkForParticipants()" email="enteryourmail"></app-mail-link>
-      <p style="font-size: small;"> Mehrere E-Mail Adressen können durch ";" getrennt werden. <br> Es werden keine
-        E-mail Adressen gespeichert. <br>Du kannst Betreff und Text vor dem Versenden bearbeiten.</p>
-    </div>
+
+  <hr />
+
+  <div>
+    <h3>Link zu dieser Seite</h3>
+    <p>Wenn Du zu dieser Seite zurückkehren willst, um Dir die Analyse anzusehen, kannst Du nachfolgenden Link kopieren.
+    </p>
+    <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForResults()"></app-button-link>
+    <p style="font-size: small;">Jeder mit diesem Link kann diese Auswertung sehen</p>
   </div>
-</div>
 
-<hr/>
-
-<div>
-  <h3>Link zu dieser Seite</h3>
-  <p>Wenn Du zu dieser Seite zurückkehren willst, um Dir die Analyse anzusehen, kannst Du nachfolgenden Link kopieren.
-  </p>
-  <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForResults()"></app-button-link>
-  <p style="font-size: small;">Jeder mit diesem Link kann diese Auswertung sehen</p>
-</div>
-
-<hr />
+  <hr />
 
   <pre>
 
