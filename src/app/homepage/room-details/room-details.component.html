@@ -95,8 +95,7 @@
         <ol>
           <div class="row my-2 flex-column-reverse" *ngFor="let question of getQuestionsForCategoryId(1)">
             <div class="col-md-4">
-              <app-dotchartsingle *ngIf="questionnaireResults[0]" [datasetfull]="questionnaireResults"
-                id={{question.id}}>
+              <app-dotchartsingle *ngIf="questionnaireResults" [datasetfull]="questionnaireResults" id={{question.id}}>
               </app-dotchartsingle>
               <br><br>
             </div>
@@ -144,8 +143,7 @@
         <ol>
           <div class="row flex-column-reverse" *ngFor="let question of getQuestionsForCategoryId(2)">
             <div class="col-md-4">
-              <app-dotchartsingle *ngIf="questionnaireResults[0]" [datasetfull]="questionnaireResults"
-                id={{question.id}}>
+              <app-dotchartsingle *ngIf="questionnaireResults" [datasetfull]="questionnaireResults" id={{question.id}}>
               </app-dotchartsingle>
               <br><br>
             </div>
@@ -194,8 +192,7 @@
         <ol>
           <div class="row flex-column-reverse" *ngFor="let question of getQuestionsForCategoryId(3)">
             <div class="col-md-4">
-              <app-dotchartsingle *ngIf="questionnaireResults[0]" [datasetfull]="questionnaireResults"
-                id={{question.id}}>
+              <app-dotchartsingle *ngIf="questionnaireResults" [datasetfull]="questionnaireResults" id={{question.id}}>
               </app-dotchartsingle>
               <br><br>
             </div>
@@ -244,8 +241,7 @@
         <ol>
           <div class="row flex-column-reverse" *ngFor="let question of getQuestionsForCategoryId(4)">
             <div class="col-md-4">
-              <app-dotchartsingle *ngIf="questionnaireResults[0]" [datasetfull]="questionnaireResults"
-                id={{question.id}}>
+              <app-dotchartsingle *ngIf="questionnaireResults" [datasetfull]="questionnaireResults" id={{question.id}}>
               </app-dotchartsingle>
               <br><br>
             </div>
