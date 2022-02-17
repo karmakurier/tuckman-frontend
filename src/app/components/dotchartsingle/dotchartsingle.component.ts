@@ -226,12 +226,12 @@ export class DotchartsingleComponent implements OnInit {
   ngOnInit(): void {
     this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
       this.questionnaire = questionnaire.questions;
-    });
 
-    this.questionService.questionsControllerFindAll().subscribe(results => {
-      this.questions = results
-      this.headers = ["Forming", "Storming", "Norming", "Performing"]
-      this.plotdotchartsingle(this.id, this.dimension)
-    })
+      this.questionService.questionsControllerFindAll().subscribe(results => {
+        this.questions = results
+        this.headers = ["Forming", "Storming", "Norming", "Performing"]
+        this.plotdotchartsingle(this.id, this.dimension)
+      })
+    });
   }
 }
