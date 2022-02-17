@@ -105,8 +105,8 @@ export class DotchartsingleComponent implements OnInit {
       var arraydata: Array<number> = []
       if (this.datasetfull.length >= 1) {
         for (let i = 0; i < this.datasetfull.length; i++) {
-          var answer = this.datasetfull[i].QuestionResults.filter(q => q.id == this.id)
-          arraydata.push(answer[0].answer)
+          var foundAnswer = this.datasetfull[i].QuestionResults.find(q => q.id == this.id)
+          arraydata.push(foundAnswer.answer)
         }
       }
       else {
