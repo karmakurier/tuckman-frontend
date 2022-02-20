@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DotchartsingleComponent implements OnInit {
   questionnaire: Question[] = []
-  questions: {};
+  //questions: {};
   headers: any[]
 
 
@@ -20,6 +20,8 @@ export class DotchartsingleComponent implements OnInit {
   @Input() datasetfull: QuestionnaireResult[] = [];
   @Input() dimension: string;
   @Input() id: number;
+  @Input() questions: Question[];
+
 
   private ctx: CanvasRenderingContext2D;
 
@@ -224,12 +226,8 @@ export class DotchartsingleComponent implements OnInit {
   ngOnInit(): void {
     this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
       this.questionnaire = questionnaire.questions;
-
-      this.questionService.questionsControllerFindAll().subscribe(results => {
-        this.questions = results
-        this.headers = ["Forming", "Storming", "Norming", "Performing"]
-        this.plotdotchartsingle(this.id, this.dimension)
-      })
-    });
+      this.headers = ["Forming", "Storming", "Norming", "Performing"]
+      this.plotdotchartsingle(this.id, this.dimension)
+    })
   }
 }

@@ -83,7 +83,8 @@
       <div class="card-body">
         <div class="row align-items-center">
           <div class="col-md-4">
-            <app-spiderchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"></app-spiderchart>
+            <app-spiderchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" [questions]="questions">
+            </app-spiderchart>
           </div>
           <div class="col-md-8">
             Wir zeigen Euch wie Euer Team gerade die Zusammenarbeit erlebt. Ein Team ist selten in einer
@@ -111,7 +112,8 @@
         <h4 class="py-3">Forming</h4>
         <div class="row">
           <div class="col-md-4">
-            <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Forming">
+            <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" [questions]="questions"
+              dimension="Forming">
             </app-dotchart>
           </div>
           <div class="col-md-8">
@@ -123,7 +125,8 @@
         <h4 class="py-3">Storming</h4>
         <div class="row">
           <div class="col-md-4">
-            <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Storming">
+            <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" [questions]="questions"
+              dimension="Storming">
             </app-dotchart>
           </div>
           <div class="col-md-8">
@@ -136,7 +139,8 @@
         <h4 class="py-3">Norming</h4>
         <div class="row">
           <div class="col-md-4">
-            <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Norming">
+            <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" [questions]="questions"
+              dimension="Norming">
             </app-dotchart>
           </div>
           <div class="col-md-8">
@@ -149,7 +153,8 @@
         <h4 class="py-3">Performing</h4>
         <div class="row">
           <div class="col-md-4">
-            <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Performing">
+            <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" [questions]="questions"
+              dimension="Performing">
             </app-dotchart>
           </div>
           <div class="col-md-8">

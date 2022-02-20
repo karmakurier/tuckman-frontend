@@ -5,13 +5,15 @@
     </h4>
     <div class="row align-items-center">
         <div class="col-md-4">
-            <app-spiderchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"></app-spiderchart>
+            <app-spiderchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" [questions]="questions">
+            </app-spiderchart>
         </div>
         <div class="col-md-8">
             <p>
-            Hier zeigen wir Dir wie Du gerade die Zusammenarbeit erlebst. Du kannst ableiten welche Phase gerade für
-            Dich dominiert und, ob das Deinen Erwartungen entspricht. Für mehr Details kannst Du Dir die einzelnen Fragen anschauen.
-        </p>
+                Hier zeigen wir Dir wie Du gerade die Zusammenarbeit erlebst. Du kannst ableiten welche Phase gerade für
+                Dich dominiert und, ob das Deinen Erwartungen entspricht. Für mehr Details kannst Du Dir die einzelnen
+                Fragen anschauen.
+            </p>
         </div>
     </div>
 
@@ -19,7 +21,8 @@
         <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)">
             <h5 class="mb-0 acc-header">
                 Forming
-                <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 0}" src="assets/img/arrow-down-accordion.svg" alt="">
+                <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 0}"
+                    src="assets/img/arrow-down-accordion.svg" alt="">
             </h5>
         </div>
         <div class="collapse" [ngClass]="{'show': accordionExpanded === 0}">
@@ -27,7 +30,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h5> Dein Mittelwert </h5>
-                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Forming">
+                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Forming"
+                            [questions]="questions">
                         </app-dotchartsingle>
                         <p></p>
                     </div>
@@ -50,7 +54,8 @@
                 <ol style="margin-left:0px">
                     <div class="row flex-column-reverse" *ngFor="let question of getQuestionsForCategoryId(1)">
                         <div class="col-md-4">
-                            <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}>
+                            <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}
+                                [questions]="questions">
                             </app-dotchartsingle>
                             <br><br>
                         </div>
@@ -67,7 +72,8 @@
         <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(1)">
             <h5 class="mb-0 acc-header">
                 Storming
-                <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 1}" src="assets/img/arrow-down-accordion.svg" alt="">
+                <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 1}"
+                    src="assets/img/arrow-down-accordion.svg" alt="">
             </h5>
         </div>
         <div class="collapse" [ngClass]="{'show': accordionExpanded === 1}">
@@ -75,7 +81,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h5> Dein Mittelwert </h5>
-                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Storming">
+                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Storming"
+                            [questions]="questions">
                         </app-dotchartsingle>
                         <p></p>
                     </div>
@@ -98,7 +105,8 @@
                 <ol>
                     <div class="row flex-column-reverse" *ngFor="let question of getQuestionsForCategoryId(2)">
                         <div class="col-md-4">
-                            <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}>
+                            <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}
+                                [questions]="questions">
                             </app-dotchartsingle>
                             <p></p>
                         </div>
@@ -115,7 +123,8 @@
         <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(2)">
             <h5 class="mb-0 acc-header">
                 Norming
-                <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 2}" src="assets/img/arrow-down-accordion.svg" alt="">
+                <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 2}"
+                    src="assets/img/arrow-down-accordion.svg" alt="">
             </h5>
         </div>
         <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
@@ -123,7 +132,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h5> Dein Mittelwert </h5>
-                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Norming">
+                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Norming"
+                            [questions]="questions">
                         </app-dotchartsingle>
                         <p></p>
                     </div>
@@ -144,7 +154,8 @@
                 <ol>
                     <div class="row flex-column-reverse" *ngFor="let question of getQuestionsForCategoryId(3)">
                         <div class="col-md-4">
-                            <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}>
+                            <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}
+                                [questions]="questions">
                             </app-dotchartsingle>
                             <p></p>
                         </div>
@@ -161,7 +172,8 @@
         <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(3)">
             <h5 class="mb-0 acc-header">
                 Performing
-                <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 3}" src="assets/img/arrow-down-accordion.svg" alt="">
+                <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 3}"
+                    src="assets/img/arrow-down-accordion.svg" alt="">
             </h5>
         </div>
         <div class="collapse" [ngClass]="{'show': accordionExpanded === 3}">
@@ -169,16 +181,17 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h5> Dein Mittelwert </h5>
-                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Performing">
+                        <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" dimension="Performing"
+                            [questions]="questions">
                         </app-dotchartsingle>
                         <p></p>
                     </div>
                     <div class="col-md-8">
                         <h5> Bedeutung</h5>
-                        <p>Diese Phase bezeichnet man unter anderem als Arbeitsphase. 
-                            Das Team wird produktiv, es arbeitet effizient und selbstständig. 
-                            Es agiert im Team, denn gemeinsame Strukturen und definierte Ziele werden fokussiert. 
-                            So wird von nun an stark wertschätzend und mit einer hohen Akzeptanz zusammengearbeitet. 
+                        <p>Diese Phase bezeichnet man unter anderem als Arbeitsphase.
+                            Das Team wird produktiv, es arbeitet effizient und selbstständig.
+                            Es agiert im Team, denn gemeinsame Strukturen und definierte Ziele werden fokussiert.
+                            So wird von nun an stark wertschätzend und mit einer hohen Akzeptanz zusammengearbeitet.
                             Eine kooperative Kultur des miteinander und sich gegenseitig helfen wird etabliert.
                         </p>
                     </div>
@@ -192,7 +205,8 @@
                 <ol>
                     <div class="row flex-column-reverse" *ngFor="let question of getQuestionsForCategoryId(4)">
                         <div class="col-md-4">
-                            <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}>
+                            <app-dotchartsingle *ngIf="userRes" [dataset]="userRes" id={{question.id}}
+                                [questions]="questions">
                             </app-dotchartsingle>
                             <br><br>
                         </div>

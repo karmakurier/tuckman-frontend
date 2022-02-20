@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { QuestionsService } from 'generated/api';
+import { Question, QuestionsService } from 'generated/api';
 import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
 
 
@@ -10,7 +10,7 @@ import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
 })
 
 export class DotchartComponent implements OnInit, AfterViewInit {
-  questions: {};
+  //questions: {};
   headers: any[];
 
   @ViewChild('canvas', { static: true })
@@ -18,6 +18,7 @@ export class DotchartComponent implements OnInit, AfterViewInit {
 
   @Input() dataset: SpiderchartData;
   @Input() dimension: string;
+  @Input() questions: Question[];
 
 
   private ctx: CanvasRenderingContext2D;
@@ -198,10 +199,7 @@ export class DotchartComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void { };
   ngAfterViewInit(): void {
-    this.questionService.questionsControllerFindAll().subscribe(results => {
-      this.questions = results
-      this.headers = ["Forming", "Storming", "Norming", "Performing"]
-      this.plotdotchart()
-    });
+    this.headers = ["Forming", "Storming", "Norming", "Performing"]
+    this.plotdotchart()
   }
 }

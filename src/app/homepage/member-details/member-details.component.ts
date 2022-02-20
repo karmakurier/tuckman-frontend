@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Question, QuestionnaireResult, QuestionnaireresultService, QuestionnairesService, QuestionResult } from 'generated/api';
+import { Question, QuestionnaireResult, QuestionnaireresultService, QuestionnairesService, QuestionResult, QuestionsService } from 'generated/api';
 import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
 import { SpiderchartUserData } from 'src/app/models/spiderchartuserdata';
 import { environment } from 'src/environments/environment';
@@ -54,12 +54,12 @@ export class MemberDetailsComponent implements OnInit {
     return window.location;
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.resultId = this.activatedRoute.snapshot.paramMap.get('id');
     this.questionnaireService.questionnairesControllerFindSingle(environment.tuckmanQuestionairId).subscribe(questionnaire => {
       this.questions = questionnaire.questions;
     });
-    
+
     this.questionnaireResultService.questionnaireResultControllerFindAll(null, this.resultId).subscribe(results => {
       this.spiderchartdatset = { datasets: [] };
 
@@ -92,7 +92,7 @@ export class MemberDetailsComponent implements OnInit {
       var cntStorming = 0;
       var cntPerforming = 0;
       for (let a = 0; a < this.userRes.length; a++) {
-        
+
         if (Forming.includes(this.userRes[a].question.id)) {
           forming = forming + this.userRes[a].answer;
           cntForming = ++cntForming
@@ -125,7 +125,7 @@ export class MemberDetailsComponent implements OnInit {
       this.questionnaireResult = results
     }
     )
-    
+
   }
 }
 
