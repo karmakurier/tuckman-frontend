@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   API_BASE_PATH: 'http://localhost:3000',
   tuckmanQuestionairId: 1,
-  demoroom: "dfab295f-6f0f-4756-9052-ee3f4ad12873",
+  demoroom: "9456e7ac-8442-4260-b5ba-1fc8ae72525f",
   Forming: "Forming",
   Storming: "Storming",
   Norming: "Norming",

@@ -14,7 +14,7 @@ export class RoomDetailsComponent implements OnInit {
   teamid: string = "AwsomeTeam2";
   accordionExpanded: number = -1;
   room: Room = {} as Room;
-  questionnaireResults: QuestionnaireResult[] = [];
+  questionnaireResults: QuestionnaireResult[];
   spiderchartdatset: SpiderchartData = {} as SpiderchartData
   questions: Question[] = [];
 
@@ -38,7 +38,8 @@ export class RoomDetailsComponent implements OnInit {
 
   oncopy(x: string) {
     console.log("printed")
-    console.log(x);}
+    console.log(x);
+  }
 
   exportPDF(teamid: string) {
     console.log("pdf export triggered for " + teamid)
@@ -56,20 +57,21 @@ export class RoomDetailsComponent implements OnInit {
     return this.questions.filter(q => q.category.id == id);
   }
 
-  
-  getAllCategories(obj, val){
+
+  getAllCategories(obj, val) {
     var indexes = [], i;
-      for(i = 0; i < obj.length; i++){
-        if (obj[i].category.name === val){
-        indexes.push(i);}
+    for (i = 0; i < obj.length; i++) {
+      if (obj[i].category.name === val) {
+        indexes.push(i);
       }
-      return indexes;
+    }
+    return indexes;
   }
-  
+
   ngOnInit(): void {
     this.questionService.questionsControllerFindAll().subscribe(singlequestions => {
       this.questions = singlequestions
-      this.teamid=this.activatedRoute.snapshot.paramMap.get('id')
+      this.teamid = this.activatedRoute.snapshot.paramMap.get('id')
       this.roomService.roomsControllerFindAll(this.teamid).subscribe(rooms => {
         this.room = rooms;
         this.questionnaireResultService.questionnaireResultControllerFindAll(this.room.roomUUID).subscribe(results => {
@@ -126,10 +128,10 @@ export class RoomDetailsComponent implements OnInit {
             tmp_SpiderUserdata.label = results[i].uuid
             tmp_SpiderUserdata.data = [forming, storming, norming, performing]
             this.spiderchartdatset.datasets.push(tmp_SpiderUserdata)
-          } 
+          }
+        })
       })
     })
-  })
   }
 
   hasExpiry() {

@@ -1,7 +1,5 @@
-import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Question, QuestionnaireResult, QuestionnairesService, QuestionResult, QuestionsService } from 'generated/api';
-import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
 import { environment } from 'src/environments/environment';
 
 @Component({

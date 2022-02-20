@@ -48,6 +48,7 @@ export class MemberQuestionsComponent implements OnInit {
   }
 
   handleAction(event: ActionTaken) {
+    console.log(this.questionnaireResult)
     if (event.actionType == QuestionActionType.next) {
       this.currentquestion++;
     }
