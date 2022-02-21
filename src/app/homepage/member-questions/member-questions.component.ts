@@ -48,7 +48,6 @@ export class MemberQuestionsComponent implements OnInit {
   }
 
   handleAction(event: ActionTaken) {
-    console.log(this.questionnaireResult)
     if (event.actionType == QuestionActionType.next) {
       this.currentquestion++;
     }
@@ -61,11 +60,11 @@ export class MemberQuestionsComponent implements OnInit {
 
     if (event.actionType == QuestionActionType.value) {
       this.questionnaireResult.QuestionResults[this.currentquestion].answer = event.value;
-      setTimeout(() => {
+      /*setTimeout(() => {
         if (this.currentquestion < this.questions.length) {
           this.currentquestion++;
         }
-      }, 500)
+      }, 500)*/
     }
 
     if (event.actionType == QuestionActionType.finish) {
