@@ -272,7 +272,8 @@
  -->
   <div id="invite">
     <hr />
-    <h3>Teilnehmer einladen</h3>
+    <h3 [hidden]="questionnaireResults?.length > 0">Teilnehmer einladen</h3>
+    <h3 [hidden]="questionnaireResults?.length === 0">Weitere Teilnehmer einladen</h3>
     <p>Versende den nachfolgenden Link an alle Teilnehmer:innen, sodass sie den Fragebogen beantworten können.</p>
     <div class="row">
       <div class="col col-md-8">
