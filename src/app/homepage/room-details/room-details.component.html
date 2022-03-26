@@ -308,3 +308,276 @@
 
     </pre>
 </div>
+
+
+<!-- printing layout block  -->
+
+<div id="print-this" hidden>
+  <!-- Page 1  -->
+  <!-- Header  -->
+  <div class="container-fluid divHeader">
+    <div class="row py-3">
+      <div class="col col-12">
+        <img src="assets/img/Tuckmanlogo_papaya.svg" alt="Logo karmakurier Tuckman" height="70px">
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer  -->
+  <div class="container-fluid divFootermain">
+    <div class="row py-3">
+      <div class="col col-md-3">
+        <img src="assets/img/karmakurier_logo_black_oneline.svg" alt="logo bw" height="20px">
+      </div>
+      <div class="col col-md-9">
+        <div class="footerText">published under creative commons licence CC BY 4.0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main landing Image-->
+  <div class="container-fluid bg-image-main">
+    <div class="row py-3">
+      <div class="col col-md-7 py-3 mx-5">
+        <p> </p>
+        <h1 class="py-3">Tuckman - Phasenmodell</h1>
+        <p class="py-3">Effizienz und Produktivität eines Teams hängen vom gemeinsamen Bewusstsein ab. Es ist daher
+          besonderns
+          hilfreich, wenn alle wissen wo man gerade steht.
+        </p>
+        <p class="py-3">Das Modell von Tuckman aus dem Jahre 1965 beschreibt verschiedenen Phasen des Teambuilding als
+          Forming,
+          Norming, Storming und Performing.
+        </p>
+        <p class="py-3">karmakurier hat in Anlehnung dazu ein Tool entwicklet, um durch Befragung eurer
+          Team-Mitglieder
+          die aktuelle
+          Phase eurer Team- Dynamik zu zeigen. Die Visualisierung hilft euch dabei, das gemeinsames Verständnis über
+          euer Team zu verstärken. Natürlich sind Teams dynamisch, daher ist es sinnvoll, die karmakurier
+          Tuckman-Teamanalyse zu einem späteren Zeitpunkt zu wiederholen.
+        </p>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <!-- How To Anleitung-->
+  <div class="container-fluid">
+    <div class="row py-3 mx-5">
+      <div class="col col-12 py-3">
+        <h1 class="py-3">Wie verwende ich diesen Bericht</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-6">
+        <h2 class="py-3 text-center">im Team</h2>
+        <div class="custom-counter-yellow px-3">
+          <div class="py-2 fontfront">
+            Seht euch das Gesamtergebnis an. Diskutiert ob diese euren Erwartungen entspricht. Was war überraschend?
+            Wie habt ihr die Frage interpretiert?
+          </div>
+          <div class="py-2 fontfront">
+            In der Gesamtauswertung gibt es Dimensionen die die Wahrnehmung unter den Teammitgliedern unterschiedlich
+            darstellt.
+          </div>
+          <div class="py-2 fontfront">
+            Seht euch hier die Einzelanworten an. Wo liegen die Meinungen auseinander? Überlegt wie man diese zu
+            einem gemeinsamen Verständnis bringen könnte.
+          </div>
+        </div>
+      </div>
+      <div class="col col-md-6">
+        <h2 class="py-3 text-center">als Initiator:in</h2>
+        <div class="custom-counter-orange px-3">
+          <div class="py-2 fontfront">
+            Es ist ein toller Vertrauensbeweis, dass ein Team sich einer solchen Analyse stellt. Dies soll gefeiert
+            werden.
+          </div>
+          <div class="py-2 fontfront">
+            Stelle klar, dass die keine Wertung ist, sondern ein aktueller Schnappschuss der Team-Dynamik. Diese ist
+            eine Hilfestellung um sich als Team weiterzuentwickeln.
+          </div>
+          <div class="py-2 fontfront">
+            Solltest du eine externe Moderation hinzufügen wollen, kannst du karmakurier gerne kontaktieren. Wir als
+            non-profit Initiative helfen gerne.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break-clear"></div>
+  <div class="page-break">&nbsp;</div>
+  <!--- End of Page --->
+
+  <!--- Page 2 --->
+  <!-- Header  -->
+  <div class="container-fluid divHeader">
+    <div class="row py-3">
+      <div class="col col-12">
+        <img src="assets/img/Tuckmanlogo_papaya.svg" alt="Logo karmakurier Tuckman" height="70px">
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer  -->
+  <div class="container-fluid divFooter">
+    <div class="row py-3">
+      <div class="col col-md-3">
+        <img src="assets/img/karmakurier_logo_black_oneline.svg" alt="logo bw" height="20px">
+      </div>
+      <div class="col col-md-9">
+        <div class="footerText">published under creative commons licence CC BY 4.0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Intro -->
+  <div class="container-fluid bg-image-team">
+    <div class="row align-items-center py-5">
+      <div class="col col-md-6 col-12">
+        <div class="full-width">
+          <p>&nbsp;</p>
+        </div>
+      </div>
+      <div class="col col-md-6 col-12">
+        <p>&nbsp;</p>
+        <button class="btn btn-secondary mx-3 karma-button-yellow">
+          <h2 class="px-3">das Team</h2>
+        </button>
+        <p>&nbsp;</p>
+        <p class="text-left align-middle my-2 fontfront">
+          Bravo, ihr wollt euch als Team euren Herausforderungen stellen, um eure Team-Dynamik auf
+          eine neue Dimensionzu heben. </p>
+        <p class="text-left align-middle my-2 fontfront">Insgesamt haben {{questionnaireResults?.length}} Personen aus
+          eurem Team teilgenommen.
+        </p>
+        <p class="text-left align-middle my-2 fontfront" [hidden]="questionnaireResults?.length===0">
+          Wir haben hier die Ergebnisse aller Antworten zusammengefasst. </p>
+        <p class="text-left align-middle my-2 fontfront" [hidden]="questionnaireResults?.length!=0">
+          Sobald Personen aus dem Team die Fragen beantwortet haben, findest Du hier die Auswertung.
+        </p>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <!-- Team Überblick; funktioniert nicht im ausdruck -->
+  <div class="container-fluid">
+    <div class="row my-5 py-5 mx-5">
+      <h1>Team Auswertung</h1>
+    </div>
+    <div class="row align-items-center">
+      <div class="col col-md-6 col-12">
+        <div class="full-width">
+          <app-spiderchart [hidden]="questionnaireResults.length===0" *ngIf="spiderchartdatset.datasets"
+            [dataset]="spiderchartdatset" [questions]="questions"></app-spiderchart>
+          <img src="assets/img/questions-welcome.svg" alt="fragezeichen fragebogen interview"
+            [hidden]="questionnaireResults?.length!=0" class="rounded mx-auto d-bloc full-width">
+        </div>
+      </div>
+      <div class="col col-md-6 col-12">
+        <h2 class="text-left align-middle my-2">Was ist eure höchste Übereinstimmung?</h2>
+        <p></p>
+        <p class="text-left align-middle my-2 fontfront">
+          Hier seht ihr wie Euer Team aktuell die Zusammenarbeit erlebt. Ein Team ist selten in einer
+          einzelnen Phase alleine. </p>
+        <p class="text-left align-middle my-2 fontfront">Mit dem Teamüberblick seht Ihr, welche Phase gerade dominiert
+          und, ob alle
+          Teammitglieder das ähnlich erleben oder nicht. </p>
+        <p class="text-left align-middle my-2 fontfront">
+          Schaut welche Spitze am weitesten herausragt, und welche Phase am meisten Unterschiede hat.
+          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
+        <p class="text-left align-middle my-2 fontfront" [hidden]="questionnaireResults?.length!=0">
+          Sobald Personen aus dem Team die Fragen beantwortet haben, findest Du hier die Auswertung.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="page-break-clear"></div>
+  <div class="page-break">&nbsp;</div>
+
+  <!--- Page 3 Details Forming --->
+  <!-- Header  -->
+  <div class="container-fluid divHeader">
+    <div class="row py-3">
+      <div class="col col-12">
+        <img src="assets/img/Tuckmanlogo_papaya.svg" alt="Logo karmakurier Tuckman" height="70px">
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer  -->
+  <div class="container-fluid divFooter">
+    <div class="row py-3">
+      <div class="col col-md-3">
+        <img src="assets/img/karmakurier_logo_black_oneline.svg" alt="logo bw" height="20px">
+      </div>
+      <div class="col col-md-9">
+        <div class="footerText">published under creative commons licence CC BY 4.0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-image-phases">
+    <div class="row mx-3">
+      <div class="col col-md-12 col-12">
+        <h1 class="py-3">Phase</h1>
+        <p class="text-left align-middle py-3 fontfront">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+          diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+          accusam
+          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+          amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+          labore et
+          dolore magna aliquyam erat, sed diam voluptua.</p>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row align-items-center py-5">
+      <div class="col col-md-6 col-12">
+        <h2>Einzelergebnis Phase</h2>
+      </div>
+      <div class="col col-md-3 col-12">
+        <div id="circle-yellow"></div>
+        <p class="frontfont px-2" id="legend">Teamscore</p>
+      </div>
+      <div class="col col-md-3 col-12">
+        <div id="circle-blue"></div>
+        <p class="frontfont px-2" id="legend">Einzelscore</p>
+      </div>
+    </div>
+
+    <!---  mittelwert plot --->
+    <div class="row align-items-center py-5">
+      <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Norming"
+        [questions]="questions">
+      </app-dotchart>
+    </div>
+
+    <ol>
+      <div class="row flex-column-reverse" *ngFor="let question of getQuestionsForCategoryId(4)">
+        <div class="col-md-4">
+          <app-dotchartsingle *ngIf="questionnaireResults?.length" [datasetfull]="questionnaireResults"
+            id={{question.id}} [questions]="questions">
+          </app-dotchartsingle>
+          <br><br>
+        </div>
+        <div class="col-md-8">
+          <li>{{question.questionString}}<br><br></li>
+        </div>
+      </div>
+    </ol>
+  </div>
+
+
+
+
+
+
+</div>
+
+<button class="btn btn-secondary mx-5 my-3 karma-button-yellow" [useExistingCss]="true" printSectionId="print-this"
+  ngxPrint>
+  <h3 class="px-3">Print Report</h3>
+</button>

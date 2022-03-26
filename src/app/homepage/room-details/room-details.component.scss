@@ -1,3 +1,19 @@
+h1,
+h2 {
+  font-family: "Quicksand";
+  font-weight: 800;
+  font-size: 28pt;
+}
+
+h2 {
+  font-size: 22pt;
+}
+
+p {
+  font-family: "Mulish";
+  font-size: 14pt;
+}
+
 .card {
   background: #fff;
   border-radius: 10px !important;
@@ -36,12 +52,172 @@
   border-color: #57b894; /*set the color you want here*/
 }
 
-.arrow {          
+.arrow {
   float: right;
 }
 
-.arrow.expanded {    
-  float: right;      
+.arrow.expanded {
+  float: right;
   -webkit-transform: rotateX(180deg);
-  transform: rotateX(180deg);         
+  transform: rotateX(180deg);
+}
+
+.divHeader {
+background-color: #fff;
+}
+
+.divFooter,
+.divFootermain {
+  position: fixed;
+  bottom: 0%;
+}
+
+.divFootermain {
+  background: #fef0eb !important;
+  -webkit-print-color-adjust: exact;
+}
+
+.divFooter {
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+}
+
+
+.footerText {
+  font-family: "Quicksand";
+  font-size: smaller;
+  font-weight: 600;
+}
+
+.bg-image-main {
+  background-image: url("/assets/img/Tuckmanbackground_intro.svg");
+  background-repeat: no-repeat !important;
+  background-position: center top;
+  background-size: 100% auto;
+  -webkit-print-color-adjust: exact !important;
+}
+
+.bg-image-team {
+  background-image: url("/assets/img/Tuckmanbackground_summary.svg");
+  background-repeat: no-repeat !important;
+  background-position: center top;
+  background-size: 100% auto;
+  -webkit-print-color-adjust: exact !important;
+}
+
+.bg-image-phases {
+  background-image: url("/assets/img/Tuckmanbackground_phases.svg");
+  background-repeat: no-repeat !important;
+  background-position: center top;
+  background-size: 100% auto;
+  -webkit-print-color-adjust: exact !important;
+}
+
+
+
+div.custom-counter-yellow div.custom-counter-orange {
+  counter-reset: list-number;
+  padding-left: 30px;
+  font-size: 14pt;
+  font-family: "Quicksand";
+}
+
+div.custom-counter-yellow div, div.custom-counter-orange div{
+  counter-increment: list-number;
+  margin-left: 50px;
+}
+
+div.custom-counter-yellow div:before, div.custom-counter-orange div:before {
+  content: counter(list-number);
+  -webkit-print-color-adjust: exact;
+  margin-right: 10px;
+  margin-bottom:0px;
+  margin-left: -35px;
+  width: 20px;
+  height:20px;
+  display:inline-flex;
+  align-items:center;
+  justify-content: center;
+  font-size:16px;
+  border-radius:50%;
+  color:#fff;
+}
+
+div.fontfront{
+  font-size: 14pt;
+}
+
+div.custom-counter-yellow div:before {
+  background-color:#FFC539;
+}
+
+div.custom-counter-orange div:before {
+  background-color:#FF966E;
+}
+
+.karma-button-yellow {
+  background: #FFC539;
+  border-color: #FFC539;
+  border-radius: 10px;
+  min-height: 58px;
+  color: #fff;
+  border-radius: 25pt;
+}
+
+.karma-button-green {
+  background: #58B893;
+  border-color: #58B893;
+  border-radius: 10px;
+  min-height: 58px;
+  color: #fff;
+  border-radius: 25pt;
+}
+
+.full-width{
+  -webkit-print-color-adjust: exact;
+}
+@media print {
+  .page-break-clear { 
+    clear: both;
+  }
+  .page-break {
+    page-break-after: always; /* depreciating, use break-after */
+    break-after: page;
+    height: 0px;
+    display: block!important;
+  }
+}
+
+#circle-yellow {
+  background-color: #FFC539;
+  width: 20px;
+  height: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-print-color-adjust: exact;
+  display: inline-block;
+}
+
+#circle-blue {
+  background-color: #8C95E3;
+  width: 20px;
+  height: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-print-color-adjust: exact;
+  display: inline-block;
+}
+
+.row {
+  -webkit-print-color-adjust: exact;
+}
+#legend {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
 }
