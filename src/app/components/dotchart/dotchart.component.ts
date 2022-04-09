@@ -15,10 +15,14 @@ export class DotchartComponent implements OnInit, AfterViewInit {
 
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
+  
+  @ViewChild('canvasasimg', { static: true })
+  canvasasimg: ElementRef<HTMLImageElement>;
 
   @Input() dataset: SpiderchartData;
   @Input() dimension: string;
   @Input() questions: Question[];
+  @Input() print: Boolean=false;
 
 
   private ctx: CanvasRenderingContext2D;
@@ -201,5 +205,7 @@ export class DotchartComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.headers = ["Forming", "Storming", "Norming", "Performing"]
     this.plotdotchart()
+    var dataurl=this.canvas.nativeElement.toDataURL()
+    this.canvasasimg.nativeElement.src = dataurl
   }
 }

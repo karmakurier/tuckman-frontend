@@ -1,5 +1,5 @@
 h1,
-h2 {
+h2, h3 {
   font-family: "Quicksand";
   font-weight: 800;
   font-size: 28pt;
@@ -8,6 +8,11 @@ h2 {
 h2 {
   font-size: 22pt;
 }
+
+h3 {
+  font-size: 18pt;
+}
+
 
 p {
   font-family: "Mulish";
@@ -66,22 +71,22 @@ p {
 background-color: #fff;
 }
 
-.divFooter,
-.divFootermain {
-  position: fixed;
-  bottom: 0%;
-}
+.divLastPage{
+  background-image: url("/assets/img/BackgroundLastPage.svg");
+  background-repeat: no-repeat !important;
+  background-position: center top;
+  background-size:contain;
+  height: 100%;
+  -webkit-print-color-adjust: exact !important;
 
-.divFootermain {
-  background: #fef0eb !important;
-  -webkit-print-color-adjust: exact;
 }
 
 .divFooter {
-  background: #fff;
+  position: fixed;
+  bottom: 0%;
   -webkit-print-color-adjust: exact;
+  background: #FEF0EB;
 }
-
 
 .footerText {
   font-family: "Quicksand";
@@ -109,10 +114,34 @@ background-color: #fff;
   background-image: url("/assets/img/Tuckmanbackground_phases.svg");
   background-repeat: no-repeat !important;
   background-position: center top;
-  background-size: 100% auto;
+  background-size: cover;
   -webkit-print-color-adjust: exact !important;
+  height: 250px;
 }
 
+.bg-help-self, .bg-help-we, .bg-help-others {
+  background-repeat: no-repeat !important;
+  background-position: center top;
+  background-size: cover;
+  -webkit-print-color-adjust: exact !important;
+  height: 300px;
+  border-radius: 10px;
+} 
+
+.bg-help-self {background-image: url("/assets/img/bg-help-self.svg");}
+.bg-help-we {background-image: url("/assets/img/bg-help-we.svg");}
+.bg-help-others {background-image: url("/assets/img/bg-help-others.svg");}
+
+
+
+
+.durchschnitt {
+  border-radius: 15px !important;
+  padding: 10 10 10 10  !important;
+  border-color: #FF966E !important;
+  border-width: 2px !important;
+  -webkit-print-color-adjust: exact !important;
+}
 
 
 div.custom-counter-yellow div.custom-counter-orange {
@@ -143,6 +172,24 @@ div.custom-counter-yellow div:before, div.custom-counter-orange div:before {
   color:#fff;
 }
 
+.circlebutton{
+  -webkit-print-color-adjust: exact;
+  background-color: #FF966E;
+  margin-right: 10px;
+  margin-bottom:0px;
+  margin-left: 0px;
+  width: 20px;
+  height:20px;
+  display:inline-flex;
+  align-items:center;
+  justify-content: center;
+  font-size:16px;
+  border-radius:50%;
+  color:#fff;
+  font-family: "Quicksand";
+  font-weight: 600;
+}
+
 div.fontfront{
   font-size: 14pt;
 }
@@ -153,6 +200,29 @@ div.custom-counter-yellow div:before {
 
 div.custom-counter-orange div:before {
   background-color:#FF966E;
+}
+
+
+ul {
+  list-style: none; 
+  margin-left: 30px;
+}
+
+ul li::before {
+  content: ""; 
+  -webkit-print-color-adjust: exact;
+  margin-right: 10px;
+  margin-bottom: 0px;
+  margin-left: -35px;
+  width: 20px;
+  height:20px;
+  display:inline-flex;
+  align-items:center;
+  justify-content: center;
+  font-size:16px;
+  border-radius:50%;
+  font-size:16px;
+  background-color:#58B893;
 }
 
 .karma-button-yellow {
@@ -199,6 +269,7 @@ div.custom-counter-orange div:before {
   display: inline-block;
 }
 
+
 #circle-blue {
   background-color: #8C95E3;
   width: 20px;
@@ -208,6 +279,43 @@ div.custom-counter-orange div:before {
   border-radius: 20px;
   -webkit-print-color-adjust: exact;
   display: inline-block;
+}
+
+#mail, #phone, #facebook, #linkedin, #instagram {
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  width: 30px;
+  height: 40px;
+  margin-left:0px;
+  -webkit-print-color-adjust: exact;
+  display: inline-block !important;
+}
+
+#mail {
+  background-image: url("/assets/img/mail.svg");
+}
+#phone {
+  background-image: url("/assets/img/phone.svg");
+}
+#facebook {
+  background-image: url("/assets/img/Facebook.svg");
+}
+#instagram {
+  background-image: url("/assets/img/instagram.svg");
+}
+#linkedin {
+  background-image: url("/assets/img/linkedin.svg");
+}
+
+
+
+#iconlabel {
+  margin-left: 5px;
+  position: relative;
+  top: 50%;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .row {
@@ -220,4 +328,14 @@ div.custom-counter-orange div:before {
   left: 40%;
   transform: translate(-50%, -50%);
   display: inline-block;
+}
+
+
+
+.spacer-20 {
+  height: 16vh;
+}
+
+.spacer-30 {
+  height: 24vh;
 }

@@ -62,7 +62,7 @@
   <div class="card" [hidden]="questionnaireResults?.length===0">
     <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)">
       <h5 class="mb-0 acc-header">
-        Forming
+        Storming
         <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 0}" src="assets/img/arrow-down-accordion.svg"
           alt="">
       </h5>
@@ -313,24 +313,26 @@
 <!-- printing layout block  -->
 
 <div id="print-this" hidden>
-  <!-- Page 1  -->
-  <!-- Header  -->
-  <div class="container-fluid divHeader">
-    <div class="row py-3">
-      <div class="col col-12">
-        <img src="assets/img/Tuckmanlogo_papaya.svg" alt="Logo karmakurier Tuckman" height="70px">
-      </div>
-    </div>
-  </div>
+
 
   <!-- Footer  -->
-  <div class="container-fluid divFootermain">
+  <div class="container-fluid divFooter">
     <div class="row py-3">
       <div class="col col-md-3">
         <img src="assets/img/karmakurier_logo_black_oneline.svg" alt="logo bw" height="20px">
       </div>
       <div class="col col-md-9">
         <div class="footerText">published under creative commons licence CC BY 4.0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 1  -->
+  <!-- Header  -->
+  <div class="container-fluid divHeader">
+    <div class="row py-3">
+      <div class="col col-12">
+        <img src="assets/img/Tuckmanlogo_papaya.svg" alt="Logo karmakurier Tuckman" height="70px">
       </div>
     </div>
   </div>
@@ -419,18 +421,6 @@
     </div>
   </div>
 
-  <!-- Footer  -->
-  <div class="container-fluid divFooter">
-    <div class="row py-3">
-      <div class="col col-md-3">
-        <img src="assets/img/karmakurier_logo_black_oneline.svg" alt="logo bw" height="20px">
-      </div>
-      <div class="col col-md-9">
-        <div class="footerText">published under creative commons licence CC BY 4.0</div>
-      </div>
-    </div>
-  </div>
-
   <!-- Team Intro -->
   <div class="container-fluid bg-image-team">
     <div class="row align-items-center py-5">
@@ -468,7 +458,7 @@
     <div class="row align-items-center">
       <div class="col col-md-6 col-12">
         <div class="full-width">
-          <app-spiderchart [hidden]="questionnaireResults.length===0" *ngIf="spiderchartdatset.datasets"
+          <app-spiderchart [print]="true" [hidden]="questionnaireResults.length===0" *ngIf="spiderchartdatset.datasets"
             [dataset]="spiderchartdatset" [questions]="questions"></app-spiderchart>
           <img src="assets/img/questions-welcome.svg" alt="fragezeichen fragebogen interview"
             [hidden]="questionnaireResults?.length!=0" class="rounded mx-auto d-bloc full-width">
@@ -504,39 +494,26 @@
       </div>
     </div>
   </div>
-
-  <!-- Footer  -->
-  <div class="container-fluid divFooter">
-    <div class="row py-3">
-      <div class="col col-md-3">
-        <img src="assets/img/karmakurier_logo_black_oneline.svg" alt="logo bw" height="20px">
-      </div>
-      <div class="col col-md-9">
-        <div class="footerText">published under creative commons licence CC BY 4.0</div>
-      </div>
-    </div>
-  </div>
-
+  <!-- Erklärung  -->
   <div class="container-fluid bg-image-phases">
     <div class="row mx-3">
       <div class="col col-md-12 col-12">
-        <h1 class="py-3">Phase</h1>
-        <p class="text-left align-middle py-3 fontfront">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-          diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-          accusam
-          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-          amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-          labore et
-          dolore magna aliquyam erat, sed diam voluptua.</p>
+        <h1 class="py-3">Forming</h1>
+        <p class="text-left align-middle py-3 fontfront">Das Forming gilt auch als Orientierungsphase. Die
+          Teammitglieder lernen sich kennen und sammeln erste Eindrücke. Der Umgang miteinander ist von höflicher
+          Distanz geprägt. Diese Situation wiederholt sich im Teambildung sobald eine neue Person dazu kommt. Die
+          Teammitglieder bringen verschiedene Erwartungen und Kompetenzen mit ein, die die Anderen zum Ende des Formings
+          kennen und einzuordnen wissen. Erste Ziele und Regeln wurden definiert. </p>
         <p></p>
       </div>
     </div>
   </div>
+
   <div class="container-fluid">
-    <div class="row align-items-center py-5">
+    <!-- Übersicht  -->
+    <div class="row align-items-center py-3">
       <div class="col col-md-6 col-12">
-        <h2>Einzelergebnis Phase</h2>
+        <h2>Einzelergebnis Forming</h2>
       </div>
       <div class="col col-md-3 col-12">
         <div id="circle-yellow"></div>
@@ -547,34 +524,382 @@
         <p class="frontfont px-2" id="legend">Einzelscore</p>
       </div>
     </div>
-
     <!---  mittelwert plot --->
-    <div class="row align-items-center py-5">
-      <app-dotchart *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset" dimension="Norming"
-        [questions]="questions">
-      </app-dotchart>
-    </div>
-
-    <ol>
-      <div class="row flex-column-reverse" *ngFor="let question of getQuestionsForCategoryId(4)">
-        <div class="col-md-4">
-          <app-dotchartsingle *ngIf="questionnaireResults?.length" [datasetfull]="questionnaireResults"
-            id={{question.id}} [questions]="questions">
-          </app-dotchartsingle>
-          <br><br>
-        </div>
-        <div class="col-md-8">
-          <li>{{question.questionString}}<br><br></li>
-        </div>
+    <div class="row">
+      <div class="col col-md-4 col-12">&nbsp;</div>
+      <div class="col col-md-4 col-12 align-items-center border durchschnitt">
+        <h3 class="text-center">Durchschnitt</h3>
+        <app-dotchart [print]="true" *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"
+          dimension="Forming" [questions]="questions">
+        </app-dotchart>
       </div>
-    </ol>
+      <div class="col col-md-4 col-12">&nbsp;</div>
+    </div>
+    <p>&nbsp;</p>
+    <!-- Einzelfragen  -->
+    <div class="row noMarginRow" *ngFor="let question of getQuestionsForCategoryId(1)">
+      <div class="col col-md-8 col-12 ">
+        <div class="frontfont">{{question.questionString}}</div>
+      </div>
+      <div class="col col-md-1 col-12"></div>
+      <div class="col col-md-3 col-12">
+        <app-dotchartsingle [print]="true" *ngIf="questionnaireResults?.length" [datasetfull]="questionnaireResults"
+          id={{question.id}} [questions]="questions">
+        </app-dotchartsingle>
+        <br><br>
+      </div>
+
+    </div>
+  </div>
+  <div class="page-break-clear"></div>
+  <div class="page-break">&nbsp;</div>
+
+  <!--- Page 4 Details Storming --->
+  <!-- Header  -->
+  <div class="container-fluid divHeader">
+    <div class="row py-3">
+      <div class="col col-12">
+        <img src="assets/img/Tuckmanlogo_papaya.svg" alt="Logo karmakurier Tuckman" height="70px">
+      </div>
+    </div>
+  </div>
+  <!-- Erklärung  -->
+  <div class="container-fluid bg-image-phases">
+    <div class="row mx-3">
+      <div class="col col-md-12 col-12">
+        <h1 class="py-3">Storming</h1>
+        <p class="text-left align-middle py-3 fontfront">Die Konfrontationsphase zeichnet sich durch Konflikte im Team
+          aus. Sie ist geprägt von Stillstand, Widerständen durch Meinungsverschiedenheiten, Kompetenzgerangel oder
+          verschiedener Zielorientierungen. Reibepunkte werden sichtbar und werden aus dem Weg geräumt.
+          Ungeklärtheiten/Frustrationen werden identifiziert, Teamrollen werden definiert. Der Stillstand wird behoben
+          und das geminsame, unbeschwerte Arbeiten beginnt. </p>
+        <p></p>
+      </div>
+    </div>
   </div>
 
+  <div class="container-fluid">
+    <!-- Übersicht  -->
+    <div class="row align-items-center py-3">
+      <div class="col col-md-6 col-12">
+        <h2>Einzelergebnis Storming</h2>
+      </div>
+      <div class="col col-md-3 col-12">
+        <div id="circle-yellow"></div>
+        <p class="frontfont px-2" id="legend">Teamscore</p>
+      </div>
+      <div class="col col-md-3 col-12">
+        <div id="circle-blue"></div>
+        <p class="frontfont px-2" id="legend">Einzelscore</p>
+      </div>
+    </div>
+    <!---  mittelwert plot --->
+    <div class="row">
+      <div class="col col-md-4 col-12">&nbsp;</div>
+      <div class="col col-md-4 col-12 align-items-center border durchschnitt">
+        <h3 class="text-center">Durchschnitt</h3>
+        <app-dotchart [print]="true" *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"
+          dimension="Storming" [questions]="questions">
+        </app-dotchart>
+      </div>
+      <div class="col col-md-4 col-12">&nbsp;</div>
+    </div>
+    <p>&nbsp;</p>
+    <!-- Einzelfragen  -->
+    <div class="row noMarginRow" *ngFor="let question of getQuestionsForCategoryId(2)">
+      <div class="col col-md-8 col-12 ">
+        <div class="frontfont">{{question.questionString}}</div>
+      </div>
+      <div class="col col-md-1 col-12"></div>
+      <div class="col col-md-3 col-12">
+        <app-dotchartsingle [print]="true" *ngIf="questionnaireResults?.length" [datasetfull]="questionnaireResults"
+          id={{question.id}} [questions]="questions">
+        </app-dotchartsingle>
+        <br><br>
+      </div>
 
+    </div>
+  </div>
+  <div class="page-break-clear"></div>
+  <div class="page-break">&nbsp;</div>
 
+  <!--- Page 5 Details Norming --->
+  <!-- Header  -->
+  <div class="container-fluid divHeader">
+    <div class="row py-3">
+      <div class="col col-12">
+        <img src="assets/img/Tuckmanlogo_papaya.svg" alt="Logo karmakurier Tuckman" height="70px">
+      </div>
+    </div>
+  </div>
+  <!-- Erklärung  -->
+  <div class="container-fluid bg-image-phases">
+    <div class="row mx-3">
+      <div class="col col-md-12 col-12">
+        <h1 class="py-3">Norming</h1>
+        <p class="text-left align-middle py-3 fontfront">In der Übereinkommensphase werden Spannungen neutralisiert
+          und Normen und Strukturen festgelegt, die von jedem gelebt werden. Die Teamrollen haben etabliert sich und die
+          gegenseitige Akzeptanz herscht vor. Die Kommunikation wird zunehmend konstruktiv. Feedback und Kooperation
+          werden etabliert.</p>
+        <p></p>
+      </div>
+    </div>
+  </div>
 
+  <div class="container-fluid">
+    <!-- Übersicht  -->
+    <div class="row align-items-center py-3">
+      <div class="col col-md-6 col-12">
+        <h2>Einzelergebnis Norming</h2>
+      </div>
+      <div class="col col-md-3 col-12">
+        <div id="circle-yellow"></div>
+        <p class="frontfont px-2" id="legend">Teamscore</p>
+      </div>
+      <div class="col col-md-3 col-12">
+        <div id="circle-blue"></div>
+        <p class="frontfont px-2" id="legend">Einzelscore</p>
+      </div>
+    </div>
+    <!---  mittelwert plot --->
+    <div class="row">
+      <div class="col col-md-4 col-12">&nbsp;</div>
+      <div class="col col-md-4 col-12 align-items-center border durchschnitt">
+        <h3 class="text-center">Durchschnitt</h3>
+        <app-dotchart [print]="true" *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"
+          dimension="Norming" [questions]="questions">
+        </app-dotchart>
+      </div>
+      <div class="col col-md-4 col-12">&nbsp;</div>
+    </div>
+    <p>&nbsp;</p>
+    <!-- Einzelfragen  -->
+    <div class="row noMarginRow" *ngFor="let question of getQuestionsForCategoryId(3)">
+      <div class="col col-md-8 col-12 ">
+        <div class="frontfont">{{question.questionString}}</div>
+      </div>
+      <div class="col col-md-1 col-12"></div>
+      <div class="col col-md-3 col-12">
+        <app-dotchartsingle [print]="true" *ngIf="questionnaireResults?.length" [datasetfull]="questionnaireResults"
+          id={{question.id}} [questions]="questions">
+        </app-dotchartsingle>
+        <br><br>
+      </div>
 
+    </div>
+  </div>
+  <div class="page-break-clear"></div>
+  <div class="page-break">&nbsp;</div>
 
+  <!--- Page 6 Details Performing --->
+  <!-- Header  -->
+  <div class="container-fluid divHeader">
+    <div class="row py-3">
+      <div class="col col-12">
+        <img src="assets/img/Tuckmanlogo_papaya.svg" alt="Logo karmakurier Tuckman" height="70px">
+      </div>
+    </div>
+  </div>
+  <!-- Erklärung  -->
+  <div class="container-fluid bg-image-phases">
+    <div class="row mx-3">
+      <div class="col col-md-12 col-12">
+        <h1 class="py-3">Performing</h1>
+        <p class="text-left align-middle py-3 fontfront">In der Höchleistungsphase arbeiten die Teammitglieder
+          erfolgreich und entschlossen am gemeinsamen Ziel. Produktivität, Effizienz und selbständiges Arbeiten gehen
+          Hand in Hand mit der Loyalität zum Team. Verschiedene Kompetenzen werden aktiv zieloreintiert eingesetzt. Ein
+          konstruktiver und agiler Rahmen ist geschaffen.
+        </p>
+        <p></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <!-- Übersicht  -->
+    <div class="row align-items-center py-3">
+      <div class="col col-md-6 col-12">
+        <h2>Einzelergebnis Performing</h2>
+      </div>
+      <div class="col col-md-3 col-12">
+        <div id="circle-yellow"></div>
+        <p class="frontfont px-2" id="legend">Teamscore</p>
+      </div>
+      <div class="col col-md-3 col-12">
+        <div id="circle-blue"></div>
+        <p class="frontfont px-2" id="legend">Einzelscore</p>
+      </div>
+    </div>
+    <!---  mittelwert plot --->
+    <div class="row">
+      <div class="col col-md-4 col-12">&nbsp;</div>
+      <div class="col col-md-4 col-12 align-items-center border durchschnitt">
+        <h3 class="text-center">Durchschnitt</h3>
+        <app-dotchart [print]="true" *ngIf="spiderchartdatset.datasets" [dataset]="spiderchartdatset"
+          dimension="Performing" [questions]="questions">
+        </app-dotchart>
+      </div>
+      <div class="col col-md-4 col-12">&nbsp;</div>
+    </div>
+    <p>&nbsp;</p>
+    <!-- Einzelfragen  -->
+    <div class="row noMarginRow" *ngFor="let question of getQuestionsForCategoryId(4)">
+      <div class="col col-md-8 col-12 ">
+        <div class="frontfont">{{question.questionString}}</div>
+      </div>
+      <div class="col col-md-1 col-12"></div>
+      <div class="col col-md-3 col-12">
+        <app-dotchartsingle [print]="true" *ngIf="questionnaireResults?.length" [datasetfull]="questionnaireResults"
+          id={{question.id}} [questions]="questions">
+        </app-dotchartsingle>
+        <br><br>
+      </div>
+
+    </div>
+  </div>
+  <div class="page-break-clear"></div>
+  <div class="page-break">&nbsp;</div>
+
+  <!--- Page 7 ERgebnis Empfehlungen --->
+  <!-- Header  -->
+  <div class="container-fluid divHeader">
+    <div class="row py-3">
+      <div class="col col-12">
+        <img src="assets/img/Tuckmanlogo_papaya.svg" alt="Logo karmakurier Tuckman" height="70px">
+      </div>
+    </div>
+  </div>
+  <!-- Erklärung  -->
+  <div class="container-fluid bg-image-phases">
+    <div class="row mx-3">
+      <div class="col col-md-12 col-12">
+        <h1 class="py-3">Wie gehe ich mit dem Ergebnis um?</h1>
+        <p class="text-left align-middle py-3 fontfront">Im Folgenden findest Du drei Möglichkeiten wie Du mit dem
+          Ergebnis umgehen kannst. Dabei ...
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <p>&nbsp;</p>
+  <div class="container-fluid bg-help-self">
+    <div class="row">
+      <div class="col col-md-8 col-12">
+        <h4 class="py-3">Du schaust selbst, wie es weiter geht!</h4>
+        <p class="text-left align-middle py-3 fontfront">
+          Jede:r aus dem Team hat einen eigenen Link zur Auswertung der eigenen Antworten bekommen und kann diese
+          eigenverantwortlich ansehen. Der:die Initatorin kann entscheiden, ob jedes Teammitglied die Gesamtauswertung
+          erhält und
+          die Antworten selbst durchsieht. Ihr könnt auch gemeinsam im Team darüber sprechen, und gemeinsam
+          erarbeiten wie Ihr in die nächste Phase kommen könnt.
+        </p>
+      </div>
+    </div>
+  </div>
+  <p>&nbsp;</p>
+
+  <div class="container-fluid bg-help-we">
+    <div class="row">
+      <div class="col col-md-8 col-12">
+        <h4 class="py-3">Wir schauen gemeinsam, wie es weiter geht!</h4>
+        <p class="text-left align-middle py-3 fontfront">
+          Oft ist es einfacher wenn jemand von Außen noch auf die Antworten schaut. Gerne helfen wir von karmakurier
+          Euch dabei, in die nächste Phase zu kommen.
+          Sprecht uns gerne jederzeit unverbindlich an, und wir schauen mit Euch gemeinsam, wo Ihr steht, und zeigen
+          euch welche nächsten Schritte sinnvoll sind.
+          Wir trainieren dann zum Beispiel mit Euch Teamskills.
+        </p>
+      </div>
+    </div>
+  </div>
+  <p>&nbsp;</p>
+
+  <div class="container-fluid bg-help-others">
+    <div class="row">
+      <div class="col col-md-8 col-12">
+        <h3 class="py-3">Ihr sucht gleich ein Training, um Euer Team bestmöglichst aufzustellen!</h3>
+        <p class="text-left align-middle py-3 fontfront">
+          Um Euer Team vor großen Herausforderungen zu schützen, und schnellstmöglich vroanzukommen könnt Ihr gemeinsam
+          mit einer:m Mentor:in in einem vertieften Training Euren Weg erarbeiten. Wende dich dafür an uns
+          karmakuriere; wir zeigen Euch wie Ihr die besten Trainer für Euch findet. Gebt uns bitte Bescheid, wir stellen den
+          Kontakt gerne für Euch her.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-break-clear"></div>
+  <div class="page-break">&nbsp;</div>
+
+  <!--- Page 8 Details karmakurier --->
+  <!-- Header  -->
+  <div class="container-fluid divLastPage">
+    <div class="row spacer-20">
+      <div class="col col-12">
+        &nbsp;
+      </div>
+    </div>
+    <div class="container" style="background-color: #fff;">
+      <div class="row py-2">
+        <div class="col col-md-6 col-12">
+          <ul>
+            <li class="fontfront py-2">karmakurier hat sich zum Ziel gesetzt, gemeinnützige Organisationen in ihrer
+              Wirkung zu stärken.</li>
+            <li class="fontfront py-2">Thematisch liegt der Fokus hierbei auf sozial, ökologisch und nachhaltig
+              wirksamen Initiativen.</li>
+            <li class="fontfront py-2">karmakurier richtet sein Angebot daher an gemeinnützige Vereine und
+              Organisationen sowie ehrenamtlich
+              Tätige.</li>
+          </ul>
+        </div>
+        <div class="col col-md-6 col-12">
+          <ul>
+            <li class="fontfront py-2">Wir bieten Workshops und Schulungen, um Euch bei Digitalisierung, Innovation und
+              Zusammenarbeit zu unterstützen.</li>
+            <li class="fontfront py-2">Wir sind eine Informationsplattform für Gemeinnützige zu Software, Werkzeuge und
+              andere Plattformen</li>
+            <li class="fontfront py-2">Wir entwicklung digitale Lösungen um die Arbeit von gemeinnützigen Organisationen
+              zu verbessern.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row spacer-20">
+      <div class="col col-12">
+        &nbsp;
+      </div>
+    </div>
+    <div class="container bg-transparent">
+      <div class="row">
+        <div class="col col-md-6 col-12">
+          &nbsp;
+        </div>
+        <div class="col col-md-6 col-12">
+          <h2 class="py-3">kontaktiere uns jederzeit</h2>
+          <div class="py-1">
+            <div id="mail"></div>
+            <p class="frontfont px-2" id="iconlabel">info@karmakurier.org</p>
+          </div>
+          <div class="py-1">
+            <div id="phone"></div>
+            <p class="frontfont px-2" id="iconlabel">01717750193</p>
+          </div>
+          <div class="py-1">
+            <div id="linkedin"></div>
+            <p class="frontfont px-2" id="iconlabel">company/karmakurier</p>
+          </div>
+          <div class="py-1">
+            <div id="facebook"></div>
+            <p class="frontfont px-2" id="iconlabel">@karmakurier</p>
+          </div>
+          <div class="py-1">
+            <div id="instagram"></div>
+            <p class="frontfont px-2" id="iconlabel">@karmakurier</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <button class="btn btn-secondary mx-5 my-3 karma-button-yellow" [useExistingCss]="true" printSectionId="print-this"

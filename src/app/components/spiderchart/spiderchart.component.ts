@@ -19,7 +19,11 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
   @ViewChild('container', { static: true })
   parent: ElementRef<HTMLElement>;
 
+  @ViewChild('canvasasimg', { static: true })
+  canvasasimg: ElementRef<HTMLImageElement>;
+
   @Input() dataset: SpiderchartData;
+  @Input() print: Boolean=false;
 
   constructor(private questionService: QuestionsService) { }
 
@@ -184,6 +188,8 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
       this.questions = results
       this.headers = ["Forming", "Storming", "Norming", "Performing"]
       this.plotspiderchart()
+      var dataurl=this.canvas.nativeElement.toDataURL()
+      this.canvasasimg.nativeElement.src = dataurl
     })
 
   }
