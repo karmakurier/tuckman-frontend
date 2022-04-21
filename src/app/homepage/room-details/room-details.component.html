@@ -40,18 +40,70 @@
     <div class="col col-md-6 col-12">
       <div class="full-width">
         <app-spiderchart [hidden]="questionnaireResults.length===0" *ngIf="spiderchartdatset.datasets"
-          [dataset]="spiderchartdatset" [questions]="questions"></app-spiderchart>
+          [dataset]="spiderchartdatset" [questions]="questions"(phase)=getphase($event)></app-spiderchart>
         <img src="assets/img/questions-welcome.svg" alt="fragezeichen fragebogen interview"
           [hidden]="questionnaireResults?.length!=0" class="rounded mx-auto d-bloc full-width">
       </div>
     </div>
     <div class="col col-md-6 col-12">
-      <p class="text-left align-middle py-2">
-        Hier zeigen wir Euch, wie Euer Team aktuell die Zusammenarbeit erlebt. Ein Team ist selten in einer
-        einzelnen Phase alleine. Mit dem Teamüberblick seht Ihr, welche Phase gerade dominiert und, ob alle
-        Teammitglieder
-        das ähnlich erleben oder nicht. Damit habt Ihr eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.
-      </p>
+      <div  *ngIf="highestPhase=='Forming'">
+        <h2 class="text-left align-middle my-2">Ihr seit in der Forming Phase</h2>
+        <p></p>
+        <p class="text-left align-middle my-2 fontfront">
+          Die Teamanalyse hat ergeben, dass Ihr Euch in der Forming-Phase befindet. Sie gilt als Orientierungsphase. Ihr
+          seid in der Kennenlernphase und wiederholt sich in jedem Teambuilding - immer wenn ein neues Mitglied
+          dazukommt.</p>
+        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
+          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
+        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
+          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
+      </div>
+
+      <div *ngIf="highestPhase=='Storming'">
+        <h2 class="text-left align-middle my-2">Ihr seit in der Storming Phase</h2>
+        <p></p>
+        <p class="text-left align-middle my-2 fontfront">
+          Die Teamanalyse hat ergeben, dass Ihr Euch in der Storming-Phase befindet. Sie gilt als Konfrontationsphase
+          und zeichnet sind durch Konflikte aus. Sie ist von Stillstand geprägt. Man nennt sie auch die Nahkampfphase
+          mit Kompetenzgerangel und verschiedenen Zielorientierungen.</p>
+        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
+          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
+        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
+          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
+      </div>
+
+      <div  *ngIf="highestPhase=='Norming'">
+        <h2 class="text-left align-middle my-2">Ihr seit in der Norming Phase</h2>
+        <p></p>
+        <p class="text-left align-middle my-2 fontfront">
+          Die Teamanalyse hat ergeben, dass Ihr Euch in der Norming-Phase, auch “Übereinkommens- oder
+          Organisationsphase”, genannt, befindet. Eure Gemeinschaft wird gestärkt, ein Gruppenzusammenhalt wird
+          geschlossen. Spannungen in Eurer Gruppe werden neutralisiert. Ihr definiert Normen und Strukturen, welche von
+          jedem gelebt werden. Es etablieren sich innerhalb des Teams Rollen und es entsteht eine gegenseitige
+          Akzeptanz. Ihr kommuniziert zunehmend konstruktiv, Ihr gebt Euch gegenseitig Feedback und ihr kooperiert gut
+          miteinander. Ihr fühlt Euch als ein Team!
+        </p>
+        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
+          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
+        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
+          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
+      </div>
+
+      <div *ngIf="highestPhase=='Performing'">
+        <h2 class="text-left align-middle my-2">Ihr seit in der Performing Phase</h2>
+        <p></p>
+        <p class="text-left align-middle my-2 fontfront">
+          Die Teamanalyse hat ergeben, dass Ihr Euch in der Performing-Phase befindet. Sie gilt als Hochleistungsphase,
+          eine agile und konstruktive Arbeitsweise ist in Eurem Team angekommen. Ihr seid produktiv, effizient und
+          arbeitet selbstständig Hand in Hand im Team. Loyalität wird bei Euch groß geschrieben, die jeweiligen
+          individuellen Kompetenzen werden aktiv und zielorientiert eingesetzt.
+        </p>
+        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
+          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
+        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
+          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
+      </div>
+
       <p class="text-left align-middle py-2" [hidden]="questionnaireResults?.length!=0">
         Sobald Personen aus dem Team die Fragen beantwortet haben, findest Du hier die Auswertung.
       </p>
@@ -464,22 +516,64 @@
             [hidden]="questionnaireResults?.length!=0" class="rounded mx-auto d-bloc full-width">
         </div>
       </div>
-      <div class="col col-md-6 col-12">
-        <h2 class="text-left align-middle my-2">Was ist eure höchste Übereinstimmung?</h2>
+      <div class="col col-md-6 col-12" *ngIf="highestPhase=='Forming'">
+        <h2 class="text-left align-middle my-2">Ihr seit in der Forming Phase</h2>
         <p></p>
         <p class="text-left align-middle my-2 fontfront">
-          Hier seht ihr wie Euer Team aktuell die Zusammenarbeit erlebt. Ein Team ist selten in einer
-          einzelnen Phase alleine. </p>
-        <p class="text-left align-middle my-2 fontfront">Mit dem Teamüberblick seht Ihr, welche Phase gerade dominiert
-          und, ob alle
-          Teammitglieder das ähnlich erleben oder nicht. </p>
-        <p class="text-left align-middle my-2 fontfront">
-          Schaut welche Spitze am weitesten herausragt, und welche Phase am meisten Unterschiede hat.
+          Die Teamanalyse hat ergeben, dass Ihr Euch in der Forming-Phase befindet. Sie gilt als Orientierungsphase. Ihr
+          seid in der Kennenlernphase und wiederholt sich in jedem Teambuilding - immer wenn ein neues Mitglied
+          dazukommt.</p>
+        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
+          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
+        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
           Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
-        <p class="text-left align-middle my-2 fontfront" [hidden]="questionnaireResults?.length!=0">
-          Sobald Personen aus dem Team die Fragen beantwortet haben, findest Du hier die Auswertung.
-        </p>
       </div>
+
+      <div class="col col-md-6 col-12" *ngIf="highestPhase=='Storming'">
+        <h2 class="text-left align-middle my-2">Ihr seit in der Storming Phase</h2>
+        <p></p>
+        <p class="text-left align-middle my-2 fontfront">
+          Die Teamanalyse hat ergeben, dass Ihr Euch in der Storming-Phase befindet. Sie gilt als Konfrontationsphase
+          und zeichnet sind durch Konflikte aus. Sie ist von Stillstand geprägt. Man nennt sie auch die Nahkampfphase
+          mit Kompetenzgerangel und verschiedenen Zielorientierungen.</p>
+        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
+          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
+        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
+          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
+      </div>
+
+      <div class="col col-md-6 col-12" *ngIf="highestPhase=='Norming'">
+        <h2 class="text-left align-middle my-2">Ihr seit in der Norming Phase</h2>
+        <p></p>
+        <p class="text-left align-middle my-2 fontfront">
+          Die Teamanalyse hat ergeben, dass Ihr Euch in der Norming-Phase, auch “Übereinkommens- oder
+          Organisationsphase”, genannt, befindet. Eure Gemeinschaft wird gestärkt, ein Gruppenzusammenhalt wird
+          geschlossen. Spannungen in Eurer Gruppe werden neutralisiert. Ihr definiert Normen und Strukturen, welche von
+          jedem gelebt werden. Es etablieren sich innerhalb des Teams Rollen und es entsteht eine gegenseitige
+          Akzeptanz. Ihr kommuniziert zunehmend konstruktiv, Ihr gebt Euch gegenseitig Feedback und ihr kooperiert gut
+          miteinander. Ihr fühlt Euch als ein Team!
+        </p>
+        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
+          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
+        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
+          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
+      </div>
+
+      <div class="col col-md-6 col-12" *ngIf="highestPhase=='Performing'">
+        <h2 class="text-left align-middle my-2">Ihr seit in der Performing Phase</h2>
+        <p></p>
+        <p class="text-left align-middle my-2 fontfront">
+          Die Teamanalyse hat ergeben, dass Ihr Euch in der Performing-Phase befindet. Sie gilt als Hochleistungsphase,
+          eine agile und konstruktive Arbeitsweise ist in Eurem Team angekommen. Ihr seid produktiv, effizient und
+          arbeitet selbstständig Hand in Hand im Team. Loyalität wird bei Euch groß geschrieben, die jeweiligen
+          individuellen Kompetenzen werden aktiv und zielorientiert eingesetzt.
+        </p>
+        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
+          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
+        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
+          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
+      </div>
+
     </div>
   </div>
   <div class="page-break-clear"></div>
@@ -821,7 +915,8 @@
         <p class="text-left align-middle py-3 fontfront">
           Um Euer Team vor großen Herausforderungen zu schützen, und schnellstmöglich vroanzukommen könnt Ihr gemeinsam
           mit einer:m Mentor:in in einem vertieften Training Euren Weg erarbeiten. Wende dich dafür an uns
-          karmakuriere; wir zeigen Euch wie Ihr die besten Trainer für Euch findet. Gebt uns bitte Bescheid, wir stellen den
+          karmakuriere; wir zeigen Euch wie Ihr die besten Trainer für Euch findet. Gebt uns bitte Bescheid, wir stellen
+          den
           Kontakt gerne für Euch her.
         </p>
       </div>

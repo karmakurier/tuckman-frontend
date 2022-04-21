@@ -22,6 +22,8 @@ export class RoomDetailsComponent implements OnInit {
   userResSingle: QuestionResult[];
   userRes: QuestionResult[];
 
+  highestPhase: string="";
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private roomService: RoomsService,
@@ -153,6 +155,10 @@ export class RoomDetailsComponent implements OnInit {
 
   generateMailToForParticipants() {
     return "mailto:?subject=Einladung%20zur%20Tuckman-Analyse%20%7C%20karmakurier&body=Du wurdest zu einer Tuckman Analyse eingeladen!%0A%0AFolge diesem Link um teilzunehmen: %0A%0A" + this.getLinkForParticipants()
+  }
+
+  getphase($event){
+    this.highestPhase=$event
   }
 
 }

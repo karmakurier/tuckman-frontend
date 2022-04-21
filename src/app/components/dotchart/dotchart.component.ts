@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Question, QuestionsService } from 'generated/api';
 import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
-
 
 @Component({
   selector: 'app-dotchart',
@@ -90,6 +89,7 @@ export class DotchartComponent implements OnInit, AfterViewInit {
     // draw from here 
 
     var arraydata: Array<number> = []
+    var maximum: number;
 
     let dimscore = this.headers.indexOf(this.dimension, 0)
     for (let i = 0; i < this.dataset.datasets.length; i++) {
