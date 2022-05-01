@@ -40,81 +40,81 @@
     <div class="col col-md-6 col-12">
       <div class="full-width">
         <app-spiderchart [hidden]="questionnaireResults.length===0" *ngIf="spiderchartdatset.datasets"
-          [dataset]="spiderchartdatset" [questions]="questions"(phase)=getphase($event)></app-spiderchart>
+          [dataset]="spiderchartdatset" [questions]="questions" (phase)=getphase($event)></app-spiderchart>
         <img src="assets/img/questions-welcome.svg" alt="fragezeichen fragebogen interview"
           [hidden]="questionnaireResults?.length!=0" class="rounded mx-auto d-bloc full-width">
       </div>
     </div>
     <div class="col col-md-6 col-12">
-      <div  *ngIf="highestPhase=='Forming'">
-        <h2 class="text-left align-middle my-2">Ihr seid in der Forming Phase</h2>
-        <p></p>
+      <div *ngIf="highestPhase=='Forming'">
+        <div class="align-items-center text-center">
+          <h2 class="align-middle my-2">Höchste Übereinstimmung</h2>
+          <div class="btn btn-green py-2">
+            <h3>Forming</h3>
+          </div>
+        </div>
+        <p>&nbsp;</p>
         <p class="text-left align-middle my-2 fontfront">
           Die Teamanalyse hat ergeben, dass Ihr Euch in der Forming-Phase befindet. Sie gilt als Orientierungsphase. Ihr
           seid in der Kennenlernphase und wiederholt sich in jedem Teambuilding - immer wenn ein neues Mitglied
           dazukommt.</p>
-        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
-          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
-        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
-          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
       </div>
 
       <div *ngIf="highestPhase=='Storming'">
-        <h2 class="text-left align-middle my-2">Ihr seid in der Storming Phase</h2>
-        <p></p>
+        <div class="align-items-center text-center">
+          <h2 class="align-middle my-2">Höchste Übereinstimmung</h2>
+          <div class="btn btn-green py-2">
+            <h3>Storming</h3>
+          </div>
+        </div>
+        <p>&nbsp;</p>
         <p class="text-left align-middle my-2 fontfront">
           Die Teamanalyse hat ergeben, dass Ihr Euch in der Storming-Phase befindet. Sie gilt als Konfrontationsphase
-          und zeichnet sind durch Konflikte aus. Sie ist von Stillstand geprägt. Man nennt sie auch die Nahkampfphase
+          und zeichnet sich durch Konflikte aus. Sie ist von Stillstand geprägt. Man nennt sie auch die “Nahkampfphase”
           mit Kompetenzgerangel und verschiedenen Zielorientierungen.</p>
-        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
-          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
-        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
-          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
       </div>
 
-      <div  *ngIf="highestPhase=='Norming'">
-        <h2 class="text-left align-middle my-2">Ihr seid in der Norming Phase</h2>
-        <p></p>
-        <p class="text-left align-middle my-2 fontfront">
-          Die Teamanalyse hat ergeben, dass Ihr Euch in der Norming-Phase, auch “Übereinkommens- oder
-          Organisationsphase”, genannt, befindet. Eure Gemeinschaft wird gestärkt, ein Gruppenzusammenhalt wird
-          geschlossen. Spannungen in Eurer Gruppe werden neutralisiert. Ihr definiert Normen und Strukturen, welche von
-          jedem gelebt werden. Es etablieren sich innerhalb des Teams Rollen und es entsteht eine gegenseitige
-          Akzeptanz. Ihr kommuniziert zunehmend konstruktiv, Ihr gebt Euch gegenseitig Feedback und ihr kooperiert gut
-          miteinander. Ihr fühlt Euch als ein Team!
-        </p>
-        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
-          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
-        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
-          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
+      <div *ngIf="highestPhase=='Norming'">
+        <div class="align-items-center text-center">
+          <h2 class="align-middle my-2">Höchste Übereinstimmung</h2>
+          <div class="btn btn-green py-2">
+            <h3>Norming</h3>
+          </div>
+          <p>&nbsp;</p>
+          <p class="text-left align-middle my-2 fontfront">
+            Die Teamanalyse hat ergeben, dass Ihr Euch in der Norming-Phase, auch “Übereinkommensphase” genannt,
+            befindet. Eure Gemeinschaft wird gestärkt, Spannungen in Eurer Gruppe werden neutralisiert. Ihr definiert
+            Normen und Strukturen. Es etablieren sich innerhalb des Teams Rollen und es entsteht eine gegenseitige
+            Akzeptanz. Ihr kommuniziert zunehmend konstruktiv, Ihr gebt Euch gegenseitig Feedback und Ihr kooperiert gut
+            miteinander. Ihr fühlt Euch als ein Team!</p>
+        </div>
+
+        <div *ngIf="highestPhase=='Performing'">
+          <div class="align-items-center text-center">
+            <h2 class="align-middle my-2">Höchste Übereinstimmung</h2>
+            <div class="btn btn-green py-2">
+              <h3>Performing</h3>
+            </div>
+            <p>&nbsp;</p>
+            <p class="text-left align-middle my-2 fontfront">
+              Die Teamanalyse hat ergeben, dass Ihr Euch in der Performing-Phase befindet. Sie gilt als
+              Hochleistungsphase, eine agile und konstruktive Arbeitsweise ist in Eurem Team angekommen. Ihr seid
+              produktiv, effizient und arbeitet selbstständig Hand in Hand im Team. Loyalität wird bei Euch groß
+              geschrieben, die jeweiligen individuellen Kompetenzen werden aktiv und zielorientiert eingesetzt. </p>
+          </div>
+
+          <p class="text-left align-middle py-2" [hidden]="questionnaireResults?.length!=0">
+            Sobald Personen aus dem Team die Fragen beantwortet haben, findest Du hier die Auswertung.
+          </p>
+
+        </div>
       </div>
-
-      <div *ngIf="highestPhase=='Performing'">
-        <h2 class="text-left align-middle my-2">Ihr seid in der Performing Phase</h2>
-        <p></p>
-        <p class="text-left align-middle my-2 fontfront">
-          Die Teamanalyse hat ergeben, dass Ihr Euch in der Performing-Phase befindet. Sie gilt als Hochleistungsphase,
-          eine agile und konstruktive Arbeitsweise ist in Eurem Team angekommen. Ihr seid produktiv, effizient und
-          arbeitet selbstständig Hand in Hand im Team. Loyalität wird bei Euch groß geschrieben, die jeweiligen
-          individuellen Kompetenzen werden aktiv und zielorientiert eingesetzt.
-        </p>
-        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
-          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
-        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
-          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
-      </div>
-
-      <p class="text-left align-middle py-2" [hidden]="questionnaireResults?.length!=0">
-        Sobald Personen aus dem Team die Fragen beantwortet haben, findest Du hier die Auswertung.
-      </p>
-
     </div>
   </div>
-
   <div class="card" [hidden]="questionnaireResults?.length===0">
     <div class="card-header handcursor" id="headingOne" (click)="expandAccordion(0)">
       <h5 class="mb-0 acc-header">
-        Storming
+        Forming
         <img class="arrow" [ngClass]="{'expanded': accordionExpanded === 0}" src="assets/img/arrow-down-accordion.svg"
           alt="">
       </h5>
@@ -131,11 +131,15 @@
           </div>
           <div class="col-md-8">
             <h5> Bedeutung</h5>
-            <p> In der Orientierungsphase lernen sich die Teammitglieder kennen und sammeln erste Eindrücke voneinander.
+            <p> In der Orientierungsphase lernen sich die Teammitglieder kennen und sammeln erste Eindrücke
+              voneinander.
               Der Umgang
-              miteinander ist von höflicher Distanz geprägt. Diese Situation wiederholt sich im Teambildung sobald eine
-              neue Person dazu kommt. Die Teammitglieder bringen verschiedene Erwartungen und Kompetenzen mit ein, die
-              die Anderen zum Ende des Formings kennen und einzuordnen wissen. Erste Ziele und Regeln wurden definiert.
+              miteinander ist von höflicher Distanz geprägt. Diese Situation wiederholt sich im Teambildung sobald
+              eine
+              neue Person dazu kommt. Die Teammitglieder bringen verschiedene Erwartungen und Kompetenzen mit ein,
+              die
+              die Anderen zum Ende des Formings kennen und einzuordnen wissen. Erste Ziele und Regeln wurden
+              definiert.
             </p>
           </div>
         </div>
@@ -184,7 +188,8 @@
             <p>Die Konfrontationsphase zeichnet sich durch Konflikte im Team aus. Sie ist geprägt von Stillstand,
               Widerständen durch Meinungsverschiedenheiten, Kompetenzgerangel oder verschiedener Zielorientierungen.
               Reibepunkte werden sichtbar und werden aus dem Weg geräumt. Ungeklärtheiten/Frustrationen werden
-              identifiziert, Teamrollen werden definiert. Der Stillstand wird behoben und das geminsame, unbeschwerte
+              identifiziert, Teamrollen werden definiert. Der Stillstand wird behoben und das geminsame,
+              unbeschwerte
               Arbeiten beginnt.
             </p>
           </div>
@@ -235,7 +240,8 @@
             <p>In der Normingphase, welche auch Übereinkommensphase genannt wird, werden Spannungen neutralisiert.
               Es werde Normen und Strukturen deutlich, welche durch alle Teammitglieder gelebt werden.
               Es etablieren sich Teamrollen und die Kommunikation ist verstärkt von Arbeitsthemen geprägt.
-              Gemeinsam werden Arbeitsprozesse definiert. Aufkommende Probleme werden gemeinsam diskutiert, um Lösungen
+              Gemeinsam werden Arbeitsprozesse definiert. Aufkommende Probleme werden gemeinsam diskutiert, um
+              Lösungen
               zu finden.
             </p>
           </div>
@@ -314,14 +320,8 @@
     </div>
   </div>
 
-  <!-- Block Auswertung versenden
-  <div>
-    <p>Was möchtest du mit Der Auswertung tun?</p>
-    <button class="btn btn-secondary" style="margin-right: 5%;" (click)="exportPDF(teamid)">PDF exportieren</button>
-    <button class="btn btn-secondary" style="margin-right: 5%;" (click)="printPDF(teamid)">Drucken</button>
-    <button class="btn btn-secondary" style="margin-right: 5%;" (click)="share(teamid)">Teilen</button>
-  </div>
- -->
+  <button class="btn btn-primary" [useExistingCss]="true" printSectionId="print-this" ngxPrint>Report Drucken</button>
+
   <div id="invite">
     <hr />
     <h3 [hidden]="questionnaireResults?.length > 0">Teilnehmer einladen</h3>
@@ -331,7 +331,8 @@
       <div class="col col-md-8">
         <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForParticipants()">
         </app-button-link>
-        <p style="font-size: small;">Jede:r mit diesem Link kann teilnehmen. Es ist keine Anmeldung erforderlich.</p>
+        <p style="font-size: small;">Jede:r mit diesem Link kann teilnehmen. Es ist keine Anmeldung erforderlich.
+        </p>
       </div>
     </div>
     <p>Hier kannst Du den Link direkt mit Deinem E-Mail Programm an Dein Team schicken.</p>
@@ -348,9 +349,11 @@
 
   <div>
     <h3>Link zu dieser Seite</h3>
-    <p>Wenn Du zu dieser Seite zurückkehren willst, um Dir die Analyse anzusehen, kannst Du nachfolgenden Link kopieren.
+    <p>Wenn Du zu dieser Seite zurückkehren willst, um Dir die Analyse anzusehen, kannst Du nachfolgenden Link
+      kopieren.
     </p>
-    <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForResults()"></app-button-link>
+    <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForResults()">
+    </app-button-link>
     <p style="font-size: small;">Jeder mit diesem Link kann diese Auswertung sehen</p>
   </div>
 
@@ -399,7 +402,8 @@
           besonderns
           hilfreich, wenn alle wissen wo man gerade steht.
         </p>
-        <p class="py-3">Das Modell von Tuckman aus dem Jahre 1965 beschreibt verschiedenen Phasen des Teambuilding als
+        <p class="py-3">Das Modell von Tuckman aus dem Jahre 1965 beschreibt verschiedenen Phasen des Teambuilding
+          als
           Forming,
           Norming, Storming und Performing.
         </p>
@@ -430,7 +434,8 @@
             Wie habt ihr die Frage interpretiert?
           </div>
           <div class="py-2 fontfront">
-            In der Gesamtauswertung gibt es Dimensionen die die Wahrnehmung unter den Teammitgliedern unterschiedlich
+            In der Gesamtauswertung gibt es Dimensionen die die Wahrnehmung unter den Teammitgliedern
+            unterschiedlich
             darstellt.
           </div>
           <div class="py-2 fontfront">
@@ -444,15 +449,15 @@
         <div class="custom-counter-orange px-3">
           <div class="py-2 fontfront">
             Es ist ein toller Vertrauensbeweis, dass ein Team sich einer solchen Analyse stellt. Dies soll gefeiert
-            werden.
+            werden.<br><br>
           </div>
           <div class="py-2 fontfront">
-            Stelle klar, dass die keine Wertung ist, sondern ein aktueller Schnappschuss der Team-Dynamik. Diese ist
+            Stelle klar, dass dies keine Wertung ist, sondern ein Schnappschuss des Teams. Diese ist
             eine Hilfestellung um sich als Team weiterzuentwickeln.
           </div>
           <div class="py-2 fontfront">
             Solltest du eine externe Moderation hinzufügen wollen, kannst du karmakurier gerne kontaktieren. Wir als
-            non-profit Initiative helfen gerne.
+            unterstützen non-profit Initiativen gerne.
           </div>
         </div>
       </div>
@@ -490,7 +495,8 @@
         <p class="text-left align-middle my-2 fontfront">
           Bravo, ihr wollt euch als Team euren Herausforderungen stellen, um eure Team-Dynamik auf
           eine neue Dimensionzu heben. </p>
-        <p class="text-left align-middle my-2 fontfront">Insgesamt haben {{questionnaireResults?.length}} Personen aus
+        <p class="text-left align-middle my-2 fontfront">Insgesamt haben {{questionnaireResults?.length}} Personen
+          aus
           eurem Team teilgenommen.
         </p>
         <p class="text-left align-middle my-2 fontfront" [hidden]="questionnaireResults?.length===0">
@@ -504,78 +510,87 @@
   </div>
   <!-- Team Überblick -->
   <div class="container-fluid">
-    <div class="row my-5 py-5 mx-5">
+    <div class="row my-3 py-3 mx-5">
       <h1>Team Auswertung</h1>
     </div>
+
     <div class="row align-items-center">
-      <div class="col col-md-6 col-12">
+      <div class="col col-md-2 col-12"> &nbsp;</div>
+      <div class="col col-md-8 col-12">
         <div class="full-width">
           <app-spiderchart [print]="true" [hidden]="questionnaireResults.length===0" *ngIf="spiderchartdatset.datasets"
-            [dataset]="spiderchartdatset" [questions]="questions"></app-spiderchart>
+            [dataset]="spiderchartdatset" [questions]="questions">
+          </app-spiderchart>
           <img src="assets/img/questions-welcome.svg" alt="fragezeichen fragebogen interview"
             [hidden]="questionnaireResults?.length!=0" class="rounded mx-auto d-bloc full-width">
         </div>
       </div>
-      <div class="col col-md-6 col-12" *ngIf="highestPhase=='Forming'">
-        <h2 class="text-left align-middle my-2">Ihr seid in der Forming Phase</h2>
-        <p></p>
-        <p class="text-left align-middle my-2 fontfront">
-          Die Teamanalyse hat ergeben, dass Ihr Euch in der Forming-Phase befindet. Sie gilt als Orientierungsphase. Ihr
-          seid in der Kennenlernphase und wiederholt sich in jedem Teambuilding - immer wenn ein neues Mitglied
+      <div class="col col-md-2 col-12"> &nbsp;<br> </div>
+    </div>
+
+    <div class="row align-items-center" *ngIf="highestPhase=='Forming'">
+      <div class="align-items-center text-center">
+        <h2 class="align-middle my-2">Höchste Übereinstimmung</h2>
+        <div class="btn btn-green py-2">
+          <h3>Forming</h3>
+        </div>
+        <p> &nbsp;</p>
+        <p class="text-center align-middle my-2 fontfront">
+          Die Teamanalyse hat ergeben, dass Ihr Euch in der Forming-Phase befindet. Sie gilt als Orientierungsphase.
+          Ihr seid in der Kennenlernphase und wiederholt sich in jedem Teambuilding - immer wenn ein neues Mitglied
           dazukommt.</p>
-        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
-          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
-        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
-          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
       </div>
+    </div>
 
-      <div class="col col-md-6 col-12" *ngIf="highestPhase=='Storming'">
-        <h2 class="text-left align-middle my-2">Ihr seid in der Storming Phase</h2>
-        <p></p>
-        <p class="text-left align-middle my-2 fontfront">
+    <div class="row align-items-center" *ngIf="highestPhase=='Storming'">
+      <div class="align-items-center text-center">
+        <h2 class="align-middle my-2">Höchste Übereinstimmung</h2>
+        <div class="btn btn-green py-2">
+          <h3>Storming</h3>
+        </div>
+        <p> &nbsp;</p>
+        <p class="text-center align-middle my-2 fontfront">
           Die Teamanalyse hat ergeben, dass Ihr Euch in der Storming-Phase befindet. Sie gilt als Konfrontationsphase
-          und zeichnet sind durch Konflikte aus. Sie ist von Stillstand geprägt. Man nennt sie auch die Nahkampfphase
-          mit Kompetenzgerangel und verschiedenen Zielorientierungen.</p>
-        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
-          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
-        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
-          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
+          und zeichnet sich durch Konflikte aus. Sie ist von Stillstand geprägt. Man nennt sie auch die
+          “Nahkampfphase” mit Kompetenzgerangel und verschiedenen Zielorientierungen.</p>
       </div>
+    </div>
 
-      <div class="col col-md-6 col-12" *ngIf="highestPhase=='Norming'">
-        <h2 class="text-left align-middle my-2">Ihr seid in der Norming Phase</h2>
-        <p></p>
-        <p class="text-left align-middle my-2 fontfront">
-          Die Teamanalyse hat ergeben, dass Ihr Euch in der Norming-Phase, auch “Übereinkommens- oder
-          Organisationsphase”, genannt, befindet. Eure Gemeinschaft wird gestärkt, ein Gruppenzusammenhalt wird
-          geschlossen. Spannungen in Eurer Gruppe werden neutralisiert. Ihr definiert Normen und Strukturen, welche von
-          jedem gelebt werden. Es etablieren sich innerhalb des Teams Rollen und es entsteht eine gegenseitige
-          Akzeptanz. Ihr kommuniziert zunehmend konstruktiv, Ihr gebt Euch gegenseitig Feedback und ihr kooperiert gut
-          miteinander. Ihr fühlt Euch als ein Team!
-        </p>
-        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
-          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
-        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
-          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
+    <div class="row align-items-center" *ngIf="highestPhase=='Norming'">
+      <div class="align-items-center text-center">
+        <h2 class="align-middle my-2">Höchste Übereinstimmung</h2>
+        <div class="btn btn-green py-2">
+          <h3>Norming</h3>
+        </div>
+        <p class="text-center align-middle my-2 fontfront">
+          Die Teamanalyse hat ergeben, dass Ihr Euch in der Norming-Phase, auch “Übereinkommensphase” genannt,
+          befindet.
+          Eure Gemeinschaft wird gestärkt, Spannungen in Eurer Gruppe werden neutralisiert. Ihr definiert Normen und
+          Strukturen. Es etablieren sich innerhalb des Teams Rollen und es entsteht eine gegenseitige Akzeptanz. Ihr
+          kommuniziert zunehmend konstruktiv, Ihr gebt Euch gegenseitig Feedback und Ihr kooperiert gut miteinander.
+          Ihr
+          fühlt Euch als ein Team!</p>
       </div>
+    </div>
 
-      <div class="col col-md-6 col-12" *ngIf="highestPhase=='Performing'">
-        <h2 class="text-left align-middle my-2">Ihr seid in der Performing Phase</h2>
-        <p></p>
-        <p class="text-left align-middle my-2 fontfront">
-          Die Teamanalyse hat ergeben, dass Ihr Euch in der Performing-Phase befindet. Sie gilt als Hochleistungsphase,
+    <div class="row align-items-center" *ngIf="highestPhase=='Performing'">
+      <div class="align-items-center text-center">
+        <h2 class="align-middle my-2">Höchste Übereinstimmung</h2>
+        <div class="btn btn-green py-2">
+          <h3>Performing</h3>
+        </div>
+        <p> &nbsp;</p>
+        <p class="text-center align-middle my-2 fontfront">
+          Die Teamanalyse hat ergeben, dass Ihr Euch in der Performing-Phase befindet. Sie gilt als
+          Hochleistungsphase,
           eine agile und konstruktive Arbeitsweise ist in Eurem Team angekommen. Ihr seid produktiv, effizient und
           arbeitet selbstständig Hand in Hand im Team. Loyalität wird bei Euch groß geschrieben, die jeweiligen
-          individuellen Kompetenzen werden aktiv und zielorientiert eingesetzt.
-        </p>
-        <p class="text-left align-middle my-2 fontfront"> Mit dem Teamüberblick seht Ihr, wie die Phase bewertet wird
-          und, ob alle Teammitglieder das ähnlich erleben oder nicht. </p>
-        <p class="text-left align-middle my-2 fontfront"> Schaut auch welche Phase am meisten Unterschiede hat.
-          Diese sind eine gute Gesprächsgrundlage für Euer nächstes Teammeeting.</p>
+          individuellen Kompetenzen werden aktiv und zielorientiert eingesetzt. </p>
       </div>
-
     </div>
   </div>
+
+
   <div class="page-break-clear"></div>
   <div class="page-break">&nbsp;</div>
 
@@ -590,15 +605,14 @@
   </div>
   <!-- Erklärung  -->
   <div class="container-fluid bg-image-phases">
-    <div class="row mx-3">
+    <div class="row mx-2">
       <div class="col col-md-12 col-12">
-        <h1 class="py-3">Forming</h1>
-        <p class="text-left align-middle py-3 fontfront">Das Forming gilt auch als Orientierungsphase. Die
-          Teammitglieder lernen sich kennen und sammeln erste Eindrücke. Der Umgang miteinander ist von höflicher
-          Distanz geprägt. Diese Situation wiederholt sich im Teambildung sobald eine neue Person dazu kommt. Die
-          Teammitglieder bringen verschiedene Erwartungen und Kompetenzen mit ein, die die Anderen zum Ende des Formings
-          kennen und einzuordnen wissen. Erste Ziele und Regeln wurden definiert. </p>
-        <p></p>
+        <h1>Forming</h1>
+        <p class="text-left align-middle fontfront"><br>Das Forming gilt als Orientierungsphase. Das Team
+          lernt sich kennen und sammelt erste Eindrücke. Der Umgang miteinander ist höflich.
+          Diese Situation wiederholt sich sobald eine neue Person ins Team dazu kommt. Die Teammitglieder bringen
+          verschiedene Erwartungen und Kompetenzen mit ein, welche die Anderen zum Ende des Formings kennen und
+          einzuordnen wissen. Erste Ziele und Regeln werden definiert.</p>
       </div>
     </div>
   </div>
@@ -659,15 +673,15 @@
   </div>
   <!-- Erklärung  -->
   <div class="container-fluid bg-image-phases">
-    <div class="row mx-3">
+    <div class="row mx-2">
       <div class="col col-md-12 col-12">
-        <h1 class="py-3">Storming</h1>
-        <p class="text-left align-middle py-3 fontfront">Die Konfrontationsphase zeichnet sich durch Konflikte im Team
-          aus. Sie ist geprägt von Stillstand, Widerständen durch Meinungsverschiedenheiten, Kompetenzgerangel oder
+        <h1>Storming</h1>
+        <p class="text-left align-middle fontfront"><br>Die Konfrontationsphase zeichnet sich durch Konflikte im Team
+          aus.
+          Sie ist geprägt von Stillstand, Widerständen durch Meinungsverschiedenheiten, Kompetenzgerangel oder
           verschiedener Zielorientierungen. Reibepunkte werden sichtbar und werden aus dem Weg geräumt.
           Ungeklärtheiten/Frustrationen werden identifiziert, Teamrollen werden definiert. Der Stillstand wird behoben
-          und das geminsame, unbeschwerte Arbeiten beginnt. </p>
-        <p></p>
+          und das gemeinsame, unbeschwerte Arbeiten beginnt. </p>
       </div>
     </div>
   </div>
@@ -711,7 +725,6 @@
         </app-dotchartsingle>
         <br><br>
       </div>
-
     </div>
   </div>
   <div class="page-break-clear"></div>
@@ -728,14 +741,13 @@
   </div>
   <!-- Erklärung  -->
   <div class="container-fluid bg-image-phases">
-    <div class="row mx-3">
+    <div class="row mx-2">
       <div class="col col-md-12 col-12">
-        <h1 class="py-3">Norming</h1>
-        <p class="text-left align-middle py-3 fontfront">In der Übereinkommensphase werden Spannungen neutralisiert
-          und Normen und Strukturen festgelegt, die von jedem gelebt werden. Die Teamrollen haben etabliert sich und die
-          gegenseitige Akzeptanz herscht vor. Die Kommunikation wird zunehmend konstruktiv. Feedback und Kooperation
-          werden etabliert.</p>
-        <p></p>
+        <h1>Norming</h1>
+        <p class="text-left align-middle fontfront"><br>Die Übereinkommens- oder Organisatonsphase schließt sich in
+          Gemeinschaft und Gruppenzusammenhalt. Spannungen sind neutralisiert und es gelten Normen und Strukturen die
+          von jedem gelebt werden. Team Rollen haben sich etabliert, gegenseitige Akzeptanz herrscht vor und die
+          Kommunikation ist von konstruktiven Feedback und Kooperation geprägt. Das WIR-Gefühl ist geboren!</p>
       </div>
     </div>
   </div>
@@ -796,15 +808,14 @@
   </div>
   <!-- Erklärung  -->
   <div class="container-fluid bg-image-phases">
-    <div class="row mx-3">
+    <div class="row mx-2">
       <div class="col col-md-12 col-12">
-        <h1 class="py-3">Performing</h1>
-        <p class="text-left align-middle py-3 fontfront">In der Höchleistungsphase arbeiten die Teammitglieder
-          erfolgreich und entschlossen am gemeinsamen Ziel. Produktivität, Effizienz und selbständiges Arbeiten gehen
-          Hand in Hand mit der Loyalität zum Team. Verschiedene Kompetenzen werden aktiv zieloreintiert eingesetzt. Ein
-          konstruktiver und agiler Rahmen ist geschaffen.
-        </p>
-        <p></p>
+        <h1>Performing</h1>
+        <p class="text-left align-middle fontfront"><br>In der Höchleistungsphase arbeiten die Teammitglieder
+          erfolgreich
+          und entschlossen am gemeinsamen Ziel. Produktivität, Effizienz und selbständiges Arbeiten gehen Hand in Hand
+          mit der Loyalität zum Team. Verschiedene Kompetenzen werden aktiv zieloreintiert eingesetzt. Ein konstruktiver
+          und agiler Rahmen ist geschaffen.</p>
       </div>
     </div>
   </div>
@@ -854,7 +865,7 @@
   <div class="page-break-clear"></div>
   <div class="page-break">&nbsp;</div>
 
-  <!--- Page 7 ERgebnis Empfehlungen --->
+  <!--- Page 7 Ergebnis Empfehlungen --->
   <!-- Header  -->
   <div class="container-fluid divHeader">
     <div class="row py-3">
@@ -864,44 +875,44 @@
     </div>
   </div>
   <!-- Erklärung  -->
-  <div class="container-fluid bg-image-phases">
-    <div class="row mx-3">
+  <div class="container-fluid bg-image-phases" style="background-color: #FEF0EB;">
+    <div class="row mx-2">
       <div class="col col-md-12 col-12">
-        <h1 class="py-3">Wie gehe ich mit dem Ergebnis um?</h1>
-        <p class="text-left align-middle py-3 fontfront">Im Folgenden findest Du drei Möglichkeiten wie Du mit dem
-          Ergebnis umgehen kannst. Dabei ...
+        <h1>Wie gehe ich mit dem Ergebnis um?</h1>
+        <p class="text-left align-middle fontfront"><br>Mit der vorliegenden Analyse kennst Du jetzt den aktuellen
+          Stand Deines Teambuildings und hast alle Chancen, Dein Team bestmöglich zu unterstützen. Als Ziel jedes
+          Teambuildings steht die Phase, in der Ihr gut harmoniert und Herausforderungen gemeinsam meistert. Doch bis
+          dahin durchläuft jedes Team alle Phasen. Bitte bedenke, dass sich Veränderungen auf die aktuelle Phase
+          auswirken können. Aber das ist in Ordnung! Denn Du lernst gerade, dass die harmonsiche Phase immer erreichbar
+          ist. Damit Du gut dahin kommst, stehen Dir folgende Möglichkeiten zur Verfügung:
         </p>
       </div>
     </div>
   </div>
-
   <p>&nbsp;</p>
+
   <div class="container-fluid bg-help-self">
     <div class="row">
       <div class="col col-md-8 col-12">
         <h4 class="py-3">Du schaust selbst, wie es weiter geht!</h4>
         <p class="text-left align-middle py-3 fontfront">
-          Jede:r aus dem Team hat einen eigenen Link zur Auswertung der eigenen Antworten bekommen und kann diese
-          eigenverantwortlich ansehen. Der:die Initatorin kann entscheiden, ob jedes Teammitglied die Gesamtauswertung
-          erhält und
-          die Antworten selbst durchsieht. Ihr könnt auch gemeinsam im Team darüber sprechen, und gemeinsam
-          erarbeiten wie Ihr in die nächste Phase kommen könnt.
-        </p>
+          Jede:r aus Deinem Team bekommt einen Link zur Gesamtauswertung und kann diese eigenverantwortlich ansehen. Du
+          entscheidest, ob jedes Teammitglied die Gesamtauswertung erhält und eigenverantwortlich durchsieht. Im
+          Anschluss könnt Ihr gemeinsam im Team darüber sprechen, wie Ihr weiter machen möchtet. Hierzu findest Du einen
+          Link mit weiterführenden Informationen in unserer Linksammlung auf der Homepage. </p>
       </div>
     </div>
   </div>
   <p>&nbsp;</p>
-
   <div class="container-fluid bg-help-we">
     <div class="row">
       <div class="col col-md-8 col-12">
         <h4 class="py-3">Wir schauen gemeinsam, wie es weiter geht!</h4>
         <p class="text-left align-middle py-3 fontfront">
-          Oft ist es einfacher wenn jemand von Außen noch auf die Antworten schaut. Gerne helfen wir von karmakurier
-          Euch dabei, in die nächste Phase zu kommen.
-          Sprecht uns gerne jederzeit unverbindlich an, und wir schauen mit Euch gemeinsam, wo Ihr steht, und zeigen
-          euch welche nächsten Schritte sinnvoll sind.
-          Wir trainieren dann zum Beispiel mit Euch Teamskills.
+          Du sprichst uns an und wir entscheiden gemeinsam, wie wir Dich und Dein Team stärken. In einem Gespräch
+          besprechen wir Eure Herausforderungen im Team und diskutieren weitere Möglichkeiten, die Euch zur Verfügung
+          stehen. Es gibt keine vorgefertigte Schablone, die Euch zum Ziel bringt - jedes Team hat individuelle
+          Bedürfnisse, auf die wir eingehen können.
         </p>
       </div>
     </div>
@@ -911,13 +922,12 @@
   <div class="container-fluid bg-help-others">
     <div class="row">
       <div class="col col-md-8 col-12">
-        <h3 class="py-3">Ihr sucht gleich ein Training, um Euer Team bestmöglichst aufzustellen!</h3>
+        <h4 class="py-3">Ihr erhaltet ein Coaching, um Euer Team zu stärken!</h4>
         <p class="text-left align-middle py-3 fontfront">
-          Um Euer Team vor großen Herausforderungen zu schützen, und schnellstmöglich vroanzukommen könnt Ihr gemeinsam
-          mit einer:m Mentor:in in einem vertieften Training Euren Weg erarbeiten. Wende dich dafür an uns
-          karmakuriere; wir zeigen Euch wie Ihr die besten Trainer für Euch findet. Gebt uns bitte Bescheid, wir stellen
-          den
-          Kontakt gerne für Euch her.
+          Um Euer Team vor großen Herausforderungen zu schützen, könnt Ihr gemeinsam mit einem Mentor bzw. Coach in
+          einem Workshop und Teambuilding Euren Weg erarbeiten. Wende Dich dafür an karmakurier für ein persönliches
+          Gespräch oder suche Dir aus dem Portfolio einen Mediator/Coach. Gib uns bitte Bescheid, wir stellen den
+          Kontakt gerne für Dich her.
         </p>
       </div>
     </div>
@@ -938,10 +948,10 @@
       <div class="row py-2">
         <div class="col col-md-6 col-12">
           <ul>
-            <li class="fontfront py-2">karmakurier hat sich zum Ziel gesetzt, gemeinnützige Organisationen in ihrer
-              Wirkung zu stärken.</li>
+            <li class="fontfront py-2">kkarmakurier hat sich zum Ziel gesetzt, gemeinnützige Organisationen in ihrer
+              Wirkung zu stärken.<br></li>
             <li class="fontfront py-2">Thematisch liegt der Fokus hierbei auf sozial, ökologisch und nachhaltig
-              wirksamen Initiativen.</li>
+              wirksamen Initiativen.<br><br></li>
             <li class="fontfront py-2">karmakurier richtet sein Angebot daher an gemeinnützige Vereine und
               Organisationen sowie ehrenamtlich
               Tätige.</li>
@@ -949,12 +959,13 @@
         </div>
         <div class="col col-md-6 col-12">
           <ul>
-            <li class="fontfront py-2">Wir bieten Workshops und Schulungen, um Euch bei Digitalisierung, Innovation und
+            <li class="fontfront py-2">Wir bieten Workshops und Schulungen, um Euch bei Digitalisierung, Innovation
+              und
               Zusammenarbeit zu unterstützen.</li>
-            <li class="fontfront py-2">Wir sind eine Informationsplattform für Gemeinnützige zu Software, Werkzeuge und
-              andere Plattformen</li>
-            <li class="fontfront py-2">Wir entwicklung digitale Lösungen um die Arbeit von gemeinnützigen Organisationen
-              zu verbessern.</li>
+            <li class="fontfront py-2">Wir sind eine Informationsplattform für Gemeinnützige zu Software, Werkzeuge
+              und andere Plattformen.<br></li>
+            <li class="fontfront py-2">Wir entwicklung digitale Lösungen um die Arbeit von gemeinnützigen
+              Organisationen zu verbessern.<br></li>
           </ul>
         </div>
       </div>
@@ -996,8 +1007,3 @@
     </div>
   </div>
 </div>
-
-<button class="btn btn-secondary mx-5 my-3 karma-button-yellow" [useExistingCss]="true" printSectionId="print-this"
-  ngxPrint>
-  <h3 class="px-3">Print Report</h3>
-</button>

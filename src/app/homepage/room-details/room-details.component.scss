@@ -57,6 +57,15 @@ p {
   border-color: #57b894; /*set the color you want here*/
 }
 
+.btn-green {
+  color: #fff;
+  background-color: #57b894;
+  border-color: #57b894;
+  border-radius: 100px;
+  width: 180px;
+}
+
+
 .arrow {
   float: right;
 }
@@ -115,8 +124,12 @@ background-color: #fff;
   background-repeat: no-repeat !important;
   background-position: center top;
   background-size: cover;
+  background-color: #FEF0EB;
   -webkit-print-color-adjust: exact !important;
-  height: 250px;
+  min-height: 260px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
 }
 
 .bg-help-self, .bg-help-we, .bg-help-others {
@@ -234,6 +247,16 @@ ul li::before {
   border-radius: 25pt;
 }
 
+.karma-button-yellow:hover,
+.karma-button-yellow:focus,
+.karma-button-yellow:active,
+.karma-button-yellow.active,
+.open > .dropdown-toggle.karma-button-yellow {
+  color: #fff;
+  background-color: #57b894;
+  border-color: #57b894; /*set the color you want here*/
+}
+
 .karma-button-green {
   background: #58B893;
   border-color: #58B893;
@@ -257,6 +280,8 @@ ul li::before {
     display: block!important;
   }
 }
+
+
 
 #circle-yellow {
   background-color: #FFC539;
