@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Question, QuestionsService } from 'generated/api';
 import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
-
 
 @Component({
   selector: 'app-dotchart',
@@ -15,10 +14,14 @@ export class DotchartComponent implements OnInit, AfterViewInit {
 
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
+  
+  @ViewChild('canvasasimg', { static: true })
+  canvasasimg: ElementRef<HTMLImageElement>;
 
   @Input() dataset: SpiderchartData;
   @Input() dimension: string;
   @Input() questions: Question[];
+  @Input() print: Boolean=false;
 
 
   private ctx: CanvasRenderingContext2D;
@@ -86,6 +89,7 @@ export class DotchartComponent implements OnInit, AfterViewInit {
     // draw from here 
 
     var arraydata: Array<number> = []
+    var maximum: number;
 
     let dimscore = this.headers.indexOf(this.dimension, 0)
     for (let i = 0; i < this.dataset.datasets.length; i++) {
@@ -201,5 +205,7 @@ export class DotchartComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.headers = ["Forming", "Storming", "Norming", "Performing"]
     this.plotdotchart()
+    var dataurl=this.canvas.nativeElement.toDataURL()
+    this.canvasasimg.nativeElement.src = dataurl
   }
 }

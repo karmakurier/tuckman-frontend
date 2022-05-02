@@ -16,12 +16,15 @@ export class DotchartsingleComponent implements OnInit {
   @ViewChild('canvas', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
 
+  @ViewChild('canvasasimg', { static: true })
+  canvasasimg: ElementRef<HTMLImageElement>;
+
   @Input() dataset: QuestionResult[];
   @Input() datasetfull: QuestionnaireResult[] = [];
   @Input() dimension: string;
   @Input() id: number;
   @Input() questions: Question[];
-
+  @Input() print: Boolean=false;
 
   private ctx: CanvasRenderingContext2D;
 
@@ -228,6 +231,8 @@ export class DotchartsingleComponent implements OnInit {
       this.questionnaire = questionnaire.questions;
       this.headers = ["Forming", "Storming", "Norming", "Performing"]
       this.plotdotchartsingle(this.id, this.dimension)
+      var dataurl=this.canvas.nativeElement.toDataURL()
+      this.canvasasimg.nativeElement.src = dataurl
     })
   }
 }

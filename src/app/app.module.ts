@@ -23,6 +23,7 @@ import { QuestionWelcomeComponent } from './components/question-welcome/question
 import { QuestionFinishComponent } from './components/question-finish/question-finish.component';
 import { DotchartsingleComponent } from './components/dotchartsingle/dotchartsingle.component';
 import { ToasterModule } from 'angular2-toaster';
+import { NgxPrintModule } from 'ngx-print';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ToasterModule } from 'angular2-toaster';
       siteKey: environment.hCaptchaSiteKey,
       languageCode: 'de' // optional, will default to browser language
     }),
-    ToasterModule.forRoot()
+    ToasterModule.forRoot(), 
+    NgxPrintModule
   ],
   providers: [
     {

@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit, Input, AfterViewChecked, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, Input, AfterViewChecked, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuestionnaireresultService, QuestionsService, RoomsService } from 'generated/api';
 import { SpiderchartData } from 'src/app/models/spiderchartdata.model';
@@ -19,7 +19,13 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
   @ViewChild('container', { static: true })
   parent: ElementRef<HTMLElement>;
 
+  @ViewChild('canvasasimg', { static: true })
+  canvasasimg: ElementRef<HTMLImageElement>;
+
   @Input() dataset: SpiderchartData;
+  @Input() print: Boolean=false;
+
+  @Output() phase: EventEmitter <string> = new EventEmitter<string>();
 
   constructor(private questionService: QuestionsService) { }
 
@@ -152,6 +158,19 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
 
       var mean = sum.map(i => i / this.dataset.datasets.length);
 
+      var maxmean: number;
+      var tmp = 0;
+
+      for(let i=0; i< mean.length; ++i){
+        if(mean[i]>tmp){
+          tmp=mean[i];
+          maxmean=i;
+        }
+      }
+      
+      this.phase.next(this.headers[maxmean])
+      
+      
       this.ctx.beginPath();
       this.ctx.strokeStyle = 'rgba(255, 197, 57, 1)';
 
@@ -184,6 +203,8 @@ export class SpiderchartComponent implements OnInit, AfterViewInit {
       this.questions = results
       this.headers = ["Forming", "Storming", "Norming", "Performing"]
       this.plotspiderchart()
+      var dataurl=this.canvas.nativeElement.toDataURL()
+      this.canvasasimg.nativeElement.src = dataurl
     })
 
   }
