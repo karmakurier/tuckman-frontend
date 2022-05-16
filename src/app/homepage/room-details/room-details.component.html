@@ -319,9 +319,10 @@
       </div>
     </div>
   </div>
+  <div [hidden]="questionnaireResults?.length === 0">
   <h4>Du möchtest den gesamten Report drucken oder als PDF abspeichern? </h4>
   <button class="btn btn-primary-invers" [useExistingCss]="true" printSectionId="print-this" ngxPrint><h5>Report drucken</h5></button>
-
+  </div>
   <div id="invite">
     <hr />
     <h3 [hidden]="questionnaireResults?.length > 0">Teilnehmer einladen</h3>
