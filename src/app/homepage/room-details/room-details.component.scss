@@ -13,6 +13,13 @@ h3 {
   font-size: 18pt;
 }
 
+h4 {
+  font-size: 14pt;
+  font-weight: 800;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 
 p {
   font-family: "Mulish";
@@ -57,12 +64,43 @@ p {
   border-color: #57b894; /*set the color you want here*/
 }
 
+
+.btn-primary-invers {
+  color: #fff;
+  background-color: #58B893;
+  border-color: #58B893;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.btn-primary-invers:hover,
+.btn-primary-invers:focus,
+.btn-primary-invers:active,
+.btn-primary-invers.active,
+.open > .dropdown-toggle.btn-primary-invers {
+  color: #fff;
+  background-color: #2a916a;
+  border-color: #2a916a; /*set the color you want here*/
+}
+
+
+
 .btn-green {
   color: #fff;
   background-color: #57b894;
   border-color: #57b894;
   border-radius: 100px;
   width: 180px;
+}
+
+.btn-blue {
+  color: #fff;
+  background-color: #2D3CB9;
+  border-color: #2D3CB9;
+  border-radius: 100px;
+  width: 180px;
+  margin-top: 20px;
 }
 
 
