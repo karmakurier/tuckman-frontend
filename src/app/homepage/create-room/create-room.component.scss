@@ -1,3 +1,62 @@
+h1,
+h2, h3 {
+  font-family: "Quicksand";
+  font-weight: 800;
+  font-size: 28pt;
+}
+
+h2 {
+  font-size: 22pt;
+}
+
+h3 {
+  font-size: 18pt;
+}
+
+h4, h5 {
+  font-size: 14pt;
+  font-weight: 800;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 150%
+}
+
+h5 {
+  font-size: 16pt;
+}
+
+p {
+  font-family: "Mulish";
+  font-size: 14pt;
+}
+
+.listp{
+  font-family: "Mulish";
+  font-size: 14pt;
+}
+
+
+.btn-primary-invers {
+  color: #fff;
+  background-color: #58B893;
+  border-color: #58B893;
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.btn-primary-invers:hover,
+.btn-primary-invers:focus,
+.btn-primary-invers:active,
+.btn-primary-invers.active,
+.open > .dropdown-toggle.btn-primary-invers {
+  color: #fff;
+  background-color: #2a916a;
+  border-color: #2a916a; /*set the color you want here*/
+}
+
+
+
 .karma-input {
   background: rgba(196, 196, 196, 0.28);
   border-radius: 10px;

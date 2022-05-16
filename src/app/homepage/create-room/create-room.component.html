@@ -12,7 +12,7 @@
       <br><br>
     </div>
     <div class="col col-md-6 col-12">
-      <h5>Mache Dein Team noch stärker</h5>
+      <h3>Mache Dein Team noch stärker</h3>
       <p>
         Der amerikanische Psychologe und Hochschullehrer Bruce Wayne Tuckman (1938-2016) entwickelte im Jahr 1965 das
         Tuckman-Phasenmodell,
@@ -67,7 +67,7 @@
   <!-- Block Vorschau -->
 
   <br><br>
-  <h5 class="py-1">Vorschau Tuckman Analyse</h5>
+  <h3 class="py-1">Vorschau Tuckman Analyse</h3>
   <p style="font-size: small;">Klicke auf die Reiter, um eine Vorschau der Teamanalyse zu bekommen.</p>
 
   <!-- Block Accordion -->
@@ -176,9 +176,23 @@
     </div>
     <div class="collapse" [ngClass]="{'show': accordionExpanded === 2}">
       <div class="card-body">
-        <ol>
-          <li *ngFor="let question of questions" class="py-2">{{question.questionString}}</li>
-        </ol>
+        <h3>Einige Beispielfragen zur Übersicht</h3>
+        <p>Es gibt insgesamt 32 Fragn. Diese werden auf einer Skala von 1 (trifft nicht zu) bis 5 (trifft voll und ganz zu), bewertet.</p>
+        <ul>
+          <li class="py-2 listp">Wir bemühen uns um festgelegte Prozeduren oder Protokolle, um sicherzustellen, dass die
+            Dinge geordnet sind und reibungslos ablaufen (z.BMinimierung von Unterbrechungen; jeder
+            erhält die Möglichkeit, zu Wort zu kommen).</li>
+            <li class="py-2 listp">Die von uns festgelegten Ziele scheinen unrealistisch zu sein.</li>
+            <li class="py-2 listp">Wir nehmen die Ziele und Vorgaben unseres Teams wörtlich und gehen von einem
+              gemeinsamen Verständnis aus.</li>
+            <li class="py-2 listp">Das Team ist oft versucht, über den ursprünglichen Rahmen des Projekts hinauszugehen.</li>
+            <li class="py-2 listp">Wir haben keine festen Verfahrensweisen, sondern erarbeiten sie im Verlauf der Aufgabe oder
+              des Projekts.</li>
+        </ul>
+        <h4>Du möchtest eine Übersicht aller 32 Fragen einsehen?  Exportiere dir unseren Beispielreport.</h4>
+        <a class="btn-primary-invers" target="_blank" href="/assets/Beispiel_Report.pdf">PDF exportieren</a>
+
+
       </div>
     </div>
   </div>
