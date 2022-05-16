@@ -46,6 +46,10 @@
       </div>
     </div>
     <div class="col col-md-6 col-12">
+      <h3 class="text-left align-middle py-2" [hidden]="questionnaireResults?.length!=0">
+        Bisher wurden noch keine Antworten fertiggestellt! Sobald Dein Team den Fragebogen vollständig ausgefüllt
+        und abgesandt hat, wird Dir hier die Auswertung angezeigt.
+      </h3>
       <div *ngIf="highestPhase=='Forming'">
         <div class="align-items-center text-center">
           <h3 class="align-middle my-2">Höchste Übereinstimmung</h3>
@@ -103,9 +107,8 @@
               geschrieben, die jeweiligen individuellen Kompetenzen werden aktiv und zielorientiert eingesetzt. </p>
           </div>
 
-          <p class="text-left align-middle py-2" [hidden]="questionnaireResults?.length!=0">
-            Sobald Personen aus dem Team die Fragen beantwortet haben, findest Du hier die Auswertung.
-          </p>
+
+
 
         </div>
       </div>
@@ -320,8 +323,10 @@
     </div>
   </div>
   <div [hidden]="questionnaireResults?.length === 0">
-  <h4>Du möchtest den gesamten Report drucken oder als PDF abspeichern? </h4>
-  <button class="btn btn-primary-invers" [useExistingCss]="true" printSectionId="print-this" ngxPrint><h5>Report drucken</h5></button>
+    <h4>Du möchtest den gesamten Report drucken oder als PDF abspeichern? </h4>
+    <button class="btn btn-primary-invers" [useExistingCss]="true" printSectionId="print-this" ngxPrint>
+      <h5>Report drucken</h5>
+    </button>
   </div>
   <div id="invite">
     <hr />
