@@ -1,6 +1,3 @@
-
-
-
 <ng-container *ngIf="room">
     <div class="header-image" style="margin-top: 12vh;">
         <img src="assets/img/questions-welcome.svg" class="img-fluid">
@@ -14,38 +11,48 @@
             <div class="col col-md-12 font-weight-normal">
                 <p><b>Liebes Mitglied von {{room.teamName}}, </b></p>
                 <p>
-                    Ihr habt Euch entschieden, Euere Team-Dynamik unter die Lupe zu nehmen. Fülle dazu bitte die folgenden 32
+                    Ihr habt Euch entschieden, Euer Team unter die Lupe zu nehmen. Fülle dazu bitte die folgenden 32
                     Fragen zu Eurer Zusammenarbeit so ehrlich wie möglich aus.
                 </p>
                 <p>
                     Es gibt hierbei kein Richtig oder Falsch. Am Ende siehst nur Du Deine eigenen Antworten. Diese
-                    speichern wir vollkommen anonym. 
+                    speichern wir vollkommen anonym.
                 </p>
                 <p>
-                    Es müssen alle Fragen beantwortet werden. Einzelfragen, die vielleicht auf Euer Team nicht zutreffen, könnt Ihr dann im Team diskutieren.
+                    Es müssen alle Fragen beantworten werden. Einzelfragen, die vielleicht auf Euer Team nicht
+                    zutreffen, bitte trotzdem beantworten, so gut es geht. Diese könnt Ihr dann im Team diskutieren.
                 </p>
                 <p>
                     Insgesamt dauert die Beantwortung circa 10 Minuten.
                 </p>
                 <p>
-                    Viel Spaß!
+                    Viel Spaß beim Ausfüllen!
+                </p>
+                <p>
+                    Eure Karmakuiere
                 </p>
             </div>
         </div>
+    </div>
+    <div class="details-box-light">
+        <div class="rowtitle" style="color:black">Der/Die Initiator/in hat Dir folgendendes mitzuteilen  </div>
         <div class="my-2 row">
-            <div class="col col-md-2">Frist:</div>
-            <div class="col col-md-10" *ngIf="!hasNoExpireDate()">{{room.expiresAt | date: 'dd.MM.yyyy'}}</div>
-            <div class="col col-md-10" *ngIf="hasNoExpireDate()">Keine Teilnahmefrist</div>
+            <div class="col col-md-3 rowtitle">Frist zur Fertigstellung:</div>
+            <div class="col col-md-9" *ngIf="!hasNoExpireDate()">{{room.expiresAt | date: 'dd.MM.yyyy'}}</div>
+            <div class="col col-md-9" *ngIf="hasNoExpireDate()">Keine Teilnahmefrist</div>
         </div>
         <div class="my-2 row" *ngIf="isExpired()">
-            <div class="col col-md-2"></div>
-            <div class="col col-md-10">Die Frist ist leider abgelaufen!</div>
+            <div class="col col-md-3"></div>
+            <div class="col col-md-9">Die Frist ist leider abgelaufen!</div>
         </div>
-        <div class="my-2 row">
-            <div class="col col-md-2">Hinweis:</div>
-            <div class="col col-md-10"><p>{{room.notes}}</p></div>
+        <div class="my-2 row ">
+            <div class="col col-md-3 rowtitle">Ein Hinweis für Dich: </div>
+            <div class="col col-md-9">
+                <p>{{room.notes}}</p>
+            </div>
         </div>
     </div>
+   
     <div class="positive-button" (click)="start()" *ngIf="!isExpired()">
         Los geht's <img class="px-2" src="assets/img/arrow-right.svg">
     </div>
