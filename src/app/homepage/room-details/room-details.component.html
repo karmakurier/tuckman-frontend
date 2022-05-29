@@ -1,7 +1,12 @@
 <div class="container">
-  <div class="karma-header py-2">
+  <div class="karma-header py-2" [hidden]="questionnaireResults?.length!=0">
     Willkommen zur Teamübersicht
   </div>
+
+  <div class="karma-header py-2" [hidden]="questionnaireResults?.length===0">
+    Auswertung Eurer Tuckman Analyse
+  </div>
+
   <div class="row align-items-center py-3">
     <div class="col col-md-6 col-12">
       <div class="full-width">
@@ -17,16 +22,32 @@
       </div>
     </div>
 
-    <div class="col col-md-6 col-12">
+    <div class="col col-md-6 col-12" [hidden]="questionnaireResults?.length!=0">
       <p>
-        Wir haben für Dich eine Tuckman Analyse angelegt.<br /> Hier findest Du alle
-        Informationen, um gemeinsam mit Deinem Team loszulegen. <br />
+        Wir haben für Dich eine Tuckman Analyse angelegt.</p>
+      <p> Hier findest Du alle Informationen, um gemeinsam mit
+        Deinem Team loszulegen.</p>
+      <p>
         Versende den Link am Ende der Seite an alle Teamitglieder, damit sie an der Analyse teilnehmen können.
         Wir speichern keine Mail-Adressen und keine Daten, daher bewahrt die Links gut auf.
-        Kehre auf diese Seite zurück, um die Ergebnisse zu sehen.<br />
+        Kehre auf diese Seite zurück, um die Ergebnisse zu sehen.</p>
+      <p>
         Viel Spaß und vergiss nicht selbst mitzumachen!
       </p>
     </div>
+
+    <div class="col col-md-6 col-12" [hidden]="questionnaireResults?.length===0">
+      <p>
+        Wir haben für Dich eine Tuckman Analyse angelegt.</p>
+      <p>
+        Hier findet Ihr die Auswertung Eurer Tuckman Analyse. Weitere Informationen erhältst Du, wenn Du auf den Button “zur Auswertung” klickst.</p>
+      <p>
+        Wenn Du möchtest, dass Deine Teammitglieder die Auswertung ebenfalls lesen können, dann sende ihnen den Link am Ende dieser Seite.</p>
+      <p>
+        Jede:r kann diesen Link öffnen. Es ist keine Anmeldung erforderlich. 
+      </p>
+    </div>
+
   </div>
   <hr />
   <div id=begin-auswertung>
@@ -334,7 +355,7 @@
     <h3 [hidden]="questionnaireResults?.length === 0">Weitere Teilnehmer einladen</h3>
     <p>Versende den nachfolgenden Link an alle Teilnehmer:innen, sodass sie den Fragebogen beantworten können.</p>
     <div class="row">
-      <div class="col col-md-8">
+      <div class="col col-md-12">
         <app-button-link link=placeholderforlink (link2)="oncopy($event)" [link]="getLinkForParticipants()">
         </app-button-link>
         <p style="font-size: small;">Jede:r mit diesem Link kann teilnehmen. Es ist keine Anmeldung erforderlich.
@@ -343,7 +364,7 @@
     </div>
     <p>Hier kannst Du den Link direkt mit Deinem E-Mail Programm an Dein Team schicken.</p>
     <div class="row">
-      <div class="col col-md-8">
+      <div class="col col-md-12">
         <app-mail-link [link]="getLinkForParticipants()" email="enteryourmail"></app-mail-link>
         <p style="font-size: small;"> Mehrere E-Mail Adressen können durch ";" getrennt werden. <br> Es werden keine
           E-mail Adressen gespeichert. <br>Du kannst Betreff und Text vor dem Versenden bearbeiten.</p>
